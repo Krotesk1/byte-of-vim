@@ -1,50 +1,50 @@
-# First Steps
+# Первые шаги
 
-## Starting Vim
+## Запуск Vim
 
-First step is, of course, to learn how to start Vim.
+Первый шаг, конечно, чтобы узнать, как запустить Vim.
 
-### Graphical Version
-
-#### Windows
-
-Click on Start &rarr; Programs &rarr; Vim 7 &rarr; gVim.
-
-#### Mac OS X
-
-Click on Finder &rarr; Applications &rarr; MacVim.
-
-#### Linux / BSD
-
-Click on Applications &rarr; Accessories &rarr; GVim Text Editor, or press `Alt+F2`, type `gvim` and press the `enter` key.
-
-### Terminal version
+### Графическая версия
 
 #### Windows
 
-Click on Start &rarr; Run, type `vim` and press the `enter` key.
+Кликните Пуск &rarr; Программы &rarr; Vim 7 &rarr; gVim.
 
 #### Mac OS X
 
-Click on Finder &rarr; Applications &rarr; Utilities &rarr; Terminal, type `vim` and press the `enter` key.
+Кликните Finder &rarr; Приложения &rarr; MacVim.
 
 #### Linux / BSD
 
-Click on Applications &rarr; Accessories &rarr; Terminal, or press `Alt+F2`, type `konsole`/`gnome-terminal` and press the `enter` key. Then, type `vim` and press the `enter` key.
+Кликните Приложения &rarr; Аксессуары &rarr; GVim Text Editor, или нажмите `Alt+F2`, выберите `gvim` и нажмите клавишу `enter`.
 
-### Summary
+### Терминальная версия
 
-From now onwards when we say 'open Vim', use either of the two methods mentioned above.
+#### Windows
 
-> NOTE: When you started Vim, you might have noticed that you can't immediately start typing text. Don't panic, all will be explained in a little while.
+Кликните Пуск &rarr; Запуск, наберите `vim` и нажмите клавишу `enter`.
 
-## Graphical or Terminal?
+#### Mac OS X
 
-The graphical version of Vim has menus at the top of the application as well as various options accessible via the mouse, but note that this is completely optional. You can still access all the features of Vim using *only* the keyboard.
+Кликните Finder &rarr; Приложения &rarr; Утилиты &rarr; Terminal, наберите `vim` и нажмите клавишу `enter`.
 
-Why is this important? Because once a person becomes efficient at typing, using only the keyboard makes the person much faster and less error-prone, as opposed to using the mouse. This is because the hand movement required to switch between the keyboard and the mouse is slow and there is a context switch required in the mind of the person when shifting the hand between the keyboard and the mouse. If we make it a habit to use the keyboard as much as possible, you're saving valuable hand movement.
+#### Linux / BSD
 
-Of course, this is subjective. Some people prefer the mouse and some prefer the keyboard. I encourage you to use the keyboard as much as possible to experience the real power of Vim.
+Кликните Приложения &rarr; Аксессуары &rarr; Terminal, или нажмите `Alt+F2`, наберите `konsole`/`gnome-terminal` и нажмите клавишу `enter`. Теперь наберите `vim` и нажмите клавишу `enter`.
+
+### Резюме
+
+С этого момента, когда мы говорим "открыть Vim", используйте любой из двух методов, упомянутых выше.
+
+> ПРИМЕЧАНИЕ: при запуске Vim, вы могли заметить, что вы не можете сразу начать вводить текст. Не паникуйте, мы все объясним через некоторое время.
+
+## Графический или Терминальный?
+
+Графическая версия Vim имеет меню в верхней части приложения, а также различные опции, доступные с помощью мыши, но обратите внимание, что это совершенно необязательно. Вы все еще можете получить доступ ко всем функциям Vim, используя *только* клавиатуру.
+
+Почему это так важно? Потому что, как только человек становится опытным в наборе текста, использование только клавиатуры делает человека гораздо быстрее и менее подверженым ошибкам, в отличие от использования мыши. Это связано с тем, что движение руки, необходимое для переключения между клавиатурой и мышью, является медленным, и есть контекстный переключатель, необходимый в сознании человека при перемещении руки между клавиатурой и мышью. Если мы сделаем привычку использовать клавиатуру как можно больше, вы сохраните ценное движение руки.
+
+Конечно, это субъективно. Некоторые люди предпочитают мышь, а некоторые - клавиатуру. Я призываю вас использовать клавиатуру как можно больше, чтобы испытать реальную силу Vim.
 
 ## Introduction to Modes
 
@@ -79,13 +79,13 @@ Personally, I find the names of the modes not intuitive to beginners. I prefer c
 
 ## Writing a file {#write-file}
 
-1. Open Vim. ![](img/first_steps_open.png) 
-2. Type `:edit hello.txt` and press the enter key. ![](img/first_steps_edit.png) 
-3. Press `i` to switch to insert mode. ![](img/first_steps_insert.png) 
-4. Type the text `Hello World`. ![](img/first_steps_type.png) 
-5. Press the `<Esc>` key. ![](img/first_steps_normal.png) 
-6. Type `:write` and press the `enter` key. ![](img/first_steps_write.png) 
-7. Close Vim by running `:quit`. ![](img/first_steps_quit.png) 
+1. Open Vim. ![](img/first_steps_open.png)
+2. Type `:edit hello.txt` and press the enter key. ![](img/first_steps_edit.png)
+3. Press `i` to switch to insert mode. ![](img/first_steps_insert.png)
+4. Type the text `Hello World`. ![](img/first_steps_type.png)
+5. Press the `<Esc>` key. ![](img/first_steps_normal.png)
+6. Type `:write` and press the `enter` key. ![](img/first_steps_write.png)
+7. Close Vim by running `:quit`. ![](img/first_steps_quit.png)
 
 Congratulations! You just wrote your first file using Vim :-).
 

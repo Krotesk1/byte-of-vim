@@ -1,14 +1,14 @@
-# Editing Basics
+# Основы редактирования
 
-Let's learn the basic editing commands in Vim for reading/writing files, cut/copy/paste, undo/redo and searching.
+Давайте изучим основные команды редактирования в Vim для чтения / записи файлов, вырезания / копирования / вставки, отмены / повтора и поиска.
 
-## Reading and writing files
+## Чтение и редактирование файлов
 
-### Buffers
+### Буферы
 
-When you edit a file, Vim brings the text in the file on the hard disk to the computer's RAM. This means that a copy of the file is stored in the computer's memory and any changes you make is changed in the computer's memory and immediately displayed. Once you have finished editing the file, you can save the file which means that Vim writes back the text in the computer's memory to the file on the hard disk. The computer memory used here to store the text temporarily is referred to as a "buffer". Note that this same concept is the reason why we have to "save" files in all editors or word processors that we use.
+При редактировании файла Vim переносит текст из файла на жестком диске в оперативную память компьютера. Это означает, что копия файла хранится в памяти компьютера и любые внесенные изменения производятся в памяти компьютера и отображаются немедленно. После того, как вы закончили редактирование файла, то можете сохранить файл, что означает, что Vim записывает обратно текст из памяти компьютера в файл на жестком диске. Память компьютера, используемая для временного хранения текста, называется "буфером". Обратите внимание, что эта же концепция является причиной, почему мы должны "сохранять" файлы во всех редакторах или текстовых процессорах, которые мы используем.
 
-Now open up Vim, write the words `Hello World` and save it as the file `hello.txt`. If you need to remember how to do this, please refer to the [First Steps chapter](./first_steps.md#write-file).
+Теперь откройте Vim, напишите слова `Hello World` и сохраните их как файл `hello.txt`. Если Вам нужно напомнить как это сделать - обратитеь к [главе Первые шаги](./first_steps.md#write-file).
 
 ### Swap
 
@@ -45,7 +45,7 @@ To open files located in other directories, you can use the full or relative pat
 
 Or you can switch Vim to that directory:
 
-``` viml 
+``` viml
 :cd ../tmp
 ```
 
@@ -70,7 +70,7 @@ When we rewrite, we frequently rearrange the order of the paragraphs or sentence
 | Desktop world | Vim world | Operation |
 | --- | --- | --- |
 | cut | delete | `d` |
-| copy | yank | `y` | 
+| copy | yank | `y` |
 | paste | paste | `p` |
 
 In normal desktop terminology, 'cut'ting text means removing the text and putting it into the clipboard. The same operation in Vim means it deletes the text from the file buffer and stores it in a 'register' (a part of the computer's memory). Since we can choose the register where we can store the text, it is referred to as the "delete" operation.
