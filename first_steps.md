@@ -46,76 +46,75 @@
 
 Конечно, это субъективно. Некоторые люди предпочитают мышь, а некоторые - клавиатуру. Я призываю вас использовать клавиатуру как можно больше, чтобы испытать реальную силу Vim.
 
-## Introduction to Modes
+## Введение в режимы
 
-Imagine it's a Saturday evening and you're bored of the shows on television. You want to watch an old favorite movie instead. So, you *switch the TV to video mode* so that it shows what the DVD player is displaying instead of the cable channels. Note that the television is still displaying video, but you switch the context on whether you want to watch a DVD or a live television channel.
+Представьте, что это субботний вечер, и вы устали от шоу по телевизору. Вместо этого вы хотите посмотреть старый любимый фильм. Таким образом, вы *переключаете телевизор в видео-режим* так, чтобы он показывал то, что показывает DVD-плеер вместо кабельных каналов. Обратите внимание, что телевизор по-прежнему показывает видео, но вы переключаете контекст, хотите ли вы смотреть DVD или ТВ канал.
 
-Similarly, Vim has modes. For example, Vim has a mode for writing text, a mode for
-running commands, etc. They are all related to the main purpose of editing text, but you switch context on whether you want to simply type stuff or you want to run some commands on the text.
+Аналогично и Vim имеет режимы. Например, Vim имеет режим для записи текста, режим для выполнения команд и т.д. Все они связаны с основной целью редактирования текста, но вы переключаете контекст на то, хотите ли вы просто ввести данные или хотите запустить некоторые команды для работы с текстом.
 
-Isn't that simple?
+Разве это не просто?
 
-Traditionally, the concept of modes is the most oft-cited reason by beginners on why they find Vim "confusing". I compare it to riding a bicycle - you'll trip a few times, but once you've got the hang of it, you'll wonder what the fuss was all about.
+Традиционно концепция режимов является наиболее часто упоминаемой причиной новичков о том, почему они считают Vim "запутанным". Я сравниваю это с ездой на велосипеде - вы будете пробовать ездить несколько раз, но как только освоитесь, то зададитесь вопросом, из-за чего весь этот шум.
 
-So why does Vim have modes? To make things as simple as possible, even though its usage may seem "strange" at first.
+Так почему же у Vim есть режимы? Чтобы сделать вещи как можно проще, даже если его использование может показаться "странным" на первый взгляд.
 
-What do I mean by that? Let's take an example - one of the key goals in Vim is to make it fully accessible from the keyboard without ever having to need to use a mouse (you can still use the mouse if you want to but it is strictly optional). In such a scenario, how would you distinguish between the text you want to write, and the commands that you want to run? Vim's solution is to have a "normal" mode where you can execute commands and an "insert" mode where you are simply writing text. You can switch between the two modes any time. For example, pressing `i` switches Vim to insert mode, and pressing `<Esc>` switches Vim back to normal mode.
+Что я имею в виду? Давайте возьмем пример - одна из ключевых целей в Vim - сделать его полностью доступным с клавиатуры без необходимости использовать мышь (вы все равно можете использовать её, если хотите, но это строго необязательно). В таком случае, как бы вы различали текст, который хотите написать, и команды, которые хотите запустить? Решение Vim состоит в том, чтобы иметь "нормальный" режим, в котором вы можете выполнять команды, и режим "вставки", в котором вы просто пишете текст. Вы можете переключаться между двумя режимами в любое время. Например, при нажатии `i` переключаете Vim в режим вставки (insert), и нажав `<ESC>` переключаете Vim обратно в нормальный режим.
 
-How do traditional editors achieve this distinction between commands and writing text? By using graphical menus and keyboard shortcuts. The problem is that this does not scale. First of all, if you have hundreds of commands, creating menus for each of these commands would be insane and confusing. Secondly, customizing how to use each of these commands would be even more difficult.
+Как традиционные редакторы достигают этого различия между командами и написанием текста? С помощью графических меню и сочетаний клавиш. Проблема в том, что это не масштабируется. Во-первых, если у вас есть сотни команд, создание меню для каждой из них было бы безумным и запутанным. Во-вторых, настройка того, как использовать каждую из этих команд, будет еще сложнее.
 
-Let's take a specific example. Suppose you want to change all occurrences of the word "from" to the word "to" in a document. In a traditional editor, you can run a menu command like Edit &rarr; Replace (or use a keyboard shortcut like `ctrl-r`) and then enter the 'from' word and the 'to' word and then click on 'Replace'. Then, check the 'Replace All' option. In Vim, you simply run `:%s/from/to/g` in the normal mode. The `:s` is the "substitute" command. See how simpler this is?
+Возьмем конкретный пример. Предположим, Вы хотите изменить все вхождения слова "from" на слово "to" в документе. В традиционном редакторе вы можете запустить команду меню, такую как Edit &rarr; Заменить (или использовать комбинацию клавиш, такую как `ctrl-r`), а затем ввести слово "from" и слово "to", а затем нажать "Заменить". Затем установите флажок "Заменить все". В Vim вы просто запускаете`: %s/from/to/g` в обычном режиме. `:s` - это команда "заменить (substitute)". Видите, как все просто?
 
-What if you want to now run this substitution only in the first 10 lines of the text and you want to have a yes/no confirmation for each replacement? In traditional text editors, achieving the yes/no confirmation is easy by unchecking the 'Replace All' option, but notice that you have to first search for this option and then use the mouse to click on the option (or use a long series of keys using the keyboard). But how will you run the Replace for only the first 10 lines? In Vim, you can simply run `:0,10s/from/to/gc`. The new `c` option we are using means we want a 'c'onfirmation message for every replace.
+Что делать, если вы хотите теперь запустить эту замену только в первых 10 строках текста, и хотите получать подтверждение да/нет для каждой замены? В традиционных текстовых редакторах легко получить подтверждение "да/нет", сняв флажок "заменить все", но обратите внимание, что сначала нужно найти этот параметр, а затем щелкнуть по нему мышью (или использовать длинную серию клавиш с помощью клавиатуры). Но как вы будете запускать замену только для первых 10 строк? В Vim, вы можете просто запустить `:0,10s/from/to/gс`. Новая опция "c", которую мы используем, означает, что мы хотим получить подтверждающее ('c'onfirmation) сообщение для каждой замены.
 
-By separating the writing (insert) and command (normal) modes, Vim makes it easy for us to switch the two contexts easily.
+Разделяя режимы записи (вставки - insert) и команды (normal), Vim позволяет нам легко переключать два контекста.
 
-Notice how the first steps to using Vim seem a little "weird", a little "strange", but once you have seen it in action, it starts to make sense. The best part is that these core concepts will help you to understand all you need to know on how to use Vim.
+Обратите внимание, как первые шаги к использованию Vim кажутся немного "загадочным", немного "непонятным", но как только вы увидите его в действии, он приобретает смысл. Самое приятное, что эти основные концепции помогут вам понять все, что нужно знать о том, как использовать Vim.
 
-Since you now understand the difference between normal mode and insert mode, you can look up the various commands you can run in the normal mode, and you can immediately start using them. Compare that to learning new commands in traditional editors which generally means having to read a lot of documentation, searching a lot of menus, a lot of trial and error or plain asking someone for help.
+Поскольку теперь вы понимаете разницу между нормальным режимом и режимом вставки, вы можете посмотреть различные команды, которые можно запустить в нормальном режиме, и можете сразу же начать их использовать. Сравните это с изучением новых команд в традиционных редакторах, что обычно означает необходимость читать много документации, искать меню, много проб и ошибок или просто просить кого-то о помощи.
 
-Personally, I find the names of the modes not intuitive to beginners. I prefer calling the insert mode as "writing" mode and the normal mode as "rewriting" mode, but we will stick to the standard Vim terminology to avoid confusion.
+Лично я нахожу названия режимов не интуитивно понятными для новичков. Я предпочитаю называть режим вставки режимом "записи", а нормальный режим - режимом "перезаписи", но мы будем придерживаться стандартной терминологии Vim, чтобы избежать путаницы.
 
-> NOTE: All commands in the normal mode should end with the enter key to signal Vim that we have written the full command. So, when we say run `:help vim-modes-intro`, it means you should type `:help vim-modes-intro` and then press the enter key at the end of the command.
+> ПРИМЕЧАНИЕ: все команды в нормальном режиме должны заканчиваться клавишей Enter, чтобы сообщить Vim, что мы написали полную команду. Итак, когда мы говорим запустить `:help vim-modes-intro`, это означает, что вы должны ввести `:help vim-modes-intro`, а затем нажать клавишу enter в конце команды.
 
-## Writing a file {#write-file}
+## Запись в файл {#write-file}
 
-1. Open Vim. ![](img/first_steps_open.png)
-2. Type `:edit hello.txt` and press the enter key. ![](img/first_steps_edit.png)
-3. Press `i` to switch to insert mode. ![](img/first_steps_insert.png)
-4. Type the text `Hello World`. ![](img/first_steps_type.png)
-5. Press the `<Esc>` key. ![](img/first_steps_normal.png)
-6. Type `:write` and press the `enter` key. ![](img/first_steps_write.png)
-7. Close Vim by running `:quit`. ![](img/first_steps_quit.png)
+1. Откройте Vim. ![](img/first_steps_open.png)
+2. Введите `:edit hello.txt` и нажмите клавишу Enter. ![](img/first_steps_edit.png)
+3. Нажмите `i` для переключения в режим вставки (insert). ![](img/first_steps_insert.png)
+4. Введите текст `Hello World`. ![](img/first_steps_type.png)
+5. Нажмите клавишу `<Esc>`. ![](img/first_steps_normal.png)
+6. Введите `:write` и нажмите клавишу `Enter`. ![](img/first_steps_write.png)
+7. Закройте Vim запустив `:quit`. ![](img/first_steps_quit.png)
 
-Congratulations! You just wrote your first file using Vim :-).
+Поздравляю! Вы только что записали свой первый файл используя Vim :-).
 
-Does this seem like a lot of steps? Yes, it does, *at first*. That is because this is the first time we are getting used to opening Vim, writing a file and closing Vim. You have to keep in mind that this will only be a minor part of your time compared to the actual time that goes into in editing the content of the document.
+Это похоже на множество шагов? Да, это так, *сначала*. Но лишь потому, что это первый раз, когда мы привыкаем открывать Vim, писать файл и закрывать Vim. Вы должны иметь в виду, что это будет только незначительная часть вашего времени по сравнению с фактическим временем, которое уходит на редактирование содержимого документа.
 
-Let us see what the above commands do.
+Давайте посмотрим, что делают вышеприведенные команды.
 
-- `:edit hello.txt` or simply `:e hello.txt`
-  - This opens a file for editing. If the file with the specified name does not exist, it will be created the first time we "save" the file.
-- Press `i`
-  - This switches Vim to the insert mode
-- Type the text `Hello World`
-  - This is where you type the actual text that you want to write.
-- Press `<Esc>`
-  - This escapes Vim back to normal mode
-- `:write` or simply `:w`
-  - This tells Vim to *w*rite the text (which is currently stored in the computer's memory) to the file on the hard disk. This means that whatever we wrote so far is now permanently stored.
-- `:quit` or simply `:q`
-  - This tells Vim to quit the file in the "window" that we are editing. If there was only one "window" open, this will also close Vim (Concept of windows will be discussed in a later chapter). <!-- TODO: Convert this to a link -->
+- `:edit hello.txt` или просто `:e hello.txt`
+  - Откроет файл для редактирования. Если файл с указанным именем не существует, он будет создан при первом "сохранении" файла.
+- Нажатие `i`
+  - Переключит Vim в режим вставки
+- Ввод текста `Hello World`
+  - Здесь вы вводите текст, который хотите написать.
+- Нажатие `<Esc>`
+  - Переводит Vim обратно в нормальный режим
+- `:write` или простоy `:w`
+  - Это говорит Vim *w*rite (записать) текст (который в настоящее время хранится в компьютерной памяти) в файл на жестком диске. Это означает, что все, что мы написали до этого, будет храниться постоянно.
+- `:quit` или просто `:q`
+  - Это говорит Vim выйти из файла в "окне", котором мы редактировали. Если было открыто только одно "окно" - также закроет Vim (концепция окон будет рассмотрена в следующей главе). <!-- TODO: Convert this to a link -->
 
-Try to repeat this process a few times with different file names, different text, etc. so that you get used to the basic set of steps in using Vim.
+Попробуйте повторить этот процесс несколько раз с разными именами, разным текстом и т.д. так что бы привыкнуть к базовому набору шагов в использовании Vim.
 
-Notice that when you are in insert mode, Vim displays `-- INSERT --` at the bottom left corner. When you switch to normal mode, it will not display anything. This is because normal mode is the *default* mode in which Vim runs.
+Обратите внимание, что когда вы находитесь в режиме вставки, Vim отображает `-- INSERT --` в левом нижнем углу. При переключении в нормальный режим, он не будет отображать ничего. Это связано с тем, что нормальный режим - это режим *по умолчанию*, в котором работает Vim.
 
-Take some time to soak in this information, this is probably the hardest lesson there is to learn about Vim, the rest is easy :)
+Потратьте некоторое время, чтобы впитать эту информацию, это, вероятно, самый сложный урок, который можно узнать о Vim, остальное легко :)
 
-And don't worry, help is not too far away. Actually, it's just a `:help` command away. For example, run `:help :edit` and you'll see the documentation open up. Go ahead, try it.
+И не волнуйтесь, помощь не слишком далеко. На самом деле, это просто команда `:help`. Например, запустите `:help: edit` , и увидите, как откроется документация. Давай, попробуй.
 
-## Summary
+## Резюме
 
-We have now discussed the basic concepts and usage of Vim. See `:help notation` and `:help keycodes` also.
+Теперь мы обсудили основные понятия и использование Vim. Смотрите `:help notation` и также `:help keycodes`.
 
-Be sure to understand these concepts well. Once you start "thinking in Vim", understanding the rest of Vim's features is easy.
+Обязательно хорошо разберитесь в этих понятиях. Как только вы начинаете "думать в Vim", понять остальные функции Vim будет легко.
