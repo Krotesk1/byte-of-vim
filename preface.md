@@ -20,17 +20,17 @@
 
 Чтобы закрепить свое понимание и помочь другим также исследовать Vim, я начал писать этот сборник заметок и назвал его книгой.
 
-Некоторые из принципов, которые я пытался запомнить при написании этих заметок:
+Некоторые из принципов, которые я пытался помнить при написании этих заметок:
 
-1. Simple literature. The importance of this should be reinforced again and again.
-2. Emphasis on examples and how-to.
-3. The one-stop shop for readers to learn Vim - from getting started to learning advanced stuff.
-4. Get the user to understand how to do things the Vim way - from modes to buffers to customization. Most people learn only the basic vi commands and do not attempt to learn anything beyond that. Learning such concepts is the tipping point, they become hardcore Vim users i.e. Vimmers, which means they extract the most out of Vim, which is the intent of this book.
-5. A lot of things are documented and stored here as a reference for people such as how to use Vim as an IDE, etc. There are various ways of doing it and instead of the user struggling to figure out which plugins to try out, the book already has the basic background work already for the reader.
-6. Just enough info to get you to understand and use, not everything required (Pareto principle)
-7. Relatedly, the book shouldn't attempt to rewrite the reference manual. Where appropriate, it should simply point out the relevant parts. This way, there is no redundancy, the user learns to use the awesome built-in reference manual which is important, and the book can stand on its own strengths as well.
+1. Простота изложения. Важность этого следует укреплять снова и снова.
+2. Акцент на примерах и практическом применении.
+3. Универсальный магазин для читателей, чтобы узнать Vim - от начала работы до изучения передовых вещей.
+4. Дать пользователю понять, как сделать все в Vim - от режимов до буферов и настройки. Большинство людей изучают только основные команды vi и не пытаются узнать ничего сверх этого. Изучение таких концепций является переломным моментом, они становятся хардкорными пользователями Vim, т.е. Vimmers (виммерами), что означает - они извлекают максимальную пользу из Vim, а именно это и является целью этой книги.
+5. Многие вещи документируются и хранятся здесь как справочные материалы, такие как использование Vim в качестве IDE и т.д. Существуют различные способы сделать это, и вместо того, чтобы пользователь пытался выяснить, какие плагины попробовать, книга уже имеет базовую справку для читателя.
+6. Просто достаточное количество информации для понимания и использования, а не все что имеется (принцип Парето)
+7. Соответственно, книга не должна пытаться переписать справочное руководство. Там, где это уместно, она должна просто указывать на соответствующие части. Таким образом, нет никакой избыточности, пользователь учится использовать удивительный встроенный справочник, который является важным, и книга будет стоять на своих собственных сильных сторонах.
 
-To summarize, the mantra is *Concepts. Examples. Pithy.*
+Подводя итог, мантра - это *Понятия. Примеры. Содержательность.*
 
 ## Статус книги
 
