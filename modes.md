@@ -1,24 +1,24 @@
-# Modes
+# Режимы
 
-We had our first encounter with modes in the previous chapter. Now, let us explore this concept further regarding types of modes available and what we can do in each mode.
+В предыдущей главе мы впервые столкнулись с режимами. Теперь давайте рассмотрим эту концепцию дальше относительно типов доступных режимов и того, что мы можем сделать в каждом из них.
 
-## Types of modes
+## Типы режимов
 
-There are three basic modes in Vim:
+В Vim есть три основных режима:
 
-1. Normal mode is where you can run commands. This is the default mode in which Vim starts up.
-2. Insert mode is where you insert i.e. write the text.
-3. Visual mode is where you visually select a bunch of text so that you can run a command/operation only on that part of the text.
+1. Нормальный режим, где вы можете запускать команды. Это режим по умолчанию, в котором запускается Vim.
+2. Режим вставки - в котором вы вставляете, т.е. пишете текст.
+3. Визуальный режим - это когда вы визуально выделяете кучу текста, чтобы запустить команду/операцию только над этой частью текста.
 
-## Normal mode
+## Нормальный режим
 
-By default, you're in normal mode. Let's see what we can do in this mode.
+По умолчанию вы находитесь в обычном режиме. Давайте посмотрим, что мы можем сделать в этом режиме.
 
-Type `:echo "hello world"` and press enter. You should see the famous words hello world echoed back to you. What you just did was run a Vim command called `:echo` and you supplied some text to it which was promptly printed back.
+Введите `:echo "hello world"` и нажмите Enter. Вы должны увидеть знаменитые слова hello world эхом возвращенные к вам. То, что вы только что сделали, это запустили команду Vim под названием `:echo`, и вы предоставили ей текст, который был незамедлительно напечатан.
 
-Type `/hello` and press the enter key. Vim will search for that phrase and will jump to the first occurrence.
+Введите `/ hello` и нажмите Enter. Vim будет искать эту фразу и перейдет к первому вхождению.
 
-This was just two simple examples of the kind of commands available in the normal mode. We will see many more such commands in later chapters.
+Это были всего лишь два простых примера команд, доступных в обычном режиме. В последующих главах мы увидим еще много таких команд.
 
 ## How to use the help
 
@@ -91,7 +91,7 @@ Hmmm, it would be more appealing if that new sentence we wrote was in a paragrap
 
 To summarize the two new keys we just learnt:
 
-| Command | Action | 
+| Command | Action |
 | --- | --- |
 | `o` | open a new line below |
 | `O` | open a new line above |
@@ -115,7 +115,7 @@ Again, there is a bigger version of the `s` key, `S` which substitutes the whole
 2. Type `Be a sinner`.
 3. Press `<Esc>` to switch back to normal mode.
 
-| Command | Action | 
+| Command | Action |
 | --- | --- |
 | `s` | substitute the current character |
 | `S` | substitute the current line |
@@ -135,7 +135,7 @@ There's a bigger version of `r` called `R` which will replace continuous charact
 3. Type `app` (the word now becomes 'dapper')
 4. Press `<Esc>` to switch back to normal mode.
 
-| Command | Action | 
+| Command | Action |
 | --- | --- |
 | `r` | replace the current character |
 | `R` | replace continuous characters |
