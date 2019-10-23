@@ -1,20 +1,20 @@
 # A Byte of Vim
 
-"A Byte of Vim" is a book which aims to help you to learn how to use the [Vim editor](http://www.vim.org) (version 7), even if all you know is how to use the computer keyboard.
+"A Byte of Vim" - это книга, цель которой - помочь вам научиться пользоваться [редактором Vim](http://www.vim.org) (7 версия), даже если все, что вы знаете - это как использовать клавиатуру компьютера.
 
-The first part of this book is meant for new users who want to understand what Vim is and learn how to use it.
+Первая часть этой книги предназначена для новичков, которые хотят понять что такое Vim и научиться им пользоваться.
 
-The second part of this book is for people who already know how to use Vim and want to learn about features that make Vim so powerful, such as windows and tabs, personal information management, making it a programmer's editor, how to extend Vim with your own plugins, and more.
+Вторая часть этой книги предназначена для людей, которые уже знают, как использовать Vim и хотят узнать о функциях, которые делают Vim настолько мощным, таких как окна и вкладки, управление личной информацией, что делает его редактором программиста; как расширить Vim с помощью собственных плагинов и многое другое.
 
-## Status: Incomplete
+## Статус: Неполный
 
-Please note that the conversion of the book to this Markdown sources is *incomplete*!
+Обратите внимание, что преобразование книги из источников Markdown является *неполным*!
 
-The original PDF is at http://files.swaroopch.com/vim/byte_of_vim_v051.pdf - unfortunately the original sources are lost.
+Оригинальный PDF находится по адресу http://files.swaroopch.com/vim/byte_of_vim_v051.pdf - к сожалению, первоисточники утеряны.
 
-I welcome your contributions to complete the porting of text from the original PDF to this new book's sources at https://github.com/swaroopch/byte-of-vim .
+Я приветствую Ваш вклад в завершение переноса текста из оригинального PDF в источники этой новой книги по адресу https://github.com/swaroopch/byte-of-vim.
 
-## Who reads A Byte of Vim? {#who-reads}
+## Кто читает A Byte of Vim? {#who-reads}
 
 > Thanks to A Byte of Vim, I have learnt how to use vim. Thank you very much for this excellent book! ;)
 > -- Camille L (France)
@@ -90,19 +90,19 @@ I welcome your contributions to complete the porting of text from the original P
 > A Byte of Vim saved my day once again...
 > -- [@reku](http://twitter.com/reku/status/14579836693)
 
-Also:
+Также:
 
-- The book was listed as the top tip for Dec 2008 on the [Official Vim Tips wiki](http://vim.wikia.com/wiki/Main_Page#Did_you_know.3F_view_archive).
+- - Книга была указана в качестве верхней подсказки в декабре 2008 года на [официальном Vim Tips wiki](http://vim.wikia.com/wiki/Main_Page#Did_you_know.3F_view_archive).
 
-## License
+## Лицензия
 
-This book is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+Эта книга лицензирована под [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-This means:
+Она позволяет:
 
-- You are free to Share i.e. to copy, distribute and transmit this book
-- You are free to Remix i.e. to make changes to this book (especially translations)
-- You are free to use it for commercial purposes
+- Вы можете свободно делиться, то есть копировать, распространять и передавать эту книгу
+- Вы можете сделать ремикс, то есть внести изменения в эту книгу (особенно переводы)
+- Вы можете использовать её в коммерческих целях
 
 Please note:
 
