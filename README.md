@@ -123,7 +123,7 @@
 Посетите {{ book.downloadUrl }} для следующих типов загрузки:
 
 - [PDF (для настольного чтения и тд.)](https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-vim)
-- [EPUB (для iPhone/iPad, ebook ридеры, и тд.)](https://www.gitbook.com/download/epub/book/swaroopch/byte-of-vim)
+- [EPUB (для iPhone/iPad, ebook ридеры и тд.)](https://www.gitbook.com/download/epub/book/swaroopch/byte-of-vim)
 - [Mobi (лоя Kindle)](https://www.gitbook.com/download/mobi/book/swaroopch/byte-of-vim)
 
 Посетите {{ book.sourceUrl }} для исходного контента (для предложения исправлений, изменений, перевода и т.д.)
