@@ -76,25 +76,26 @@
 | `a`     | добавить текст сразу после курсора            |
 | `A`     | добавить текст в конце строки                 |
 
-Notice how the upper case commands are 'bigger' versions of the lower case commands.
+Обратите внимание, что команды верхнего регистра являются "большими" версиями команд нижнего регистра.
 
+Теперь, когда мы научились быстро перемещаться по текущей строке, давайте посмотрим, как перейти к новым строкам. Если вы хотите 'о'ткрыть новую строку, чтобы начать писать, нажмите клавишу `o`.
 Now that we are proficient in quickly moving in the current line, let's see how to move to new lines. If you want to 'o'pen a new line to start writing, press the `o` key.
 
-1. Press `o`
-2. Type `I'm a rapper`.
-3. Press `<Esc>` to switch back to the normal mode.
+1. Нажмите `o`
+2. Введите `I'm a rapper`.
+3. Нажмите `<Esc>` для возврата в нормальный режим.
 
-Hmmm, it would be more appealing if that new sentence we wrote was in a paragraph by itself.
+Хм, было бы более привлекательным, если бы это новое предложение, которое мы написали, было в абзаце само по себе.
 
-1. Press `O` (upper case 'O')
-2. Press `<Esc>` to switch back to the normal mode.
+1. Нажмите `O` (прописную 'O')
+2. Нажмите `<Esc>` для возврата в нормальный режим.
 
-To summarize the two new keys we just learnt:
+Подведем итог двум новым ключам, которые мы только что узнали:
 
-| Command | Action |
-| --- | --- |
-| `o` | open a new line below |
-| `O` | open a new line above |
+| Команда | Действие                   |
+| ---     | ---                        |
+| `o`     | откройте новую строку ниже |
+| `O`     | открыть новую строку выше  |
 
 Notice how the upper and lower case 'o' commands are opposite in the direction in which they open the line.
 
