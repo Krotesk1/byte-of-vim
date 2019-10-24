@@ -20,15 +20,15 @@ Vim был разработан для людей, которые знакомы
 
 Теперь попробуйте ввести буквы A-Z, используя технику домашнего ряда.
 
-Relatedly, there is also a [free online typing tutorial](http://www.typeonline.co.uk/lesson1.html) available that explains the basics of typing skills. I would encourage you to try it for just ten minutes and explore.
+Соответственно, есть также [бесплатный онлайн-тренажер по набору текста](http://www.typeonline.co.uk/lesson1.html) который доступно объясняет основы навыков набора текста. Я бы посоветовал вам потратить всего десять минут и исследовать его.
 
-## Vim graphical keyboard cheat sheet
+## Графическая клавиатурная шапаргалка Vim
 
-If you want to know how each key can map to something useful in Vim, see this [Vim graphical cheat sheet by 'jng'](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html).
+Если вы хотите узнать, как каждую клавишу можно сопоставить с чем-то полезным в Vim, см. эту [графическую шпаргалку по Vim 'jng'](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html).
 
 ![](img/vi-vim-cheat-sheet.gif)
 
-Although a *lot* of commands are listed, for now you only need to learn the basic 'hjkl' keys which translates to left, down, up, right keys respectively. You'll learn more about this in the next chapter.
+Хотя в списке находится *множество* команд, на данный момент вам нужно изучить только основные клавиши 'hjkl', которые означают левую, нижнюю, верхнюю и правую клавиши соответственно. Вы узнаете больше об этом в следующей главе.
 
 ## Резюме
 
