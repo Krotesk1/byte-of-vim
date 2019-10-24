@@ -97,84 +97,84 @@ Now that we are proficient in quickly moving in the current line, let's see how 
 | `o`     | откройте новую строку ниже |
 | `O`     | открыть новую строку выше  |
 
-Notice how the upper and lower case 'o' commands are opposite in the direction in which they open the line.
+Обратите внимание, что верхний и нижний регистр команд 'o' противоположны в направлении, в котором они открывают строку.
 
-Was there something wrong in the text that we just wrote? Aah, it should be 'dapper', not 'rapper'! It's a single character that we have to change, what's the most efficient way to make this change?
+Было ли что-то не так в тексте, который мы только что написали? Ааа, это должен быть "dapper", а не "rapper"! Это один символ, который мы должны изменить, каков наиболее эффективный способ сделать это?
 
-We could press `i` to switch to insert mode, press `<Del>` key to delete the `r`, type `d` and then press `<Esc>` to switch back to the insert mode. But that is four steps for such a simple change! Is there something better? You can use the `s` key - s for 's'ubstitute.
+Мы могли бы нажать `i`, чтобы переключиться в режим вставки, затем клавишу `<Del>`", чтобы удалить `r` и ввести `d`, а затем нажать `<Esc>`, чтобы вернуться из режима вставки. Но это четыре шага для такого простого изменения! Есть ли что-то лучше? Вы можете использовать `s` клавиша - s 's'ubstiyute, т.е. замены.
 
-1. Move the cursor to the character `r` (or simply press `b` to move 'b'ack to the start of the word)
-2. Press `s`
-3. Type `d`
-4. Press `<Esc>` to switch back to the normal mode
+1. Переместите курсор на символ `r` (или просто нажмите `b` для перемещения 'b'ack (назад) на начало слова)
+2. Нажмите `s`
+3. Введите `d`
+4. Нажмите `<Esc>` для возврата в нормальный режим
 
-Well, okay, it may not have saved us much right now, but imagine repeating such a process over and over again throughout the day! Making such a mundane operation as fast as possible is beneficial because it helps us focus our energies to more creative and interesting aspects. As Linus Torvalds says, *"it's not just doing things faster, but because it is so fast, the way you work dramatically changes."*
+Ну, хорошо, возможно это не спасло нас сейчас, но представьте себе повторение такого процесса многократно в течение дня! Выполнение такой мирской операции как можно быстрее полезно, потому что помогает нам сосредоточить нашу энергию на более творческих и интересных аспектах. Как говорит Линус Торвальдс: *"это не просто делает вещи быстрее, а потому, что это так быстро, способ вашей работы резко меняется."*
 
-Again, there is a bigger version of the `s` key, `S` which substitutes the whole line instead of the current character.
+Опять же, есть большая версия клавиши `s` - `S`, которая заменяет всю строку вместо текущего символа.
 
-1. Press `S`
-2. Type `Be a sinner`.
-3. Press `<Esc>` to switch back to normal mode.
+1. Нажмите `S`
+2. Введите `Be a sinner`.
+3. Нажмите `<Esc>` для возврата в нормальный режим.
 
-| Command | Action |
-| --- | --- |
-| `s` | substitute the current character |
-| `S` | substitute the current line |
+| Команда | Действие                |
+| ---     | ---                     |
+| `s`     | заменить текущий символ |
+| `S`     | заменить текущую строку |
 
-Let's go back our last action... Can't we make it more efficient since we want to 'r'eplace just a single character? Yes, we can use the `r` key.
+Давайте вернемся к нашему последнему действию... Не можем ли мы сделать его более эффективным, так как мы хотим 'r'eplace (заменить) только один символ? Да, мы можем использовать клавишу `R`.
 
-1. Move the cursor to the first character of the word `sinner`.
-2. Press `r`
-3. Type `d`
+1. Переместите курсор на первый символ слова `sinner`.
+2. Нажмите `r`
+3. Введите `d`
 
-Notice we're already back in the normal mode and didn't need to press `<Esc>`.
+Обратите внимание, что мы уже вернулись в нормальный режим и не нужно нажимать `<Esc>`.
 
-There's a bigger version of `r` called `R` which will replace continuous characters.
+Существует более крупная версия `r` под названием `R`, которая заменит непрерывные символы.
 
-1. Move the cursor to the 'i' in sinner.
-2. Press `R`
-3. Type `app` (the word now becomes 'dapper')
-4. Press `<Esc>` to switch back to normal mode.
+1. Переместите курсор на 'i' в слове sinner.
+2. Нажмите `R`
+3. Введите `app` (слово теперь становится 'dapper')
+4. Нажмите `<Esc>` для возврата в нормальный режим.
 
-| Command | Action |
-| --- | --- |
-| `r` | replace the current character |
-| `R` | replace continuous characters |
+| Команда | Действие |
+| ---     | ---                     |
+| `r`     | заменяет текущий символ |
+| `R`     | заменяет последовательность символов |
 
-The text should now look like this:
+Теперь текст должен выглядеть так:
 
 > Dapping means being determined about being determined and being passionate about being passionate.
 > <br>
 > Be a dapper.
 
-Phew. We have covered a lot in this chapter, but I guarantee that this is the only step that is the hardest. Once you understand this, you've pretty much understood the heart and soul of how Vim works, and all other functionality in Vim, is just icing on the cake.
+Фух. Мы многое рассмотрели в этой главе, но я гарантирую, что это единственный шаг, который является самым трудным. Как только вы усвоите это, вы в значительной степени познаете сердце и душу того, как работает Vim, и все другие функции в Vim - это просто глазурь на торте.
 
-To repeat, understanding how modes work and how switching between modes work is the key to becoming a Vimmer, so if you haven't digested the above examples yet, please feel free to read them again. Take all the time you need.
+Повторим: понимание того, как работают режимы и переключение между режимами является ключом к становлению Виммера, так что если вы еще не переварили приведенные выше примеры, пожалуйста, не стесняйтесь перечитать их снова. Потратьте столько времени, сколько вам необходимо.
 
-If you want to read more specific details about these commands, see `:help inserting` and `:help replacing`.
+Если вы хотите прочитать более подробные сведения об этих командах, см. `:help inserting` и `:help replacing`.
 
-## Visual mode
+## Визуальный режим
 
-Suppose that you want to select a bunch of words and replace them completely with some new text that you want to write. What do you do?
+Предположим, Вы хотите выбрать несколько слов и полностью заменить их каким-то новым текстом, который напишите. Что Вы сделаете?
 
-One way would be to use the mouse to click at the start of the text that you are interested in, hold down the left mouse button, drag the mouse till the end of the relevant text and then release the left mouse button. This seems like an awful lot of distraction.
+Одним из способов было бы использовать мышь, чтобы щелкнуть в начале текста, который вас интересует, удерживая левую кнопку мыши перетащить мышь до конца соответствующего текста, а затем отпустить левую кнопку мыши. Это кажется ужасным отвлечением.
 
-We could use the `<Del>` or `<Backspace>` keys to delete all the characters, but this seems even worse in efficiency.
+Мы могли бы использовать клавиши `<Del>` или `<Backspace>` для удаления всех символов, но это кажется еще хуже по эффективности.
 
-The most efficient way would be to position the cursor at the start of the text, press v to start the visual mode, use arrow keys or any text movement commands to the move to the end of the relevant text (for example, press `5e` to move to the end of the 5th word counted from the current cursor position) and then press `c` to 'c'hange the text. Notice the improvement in efficiency.
+Наиболее эффективным способом было бы поместить курсор в начало текста, нажать `v` для запуска визуального режима и использовать клавиши со стрелками или любые команды перемещения текста для перехода в конец соответствующего текста (например, нажмите `5e` для перемещения в конец 5-го слова, отсчитанного от текущей позиции курсора), а затем нажмите `c`, чтобы 'c'hange (изменить) текст. Обратите внимание на повышение эффективности.
 
-In this particular operation (the `c` command), you'll be put into insert mode after it is over, so press `<Esc>` to return to normal mode.
+В этой конкретной операции (команда `c`) вы будете переведены в режим вставки после ее завершения, поэтому нажмите `<Esc>`, чтобы вернуться в нормальный режим.
 
-The `v` command works on a character basis. If you want to operate in terms of lines, use the upper case `V`.
+Команда `v` работает с символами. Если вы хотите работать со строками, используйте верхний регистр `V`.
 
-## Summary
+## Резюме
 
-Here is a drawing of the relationship between the different modes:
+Вот рисунок взаимосвязи между различными режимами:
 
 ```
 +---------+  i,I,a,A,o,O,r,R,s,S  +----------+
-| Normal  +---------->------------+ Insert   |
-| mode    |                       | mode     |
+| Нормал  +---------->------------+ Режим    |
+| режим   |                       | вставки  |
 |         +----------<------------+          |
 +-+---+---+        <Esc>          +----------+
    |  |
@@ -188,13 +188,13 @@ V  V  ^ <Esc>
    |  |
    |  |
 +---+---+----+
-| Visual     |
-| mode       |
+| Визуальный |
+| режим      |
 +------------+
 ```
 
-> NOTE: This drawing was created using Vim and [Dr.Chip's DrawIt plugin](http://www.vim.org/scripts/script.php?script_id=40).
+> ПРИМЕЧАНИЕ: этот рисунок был создан с помощью Vim и [плагина DrawIt Dr.Chip'а](http://www.vim.org/scripts/script.php?script_id=40).
 
-See `:help vim-modes-intro` and `:help mode-switching` for details on the various modes and how to switch between them respectively.
+Смотрите `:help vim-modes-intro` и `:help mode-switching` для получения подробной информации о различных режимах и способах переключения между ними соответственно.
 
-If you remain unconvinced about why the concept of modes is central to Vim's power and simplicity, do read the articles on ["Why Vi"](http://www.viemu.com/a-why-vi-vim.html) and about the [vi input model](http://blog.ngedit.com/2005/06/03/the-vi-input-model/) on why it is a better way of editing.
+Если вы по-прежнему не уверены в том, что концепция режимов занимает центральное место в силе и простоте Vim, прочитайте статьи на ["Почему Vi"] (http://www.viemu.com/a-why-vi-vim.html) и [модель ввода vi](http://blog.ngedit.com/2005/06/03/the-vi-input-model/) о том, почему это лучший способ редактирования.
