@@ -20,61 +20,61 @@
 
 Это были всего лишь два простых примера команд, доступных в обычном режиме. В последующих главах мы увидим еще много таких команд.
 
-## How to use the help
+## Как пользоваться справкой
 
-Almost as important as knowing the normal mode, is knowing how to use the `:help` command. This is where you learn more about the commands available in Vim.
+Почти так же важно, как знать нормальный режим, знать как использовать команду `:help`. Здесь вы узнаете больше о командах, доступных в Vim.
 
-Remember that you do not need to know every command available in Vim, it's better to simply know where to find them when you need them. For example, see `:help usr_toc` takes us to the table of contents of the reference manual. You can see `:help index` to search for the particular topic you are interested in, for example, run `/insert mode` to see the relevant information regarding insert mode.
+Помните, что вам не нужно знать все команды, доступные в Vim, гораздо лучше знать где их найти когда они понадобятся. Например, в разделе `:help usr_toc` мы переходим к оглавлению справочного руководства. Вы можете посмотреть `:help index` для поиска конкретной темы, которая вас интересует, например, запустите `/insert mode`, чтобы увидеть соответствующую информацию о режиме вставки.
 
-If you can't remember these two help topics at first, just press `F1` or run `:help`.
+Если вы не можете вспомнить эти две темы справки, просто нажмите `F1` или запустите `:help`.
 
-## Insert mode
+## Режим вставки
 
-When Vim starts up in normal mode, we have seen how to use i to get into insert mode. There are other ways of switching from normal mode to insert mode as well:
+Когда Vim запускается в нормальном режиме, мы видели, как использовать i для перехода в режим вставки. Есть и другие способы переключения из нормального режима в режим вставки:
 
-1. Run `:e dapping.txt`
-2. Press `i`
-3. Type the following paragraph (including all the typos and mistakes, we'll correct them later):
+1. Запустите `:e dapping.txt`
+2. Нажмите `i`
+3. Введите следующий абзац (включая все опечатки и ошибки, мы исправим их позже):
 
     > means being determined about being determined and being passionate about being passionate
 
-4. Press `<Esc>` key to switch back to normal mode.
-5. Run `:w`
+4. Нажать клавишу `<Esc>` для переключения в нормальный режим.
+5. Запустите `:w`
 
-Oops, we seem to have missed a word at the beginning of the line, and our cursor is at the end of the line, what do we do now?
+Упс, мы, кажется, пропустили слово в начале строки, а курсор находится в конце строки, что нам теперь делать?
 
-What would be the most efficient way of going to the start of the line and insert the missing word? Should we use the mouse to move the cursor to the start of the line? Should we use arrow keys to travel all the way to the start of the line. Should we press home key and then press i to switch back to insert mode again?
+Каков был бы наиболее эффективный способ перейти к началу строки и вставить пропущенное слово? Должны ли мы использовать мышь, чтобы переместить курсор в начало строки? Должны ли мы использовать клавиши со стрелками, чтобы пройти весь путь до начала линии. Должны ли мы нажать клавишу home, а затем i, чтобы снова переключиться в режим вставки?
 
-It turns out that the most efficient way to be press `I` (upper case I):
+Оказывается, что наиболее эффективным способом будет нажать `I` (прописная буква I):
 
-1. Press `I`
-2. Type `Dappin`
-3. Press `<Esc>` key to switch back to the normal mode.
+1. Нажмите `I`
+2. Введите `Dappin`
+3. Нажмите клавишу `<Esc>` для перключения обратно в нормальный режим.
 
-Notice that we used a different key to switch to insert mode, its specialty is that it moves the cursor to the start of the line and then switches to the insert mode.
+Обратите внимание, что мы использовали другой ключ для переключения в режим вставки, его особенность заключается в том, что он перемещает курсор в начало строки, а затем переключается в режим вставки.
 
-Also notice how important it is to *switch back to the normal mode as soon as you're done typing the text*. Making this a habit will be beneficial because most of your work (after the initial writing phase) will be in the normal mode - that's where the all-important rewriting/editing/polishing happens.
+Также обратите внимание, как важно *переключиться обратно в нормальный режим, как только вы закончите вводить текст*. Выработка этой привычки будет полезна, потому что большая часть вашей работы (после написания начальной фазы) будет в нормальном режиме - вот где происходит все самое важное переписывание/редактирование/полировка.
 
-Now, let's take a different variation of the `i` command. Notice that pressing `i` will place your cursor before the current position and then switch to insert mode. To place the cursor 'a'fter the current position, press `a`.
+Теперь давайте возьмем другой вариант команды `i`. Обратите внимание, что нажатие кнопки `i` помещает курсор перед текущей позицией, а затем переключается в режим вставки. Чтобы поместить курсор после текущей позиции, нажмите клавишу `a`
 
-1. Press `a`
-2. Type `g` (to complete the word as "Dapping")
-3. Press `<Esc>` to switch back to normal mode
+1. Нажмите `a`
+2. Введите `g` (чтобы завершить слово как "Dapping")
+3. Нажмите `<Esc>` чтобы вернуться в нормальный режим
 
-Similar to the relationship between `i` and `I` keys, there is a relationship between the `a` and `A` keys - if you want to append text at the end of the line, press the `A` key.
+Аналогично связи между клавишами `i` и `I`, существует связь между клавишами `a` и `A`- если вы хотите добавить текст в конце строки, нажмите `A`.
 
-1. Press `A`
-2. Type `.` (put a dot to complete the sentence properly)
-3. Press `<Esc>` to switch back to the normal mode
+1. Нажмите `A`
+2. Введите `.` (поставье точку чтобы правильно завершить предложение)
+3. Нажмите `<Esc>` для возврата в нормальный режим
 
-To summarize the four keys we have learnt so far:
+Подведем итог четырем ключам, которые мы узнали ранее:
 
-| Command | Action |
-| --- | --- |
-| `i` | insert text just before the cursor |
-| `I` | insert text at the start of the line |
-| `a` | append text just after the cursor |
-| `A` | append text at the end of the line |
+| Команда | Действие                                      |
+| ---     | ---                                           |
+| `i`     | вставить текст непосредственно перед курсором |
+| `I`     | вставить текст в начале строки                |
+| `a`     | добавить текст сразу после курсора            |
+| `A`     | добавить текст в конце строки                 |
 
 Notice how the upper case commands are 'bigger' versions of the lower case commands.
 
