@@ -1,24 +1,24 @@
 # Moving Around
 
-Once you've written the initial text, editing and rewriting requires a lot of movement between the various parts of the document. For example, you're writing a story and you suddenly get an idea for a new plot, but to develop this plot you need to go back to the part where the protagonist enters the new city (or something like that)... how do you quickly move around the text so that you don't lose your train of thought?
+После того, как вы написали исходный текст, редактирование и переписывание требует много движения между различными частями документа. Например, вы пишете историю и вдруг у вас появляется идея для нового сюжета, но для развития этого сюжета вам нужно вернуться к той части, где главный герой входит в новый город (или что-то в этом роде)... как быстро перемещаться по тексту, чтобы не потерять ход своих мыслей?
 
-Let's see a few examples of how Vim makes this fast.
+Давайте рассмотрим несколько примеров того, как сделать это быстро в Vim.
 
-- Want to move the cursor to the next word? Press `w`.
-- Want to move to to the next paragraph? Press `}`.
-- Want to move to the 3rd occurrence of the letter 'h'? Press `3fh`.
-- Want to move 35 lines downwards? Press `35j`.
-- After one of the above movements, want to jump back to the previous location? Press `ctrl-o`.
+- Хотите переместить курсор на следующее слово? Нажмите `W`.
+- Хотите перейти к следующему абзацу? Нажмите `}`.
+- Хотите перейти к 3-му вхождению буквы "Н"? Нажмите `3fh`.
+- Хотите переместиться на 35 строк вниз? Нажмите `35j`.
+- После одного из вышеуказанных движений, хотите вернуться в предыдущее место? Нажмите `ctrl-о`.
 
-Want to learn how all these work? Let's dive in.
+Хотите узнать, как это все это работает? Давайте погрузимся.
 
-First, open a file called `chandrayaan.txt` and type the following [text from Wikipedia](http://en.wikipedia.org/wiki/Chandrayaan-1):
+Для начала, откройте файл под названием `chandrayaan.txt` и введите следующее [текст из Википедии](http://en.wikipedia.org/wiki/Chandrayaan-1):
 
 > Chandrayaan-1 is India's first mission to the moon. Launched by India's national space agency the Indian Space Research Organisation (ISRO). The unmanned lunar exploration mission includes a lunar orbiter and an impactor. The spacecraft was launched by a modified version of the PSLV XL on 22 October 2008 from Satish Dhawan Space Centre, Sriharikota, Andhra Pradesh at 06:23 IST (00:52 UTC). The vehicle was successfully inserted into lunar orbit on 8 November 2008. The Moon Impact Probe was successfully impacted at the lunar south pole at 20:31 hours on 14 November 2008.
 > <br>
 > The remote sensing satellite had a mass of 1,380 kilograms (3,042 lb) at launch and 675 kilograms (1,488 lb) at lunar orbit and carries high resolution remote sensing equipment for visible, near infrared, and soft and hard X-ray frequencies. Over a two-year period, it is intended to survey the lunar surface to produce a complete map of its chemical characteristics and 3-dimensional topography. The polar regions are of special interest, as they might contain ice. The lunar mission carries five ISRO payloads and six payloads from other international space agencies including NASA, ESA, and the Bulgarian Aerospace Agency, which were carried free of cost.
 
-## Move your cursor, the Vim way
+## Перемещение курсора, путь Vim
 
 The most basic keys that you should use are the 'hjkl' keys. These 4 keys correspond to the left, down, up and right arrow keys respectively. Notice these keys are situated directly under your right hand when they are placed on the home row.
 
