@@ -20,15 +20,15 @@
 
 ## Перемещение курсора, путь Vim
 
-The most basic keys that you should use are the 'hjkl' keys. These 4 keys correspond to the left, down, up and right arrow keys respectively. Notice these keys are situated directly under your right hand when they are placed on the home row.
+Самые основные клавиши, которые вы должны использовать - это клавиши 'hjkl'. Эти 4 клавиши соответствуют клавишам со стрелками влево, вниз, вверх и вправо соответственно. Обратите внимание, что эти клавиши расположены прямо под вашей правой рукой, когда они помещены на домашнем ряду.
 
-But why not use the arrow keys themselves? The problem is that they are located in a separate location in the keyboard and it requires as much hand movement as it requires to use a mouse.
+Но почему бы не использовать сами клавиши со стрелками? Проблема в том, что они расположены в отдельном месте на клавиатуре, и это требует столько же движения руки, сколько требуется для использования мыши.
 
-Remember, that the right hand fingers should always be placed on `jkl;` keys (and the thumb on the space bar). Now, let's see how to use these 4 keys:
+Помните, что пальцы правой руки всегда должны быть помещены на клавиши `jkl;` (и большой палец на пробел). Теперь давайте посмотрим, как использовать эти 4 клавиши:
 
 ![](img/hjkl.png)
 
-| Key | Mnemonic |
+| Клавиша | Mnemonic |
 |:---:| --- |
 | `h` | You have to stretch your index finger (which is on 'j') to the left to press the 'h'. This is the left-most key and signifies going left. |
 | `j` | The drooping 'j' key signifies going down. |
