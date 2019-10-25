@@ -29,17 +29,23 @@
 ![](img/hjkl.png)
 
 | Клавиша | Mnemonic |
-|:---:| --- |
-| `h` | You have to stretch your index finger (which is on 'j') to the left to press the 'h'. This is the left-most key and signifies going left. |
-| `j` | The drooping 'j' key signifies going down. |
-| `k` | The upward pointing 'k' key signifies going up. |
-| `l` | The right-most 'l' key signifies going right. |
+|:-------:| --- |
+| `h`     | Вы должны вытянуть указательный палец (который находится на "j") влево, чтобы нажать "h". Это самая левая клавиша и означает движение влево.|
+| `j` | Понижающая клавиша 'j' означает вниз.     |
+| `k` | Повышающая клавиша 'k' означает вверх.    |
+| `l` | Самая правая клавиша 'l' означает вправо. |
 
-Note that we can repeat the operation by prefixing a count. For example, `2j` will repeat the `j` operation 2 times.
+Обратите внимание, что мы можем повторить операцию, добавив префикс счетчика. Например, `2j` повторит операцию `j` 2 раза.
 
-Open up the `chandrayaan.txt` text document and start practicing these keys:
+Откройте текстовый документ `chandrayaan.txt` и начните практиковать эти клавиши:
 
-1. Position your cursor at the first letter 'C' of the document.
+1. Поместите курсор на первую букву 'c' в document.
+2. Нажмите `2j` , и должна пропуститься текущая длинная строка, пустая строка и перейдем ко второй строке, т.е. второму абзацу.
+3. Нажмите `2k`, чтобы вернуться туда, где мы были. Или, как вариант, нажмите `ctrl-o`, чтобы вернуться назад.
+4. Нажмите `5l`, чтобы переместиться на 5 символов вправо.
+5. Нажмите `5h`, чтобы переместить влево на 5 символов. Или, как вариант, нажмите `ctrl-o`, чтобы вернуться назад.
+
+   1. Position your cursor at the first letter 'C' of the document.
 2. Press `2j` and it should skip the current long line, the blank line and go to the second line i.e. second paragraph.
 3. Press `2k` to get back to where we were. Or alternatively, press `ctrl-o` to jump back.
 4. Press `5l` to move 5 characters to the right.
