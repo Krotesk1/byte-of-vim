@@ -74,61 +74,61 @@
 
 ## Слова, предложения, абзацы
 
-We have seen how to move by characters and lines. But we tend to think of our text as words and how we put them together - sentences, paragraphs, sections, and so on. So, why not move across such text parts i.e. "text objects"?
+Мы видели, как перемещаться по символам и строкам. Но мы склонны думать о нашем тексте как о словах и как мы складываем их вместе - в предложения, абзацы, главы и так далее. Итак, почему бы не перемещаться по таким текстовым частям, т.е. "текстовым объектам"?
 
-Let's take the first few words from our sample text:
+Давайте возьмем первые несколько слов из нашего примера:
 
 > The polar regions are of special interest, as they might contain ice.
 
-First, let's position the cursor on the first character by pressing `^`.
+Для начала давайте расположим курсор на первом символе, нажав `^`.
 
 > [T]he polar regions are of special interest, as they might contain ice.
 
 <!-- -->
 
-> NOTE: We are using the square brackets to mark the cursor position.
+> ПРИМЕЧАНИЕ: Мы используем скобки для обозначения позиции курсора.
 
-Want to move to the next 'w'ord? Press `w`. The cursor should now be at the 'p' in 'polar'.
+Хотите перейти к следующему слову? Нажать `w` (от англ. word - слово). Курсор теперь должен быть на 'p' в 'polar'.
 
 > The [p]olar regions are of special interest, as they might contain ice.
 
-How about moving 2 words forward? Just add the prefix count to 'w': `2w`.
+Как насчет перемещения на 2 слова вперед? Просто добавьте количество префиксов в 'w': `2w`.
 
 > The polar regions [a]re of special interest, as they might contain ice.
 
-Similarly, to move to the 'e'nd of the next word, press `e`.
+Аналогично, чтобы перейти к концу следующего слова, нажмите клавишу `e` (end - конец).
 
 > The polar regions ar[e] of special interest, as they might contain ice.
 
-To move one word 'b'ackward, press `b`. By prefixing a count, `2b` will go back by 2 words.
+Чтобы переместить одно слово 'b'ackward (назад) - нажмите `b`. Путем префикса счетчика, `2b` мы вернемся на 2 слова.
 
 > The polar [r]egions are of special interest, as they might contain ice.
 
-See `:help word-motions` for details.
+Смотрите `:help word-motions` для более подробной информации.
 
-We have seen character motions and word motions, let's move on to sentences.
+Мы видели передвижения по символам и словам, давайте перейдем к предложениям.
 
 > [C]handrayaan-1 is India's first mission to the moon. Launched by India's national space agency the Indian Space Research Organisation (ISRO). The unmanned lunar exploration mission includes a lunar orbiter and an impactor. The spacecraft was launched by a modified version of the PSLV XL on 22 October 2008 from Satish Dhawan Space Centre, Sriharikota, Andhra Pradesh at 06:23 IST (00:52 UTC). The vehicle was successfully inserted into lunar orbit on 8 November 2008. The Moon Impact Probe was successfully impacted at the lunar south pole at 20:31 hours on 14 November 2008.
 
-Position the cursor at the first character using `^`.
+Поместите курсор на первый символ, используя `^`.
 
-To move to the next sentence, press `)`.
+Для перехода к следующему предложению нажмите `)`.
 
 > Chandrayaan-1 is India's first mission to the moon. [L]aunched by India's national space agency the Indian Space Research Organisation (ISRO). The unmanned lunar exploration mission includes a lunar orbiter and an impactor. The spacecraft was launched by a modified version of the PSLV XL on 22 October 2008 from Satish Dhawan Space Centre, Sriharikota, Andhra Pradesh at 06:23 IST (00:52 UTC). The vehicle was successfully inserted into lunar orbit on 8 November 2008. The Moon Impact Probe was successfully impacted at the lunar south pole at 20:31 hours on 14 November 2008.
 
-Isn't that cool?
+Разве это не круто?
 
-To move to the previous sentence, press `(`.
+Для перехода к предыдущему предложению, нажмите кнопку `(`.
 
-Go ahead, try it out and see how fast you can move. Again, you can prefix a count such as `3)` to move forward by 3 sentences.
+Вперед, попробуйте и посмотрите как быстро вы можете двигаться. Опять же, вы можете использовать префикс отсчета, например, `3)`, чтобы продвинуться вперед на 3 предложения.
 
-Now, use the whole text and try out moving by paragraphs. Press `}` to move to the next paragraph and `{` to move to the previous paragraph.
+Теперь используйте весь текст и попробуйте перемещаться по абзацам. Нажмите `}` для перехода к следующему абзацу и `{` - к предыдущему.
 
-Notice that the 'bigger' brackets is for the bigger text object. If you had already noticed this, then congratulations, you have already started to think like a winner, err, "think like a Vimmer".
+Обратите внимание, что "большие" скобки предназначены для большего текстового объекта. Если вы уже заметили это, то поздравляю, вы уже начали думать как виннер, эммм, "думать как Виммер".
 
-Again, don't try to *remember* these keys, try to make it a *habit* such that your fingers naturally use these keys.
+Опять же, не пытайтесь *запомнить* эти клавиши, попробуйте сделать это *привычкой* так, чтобы ваши пальцы естественно использовали эти клавиши.
 
-See `:help cursor-motions` for more details.
+Смотрите `:help cursor-motions` для более подробной информации.
 
 ## Make your mark
 
