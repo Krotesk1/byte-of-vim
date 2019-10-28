@@ -1,4 +1,4 @@
-# Moving Around
+# Передвижение
 
 После того, как вы написали исходный текст, редактирование и переписывание требует много движения между различными частями документа. Например, вы пишете историю и вдруг у вас появляется идея для нового сюжета, но для развития этого сюжета вам нужно вернуться к той части, где главный герой входит в новый город (или что-то в этом роде)... как быстро перемещаться по тексту, чтобы не потерять ход своих мыслей?
 
@@ -20,65 +20,59 @@
 
 ## Перемещение курсора, путь Vim
 
-Самые основные клавиши, которые вы должны использовать - это клавиши 'hjkl'. Эти 4 клавиши соответствуют клавишам со стрелками влево, вниз, вверх и вправо соответственно. Обратите внимание, что эти клавиши расположены прямо под вашей правой рукой, когда они помещены на домашнем ряду.
+Самые основные клавиши, которые вы будете использовать - это клавиши 'hjkl'. Эти 4 клавиши соответствуют клавишам со стрелками влево, вниз, вверх и вправо соответственно. Обратите внимание, что они расположены прямо под вашей правой рукой, когда Ваши руки помещены на домашнем ряду.
 
-Но почему бы не использовать сами клавиши со стрелками? Проблема в том, что они расположены в отдельном месте на клавиатуре, и это требует столько же движения руки, сколько требуется для использования мыши.
+Но почему бы не использовать сами клавиши со стрелками? Проблема в том, что они расположены в отдельном месте на клавиатуре, и это требует столько же движений руки, сколько требуется для использования мыши.
 
-Помните, что пальцы правой руки всегда должны быть помещены на клавиши `jkl;` (и большой палец на пробел). Теперь давайте посмотрим, как использовать эти 4 клавиши:
+Помните, что пальцы правой руки всегда должны быть помещены на клавиши `jkl;` (и большой палец на пробеле). Теперь давайте посмотрим, как использовать эти 4 клавиши:
 
 ![](img/hjkl.png)
 
 | Клавиша | Mnemonic |
-|:-------:| --- |
+|:-------:| ---      |
 | `h`     | Вы должны вытянуть указательный палец (который находится на "j") влево, чтобы нажать "h". Это самая левая клавиша и означает движение влево.|
-| `j` | Понижающая клавиша 'j' означает вниз.     |
-| `k` | Повышающая клавиша 'k' означает вверх.    |
-| `l` | Самая правая клавиша 'l' означает вправо. |
+| `j`     | Понижающая клавиша 'j' означает вниз.     |
+| `k`     | Повышающая клавиша 'k' означает вверх.    |
+| `l`     | Самая правая клавиша 'l' означает вправо. |
 
 Обратите внимание, что мы можем повторить операцию, добавив префикс счетчика. Например, `2j` повторит операцию `j` 2 раза.
 
 Откройте текстовый документ `chandrayaan.txt` и начните практиковать эти клавиши:
 
-1. Поместите курсор на первую букву 'c' в document.
-2. Нажмите `2j` , и должна пропуститься текущая длинная строка, пустая строка и перейдем ко второй строке, т.е. второму абзацу.
+1. Поместите курсор на первую букву 'c' в документе.
+2. Нажмите `2j` , и должна пропуститься текущая длинная строка, пустая строка и мы перейдем ко второй строке, т.е. второму абзацу.
 3. Нажмите `2k`, чтобы вернуться туда, где мы были. Или, как вариант, нажмите `ctrl-o`, чтобы вернуться назад.
 4. Нажмите `5l`, чтобы переместиться на 5 символов вправо.
 5. Нажмите `5h`, чтобы переместить влево на 5 символов. Или, как вариант, нажмите `ctrl-o`, чтобы вернуться назад.
 
-   1. Position your cursor at the first letter 'C' of the document.
-2. Press `2j` and it should skip the current long line, the blank line and go to the second line i.e. second paragraph.
-3. Press `2k` to get back to where we were. Or alternatively, press `ctrl-o` to jump back.
-4. Press `5l` to move 5 characters to the right.
-5. Press `5h` to move left by 5 characters. Or alternatively, press `ctrl-o` to jump back.
+Сделайте привычкой использование клавиш 'hjkl' вместо клавиш со стрелками. Через несколько попыток вы заметите, насколько быстрее вы используете эти клавиши.
 
-Make it a habit to use the 'hjkl' keys instead of the arrow keys. Within a few tries, you'll notice how much faster you can be using these keys.
+Точно так же существуют более простые клавиши, которые заменяют следующие специальные движения. Обратите внимание, что они снова предназначены для уменьшения движения рук. В этой конкретной задаче случае люди склонны искать и охотиться за этими специальными клавишами, поэтому мы можем полностью избежать этого.
 
-Similarly, there are more simple keys that replace the following special movements. Notice that this again is intended to reduce hand movement. In this particular case, people are prone to searching and hunting for these special keys, so we can avoid that altogether.
+| Традиционные | Vim |
+| ---          | --- |
+| клавиша 'home' перемещает в начало строки  | клавиша `^` (думайте 'якорь начала') |
+| клавиша 'end' перемещает в конец строки    | клавиша `$` (думайте 'доллар останавливает здесь') |
+| клавиша 'pgup' перемещает на страницу выше | `ctrl-b` означает перемещение на один экран 'b'ackward (назад) |
+| клавиша 'pgdn' перемещает на страницу ниже | `ctrl-f` означает перемещение на один экран 'f'orward (вперед) |
 
-| Traditional | Vim |
-| --- | --- |
-| 'home' key moves to the start of the line | `^` key (think 'anchored to the start') |
-| 'end' key moves to the end of the line | `$` key (think 'the buck stops here') |
-| 'pgup' key moves one screen up | `ctrl-b` which means move one screen 'b'ackward |
-| 'pgdn' key moves one screen down | `ctrl-f` which means move one screen 'f'orward |
+Если вы знаете абсолютный номер строки, к которой хотите перейти, скажем, 50 строка, нажмите `50G`, и Vim перейдет к 50-й строке. Если номер не указан, то `G` приведет вас к последней строке файла. Как добраться до верха файла? Просто нажмите `1G`. Обратите внимание, как один ключ может сделать так много.
 
-If you know the absolute line number that you want to jump to, say line 50, press `50G` and Vim will jump to the 50th line. If no number is specified, `G` will take you to the last line of the file. How do you get to the top of the file? Simple, press `1G`. Notice how a single key can do so much.
+- Переместите курсор на первую строку, нажав `1G`.
+- Переместите на 20 символов вправо, нажав `20l`.
+- Вернитесь к первому символу, нажав `^`.
+- Перейдите к последнему символу, нажав `$`.
+- Нажмите `G`, для перехода к последней строке.
 
-- Move the cursor to the first line by pressing `1G`.
-- Move 20 characters to the right by pressing `20l`.
-- Move back to the first character by pressing `^`.
-- Jump to the last character by pressing `$`.
-- Press `G` to jump to the last line.
+Что делать, если вы в середине текста, который в настоящее время отображается в окне?
 
-What if you wanted to the middle of the text that is currently being shown in the window?
+- Нажмите `H`, чтобы прыгнуть как можно выше (первая строка окна)
+- Нажмите `M`, для перехода к 'm'iddle (середине) окна
+- Нажмите `L`, чтобы перейти как можно ниже (отобразится последняя строка)
 
-- Press `H` to jump as 'h'igh as possible (first line of the window)
-- Press `M` to jump to the 'm'iddle of the window
-- Press `L` to jump as 'l'ow as possible (last line being displayed)
+Вы, должно быть, начали замечать акцент на слепом вводе и не должны перемещать руки от основной области. Это хорошо.
 
-You must have started to notice the emphasis on touch-typing and never having to move your hands off the main area. That's a good thing.
-
-## Words, sentences, paragraphs
+## Слова, предложения, абзацы
 
 We have seen how to move by characters and lines. But we tend to think of our text as words and how we put them together - sentences, paragraphs, sections, and so on. So, why not move across such text parts i.e. "text objects"?
 
@@ -177,8 +171,8 @@ Other text object mnemonics are `aw` which means 'a' 'w'ord, `a"` means a quoted
 
 See `:help object-motions` and `:help text-objects` for more details.
 
-## Summary
+## Резюме
 
-We have seen the rich number of methods that Vim gives us to move around the text. It is not important to remember each of these movements, it is more important to make them a habit whenever you can, especially the ones that are most relevant to you, and when they become a habit they reduce the movement of your hands, you become faster, and ultimately spend more time on thinking about your writing rather than on the software you use to write.
+Мы увидели богатое количество методов, которые Vim предоставляет нам для перемещения по тексту. Не нужно запоминать каждое из этих движений, гораздо важнее сделать их привычкой, особенно те, которые наиболее важны для вас, и когда они станут для вас привычкой, то уменьшат движения ваших рук, вы станете быстрее и в конечном итоге будете тратить больше времени на размышления о своем письме, а не на программное обеспечение, которое используете для написания.
 
-See `:help various-motions` as well as `:help motion` for more interesting ways of movement.
+Смотрите `:help various-motions`, а также `:help motion` для более интересных методах передвижения.
