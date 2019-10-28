@@ -6,7 +6,7 @@
 * [Первые шаги](first_steps.md)
 * [Режимы](modes.md)
 * [Навыки набора текста](typing_skills.md)
-* [Moving Around](moving_around.md)
+* [Перемещение](moving_around.md)
 * [Помощь](help.md)
 * [Основы редактирования](editing_basics.md)
 * [Multiplicity](multiplicity.md)
