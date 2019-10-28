@@ -126,17 +126,18 @@
 
 Обратите внимание, что "большие" скобки предназначены для большего текстового объекта. Если вы уже заметили это, то поздравляю, вы уже начали думать как виннер, эммм, "думать как Виммер".
 
-Опять же, не пытайтесь *запомнить* эти клавиши, попробуйте сделать это *привычкой* так, чтобы ваши пальцы естественно использовали эти клавиши.
+Опять же, не пытайтесь *запомнить* эти клавиши, попробуйте сделать их *привычкой* настолько, чтобы ваши пальцы естественно использовали эти клавиши.
 
 Смотрите `:help cursor-motions` для более подробной информации.
 
 ## Make your mark
 
-You are writing some text but you suddenly remember that you have to update a related section in the same document, but you do not want to forget where you are currently so that you can come back to this later. What do you do?
+Вы пишете какой-то текст, но внезапно вспоминаете, что нужно обновить связанный раздел в этом же документе, но вы не хотите потерять место, где находитесь в данный момент, чтобы вернуться сюда позже. Что Вы сделаете?
 
-Normally, this would mean scrolling to that section, update it, and then scroll back to where you were. This is a lot of overhead and we may tend to forget where we were last at.
+Обычно это означает прокрутку до того раздела, обновление его, а затем прокрутку обратно туда, где вы были. Это много накладных расходов, и мы имеем тенденцию забывать, где были в последний раз.
 
-We can do things a bit smarter in Vim. Move the cursor to the 5th line in the following text (the words by John Lennon). Use `ma` to create a mark named 'a'. Move the cursor to wherever you want, for example `4j`.
+Мы можем делать вещи немного умнее в Vim. Переместите курсор на 5-ю строку в следующем тексте (слова Джона Леннона). Используйте `ma`, чтобы создать отметку по имени `а`". Переместите курсор в нужное место, например `4j`.
+
 
 > I am eagerly awaiting my next disappointment. -- Ashleigh Brilliant <br>
 > Every man’s memory is his private literature. -- Aldous Huxley <br>
@@ -145,19 +146,19 @@ We can do things a bit smarter in Vim. Move the cursor to the 5th line in the fo
 > Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment. -- Buddha <br>
 > The more decisions that you are forced to make alone, the more you are aware of your freedom to choose. -- Thornton Wilder
 
-Press `'a` (i.e. single quote followed by the name of the mark) and voila, Vim jumps (back) to the line where that mark was located.
+Нажмите `'a` (т. е. одинарную кавычку, за которой следует название метки) и вуаля, Vim прыгает (назад) к строке, где была расположена эта метка.
 
-You can use any alphabet (a-zA-Z) to name a mark which means you can have up to 52 named marks for each file.
+Вы можете использовать любую букву (a-zA-Z) для обозначения метки, тоесть вы можете иметь до 52 именованных меток для каждого файла.
 
 ## Jump around
 
-In the various movements that we have learned, we might often want to jump back to the previous location or to the next location after a movement. To do this, simply press `ctrl-o` to jump to the previous location and `ctrl-i` to jump forward to the next location again.
+В различных движениях, которые мы изучили, нам может понадобиться вернуться к предыдущему местоположению или к следующему после перемещения. Чтобы сделать это, просто нажмите `ctrl-o`, чтобы перейти на предыдущую локацию и `ctrl-i`, чтобы прыгать вперед снова в следующие места.
 
 ## Parts of the text {#text-objects}
 
-There are various ways you can specify text objects in Vim so that you can pass them to a command. For example, you want to visually select a part of the text and then convert the case (from upper to lower or from lower to upper case) of the text using the `~` key.
+Существуют различные способы указания текстовых объектов в Vim, чтобы передать их команде. Например, вы хотите визуально выделить часть текста, а затем преобразовать регистр (из верхнего в нижний или из нижнего в верхний) текста с помощью клавиши `~`.
 
-Open the `dapping.txt` file that we created in previous chapters. Use the various keys to move to the first letter of the word 'dapper' in the second paragraph. Hint: Use `}`, `j`, `w`.
+Откройте файл `dapping.txt` который мы создали в предыдущих главах. Используйте различные клавиши для перехода к первой букве слова 'dapper' во втором абзаце. Подсказка: используйте `}`, `j`, `w`.
 
 > Dapping means being determined about being determined and being passionate about being passionate. <br>
 > Be a dapper.
