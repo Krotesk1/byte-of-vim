@@ -1,6 +1,6 @@
 # Основы редактирования
 
-Давайте изучим основные команды редактирования в Vim для чтения / записи файлов, вырезания / копирования / вставки, отмены / повтора и поиска.
+Давайте изучим основные команды редактирования в Vim для чтения/записи файлов, вырезания/копирования/вставки, отмены/повтора и поиска.
 
 ## Чтение и редактирование файлов
 
@@ -10,19 +10,19 @@
 
 Теперь откройте Vim, напишите слова `Hello World` и сохраните их как файл `hello.txt`. Если Вам нужно напомнить как это сделать - обратитеь к [главе Первые шаги](./first_steps.md#write-file).
 
-### Swap
+### Подкачка (swap)
 
-Now you will notice that another file has been created in the same directory as this file, the file would be named something like `.hello.txt.swp`. Run `:swapname` to find out the exact name of the file.
+Теперь вы заметите, что другой файл был создан в том же каталоге что и этот, файл будет называться что-то вроде `.hello.txt.swp`. Запустите `:swapname` , чтобы узнать точное имя файла.
 
-What is this file? Vim maintains a backup of the buffer in a file which it saves regularly to the hard disk so that in case something goes wrong (like a computer crash or even Vim crashes), you have a backup of the changes you have made since you last saved the original file. This file is called a "swap file" because Vim keeps swapping the contents of the buffer in the computer memory with the contents of this file on the hard disk. See `:help swap-file` to know more details.
+Что это за файл? Vim поддерживает резервную копию буфера в файле, который он регулярно сохраняет на жесткий диск, так что в случае, если что-то пойдет не так (например, сбой компьютера или даже сбой Vim), у вас есть резервная копия изменений, внесенных с момента последнего сохранения исходного файла. Этот файл называется "файл подкачки (swap)", потому что Vim постоянно обменивается содержимым буфера в памяти компьютера с содержимым этого файла на жестком диске. Дополнительную информацию смотрите в разделе `:help swap-file`.
 
-### Save my file
+### Сохранить мой файл
 
-Now that the file has been loaded, let's do a minor editing. Press the ~ key to change the case of the character on which the cursor is positioned. You will notice that Vim now marks the file having been changed (for example a `+` sign shows up in the title bar of the GUI version of Vim). You can open up the actual file in another editor and check that it has not changed yet i.e. Vim has only changed the buffer and not yet saved it to the hard disk.
+Теперь, когда файл загружен, давайте сделаем небольшое редактирование. Нажмите клавишу ~ чтобы изменить регистр символа, на котором расположен курсор. Вы заметите, что Vim теперь отмечает файл, который был изменен (например, знак `+` отображается в строке заголовка графической версии Vim). Вы можете открыть фактический файл в другом редакторе и проверить что он еще не изменился, т.е. Vim только изменил буфер и еще не сохранил его на жестком диске.
 
-We can write back the buffer to the original file in the hard disk by running `:write`.
+Мы можем записать буфер обратно в исходный файл на жестком диске, выполнив команду `:write`.
 
-> NOTE: To make saving easier, add the following line to your vimrc file:
+> ПРИМЕЧАНИЕ: Чтобы упростить сохранинени - добавьте следующую строку в файл vimrc:
 > <br>
 > ``` viml
 > " To save, ctrl-s.
@@ -30,7 +30,7 @@ We can write back the buffer to the original file in the hard disk by running `:
 > imap <c-s> <Esc>:w<CR>a
 > ```
 > <br>
-> Now you can simply press `ctrl-s` to save the file.
+> Теперь вы можете просто нажать `ctrl-s`, чтобы сохранить файл.
 
 ### Working in my directory
 
