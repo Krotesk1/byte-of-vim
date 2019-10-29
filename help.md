@@ -1,22 +1,22 @@
-# Help
+# Справка
 
-Vim has such a diverse list of commands, keyboard shortcuts, buffers, and so on. It's impossible to remember how all of them work. In fact, it is not even useful to know all of them. The best situation is that you know how to look for certain functionality in Vim whenever you need it.
+Vim имеет весьма разнообразный список команд, сочетаний клавиш, буферов и так далее. Невозможно запомнить как они все работают. На самом деле не требуется знать все их наизусть. Гораздо лучше знать где найти определенную функциональность в Vim, когда она Вам понадобится.
 
-For example, you want to avoid having to type a long name every time, you suddenly remember there is an abbreviations feature in Vim that'll help you do just that, but don't remember how to use it. What do you do?
+Например, вы хотите избежать необходимости вводить длинное имя каждый раз, когда вдруг вспомните, что в Vim есть функция сокращений, которая поможет вам сделать это, но не помните, как ее использовать. Что Вы делаете?
 
-Let's look at the various ways of finding help about how to use Vim.
+Давайте рассмотрим различные способы поиска справки о том, как использовать Vim.
 
-## The `:help` command
+## Команда `:help`
 
-The first and most important place to try to look for help is the built-in documentation and Vim has one of the most comprehensive user manuals that I've ever seen.
+Первое и самое важное место, где можно попытаться найти помощь - это встроенная документация и Vim имеет одно из самых полных руководств пользователя, которые я когда-либо видел.
 
-In our case, just run `:help abbreviation` and you'll be taken to the help for abbreviations and you can read about how to use the `:ab` and `:iab` commands.
+В нашем случае просто запустите `:help abbreviation` и Вы попадете в справку по аббревиатурам, где сможете прочитать о том, как использовать команды `:ab` и `:iab`.
 
-Sometimes, it can be as simple as that. If you don't know what you're looking for, then you can run `:help user-manual` and browse through the list of contents of the entire user manual and read the chapter that you feel is relevant to what you're trying to do.
+Иногда, это может быть так просто, как здесь. Если вы не знаете что ищете, то можете запустить `:help user-manual` и просмотреть список содержимого всего руководства пользователя и прочитать главу, которая, по вашему мнению, имеет отношение к тому, что вы пытаетесь сделать.
 
-## How to read the `:help` topic
+## Как читать раздел `:help`
 
-Let us take some sample text from `:help abbreviate`:
+Давайте возьмем какой-нибудь текст из `:help abbreviate`:
 
 ```
     :ab[breviate] [<expr>] {lhs} {rhs}
@@ -26,47 +26,47 @@ Let us take some sample text from `:help abbreviate`:
 See |:map-<expr>| for the optional <expr> argument.
 ```
 
-Notice that there is a standard way of writing help in Vim to make it easy for us to figure out the parts that are needed for us instead of trying to understand the whole command.
+Обратите внимание, что существует стандартный способ написания справки в Vim, чтобы было легче определить части, которые нужны нам, вместо того, чтобы пытаться понять всю команду.
 
-The first line explains the syntax i.e. how to use this command.
+Первая строка объясняет синтаксис, т.е. как использовать эту команду.
 
-The square brackets in `:ab[breviate]` indicate that the latter part of the full name is optional. The minimum you have to type is `:ab` so that Vim recognizes the command. You can also use `:abb` or `:abbr` or `:abbre` and so on till the full name `:abbreviate`. Most people tend to use the shortest form possible.
+Квадратные скобки в `:ab[breviate]` указывают на то, что последняя часть полного имени является необязательной. Минимум, который вы должны ввести - это `:ab`, чтобы Vim распознал команду. Вы также можете использовать `:abb` или `:abbr` или `:abbre` и так далее до полного название `:abbreviate`. Большинство людей склонны использовать максимально короткую форму.
 
-The square brackets in `[<expr>]` again indicate that the 'expression' is optional.
+Квадратные скобки в `[<expr>]` снова указывают на то, что 'expression' (выражение) является необязательным.
 
-The curly brackets in `{lhs} {rhs}` indicate that these are placeholders for actual arguments to be supplied. The names are short for 'left hand side' and 'right hand side' respectively.
+Фигурные скобки в `{lhs} {rhs}` указывают на то, что они являются заполнителями для фактических аргументов, которые должны быть предоставлены. Названия сокращены от 'left hand side' (левая сторона) и 'right hand side' (правая сторона) соответственно.
 
-Following the first line is an indented paragraph that briefly explains what this command does.
+После первой строки следует абзац с отступом, в котором кратко объясняется что делает эта команда.
 
-Notice the second paragraph which points you to further information. You can position the cursor on the text between the two pipe symbols and press `ctrl-]` to follow the "link" to the corresponding `:help` topic. To jump back, press `ctrl-o`.
+Обратите внимание на второй абзац, который указывает на дополнительную информацию. Вы можете поместить курсор на текст между двумя символами вертикальной черты и нажать `ctrl-]`, чтобы перейти по ссылке к соответствующему разделу `:help`. Чтобы вернуться назад - нажмите `ctrl-o`.
 
-## The `:helpgrep` command
+## Команда `:helpgrep`
 
-If you do not know what the name of the topic is, then you can search the entire documentation for a phrase by using `:helpgrep`. Suppose you want to know how to look for the beginning of a word, then just run `:helpgrep beginning of a word`.
+Если вы не знаете, как называется тема, то сможете найти всю документацию для фразы с помощью `:helpgrep`. Предположим, вы хотите знать, как искать в начале слова, то просто запустите `:helpgrep beginning of a word`.
 
-You can use `:cnext` and `:cprev` to move to the next and previous part of the documentation where that phrase occurs. Use `:clist` to see the whole list of all the occurrences of the phrase.
+Вы можете использовать `:cnext` и `:cprev` для перехода к следующей и предыдущей части документации, где встречается эта фраза. Используйте `:clist`, чтобы просмотреть список всех вхождений фразы.
 
-## Quick help
+## Быстрая справка
 
-Copy the following text into a file in Vim and then also run it:
+Скопируйте следующий текст в файл в Vim, а затем также запустите его:
 
 ``` viml
 :let &keywordprg=':help'
 ```
 
-Now, position your cursor anywhere on the word `keywordprg` and just press `K`. You'll be taken to the help immediately for that word. This shortcut avoids having to type `:help keywordprg`.
+Теперь поместите курсор в любом месте на слово `keywordprg` и просто нажмите `K`. Вы будете немедленно отправлены в помощь за это слово. Этот ярлык позволяет избежать необходимости вводить `:help keywordprg`.
 
-## Mailing List
+## Список рассылки
 
-If you are still not able to figure out what you want to do, then the next best thing is to approach other Vim users to help you out. Don't worry, this is actually very easy and it is amazing how other Vimmers who are willing to help you out.
+Если вы все еще не можете понять что хотите сделать, то следующая лучшая вещь - обратиться к другим пользователям Vim за помощью. Не волнуйтесь, это на самом деле очень легко, и удивительно, как другие Виммеры готовы помочь вам.
 
-Search the Vim mailing list to see if someone has already answered your question. Just go to the [Vim Group search page](http://groups.google.com/group/vim_use) and then enter the keywords of your question. Most of the times, many common questions will be already answered since this is such a high-traffic mailing list i.e. lots and lots of people ask questions and give answers in this group.
+Поищите в списке рассылки Vim, чтобы узнать, ответил ли кто-нибудь на ваш вопрос. Просто перейдите на [страницу поиска Vim Group](http://groups.google.com/group/vim_use) а затем введите ключевые слова вашего вопроса. В большинстве случаев на многие распространенные вопросы уже были даны ответы, так как этот список рассылки с высоким трафиком, т.е. много и много людей задают вопросы и получают ответы в этой группе.
 
-If you cannot find any relevant answer, then post your question in the same mailing list.
+Если вы не можете найти подходящий ответ, то разместите свой вопрос в том же списке рассылки.
 
-## Summary
+## Резюме
 
-There is a wealth of information on how to do things using Vim, and many Vimmers would gladly help you out as well. The Vim community is one of the greatest strengths of the Vim editor, so make sure to use the resources and do join the growing community as well.
+Существует огромное количество информации о том, как делать вещи с помощью Vim, и многие Vim'меры с удовольствием помогут вам. Сообщество Vim является одним из самых сильных сторон редактора Vim, поэтому обязательно используйте ресурсы и присоединяйтесь к растущему сообществу.
 
-> The true delight is in the *finding out* rather than in the *knowing*.
-> -- Isaac Asimov
+> Истинное наслаждение заключается в том, чтобы *узнать*, а не в том, чтобы *знать*.
+> -- Айзек Азимов
