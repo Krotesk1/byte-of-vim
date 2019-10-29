@@ -154,7 +154,7 @@
 
 В различных движениях, которые мы изучили, нам может понадобиться вернуться к предыдущему местоположению или к следующему после перемещения. Чтобы сделать это, просто нажмите `ctrl-o`, чтобы перейти на предыдущую локацию и `ctrl-i`, чтобы прыгать вперед снова в следующие места.
 
-## Parts of the text {#text-objects}
+## Части текста {#text-objects}
 
 Существуют различные способы указания текстовых объектов в Vim, чтобы передать их команде. Например, вы хотите визуально выделить часть текста, а затем преобразовать регистр (из верхнего в нижний или из нижнего в верхний) текста с помощью клавиши `~`.
 
@@ -163,17 +163,18 @@
 > Dapping means being determined about being determined and being passionate about being passionate. <br>
 > Be a dapper.
 
-Press `v` to start the visual mode, and press `ap` to select 'a' 'p'aragraph. Press `~` to flip the case of the text. If you want to cancel the selection, simply press `<Esc>`.
+Нажмите `v` для запуска визуального режима и затем `ap` для выбора 'p'aragraph (абзаца) 'a'. Нажмите `~` для изменения регистра текста. Если захотите отменить изменения, то просто нажмите `<Esc>`.
 
 > Dapping means being determined about being determined and being passionate about being passionate. <br>
 > bE A DAPPER.
 
+Другие мнемоники текстовых объектов - это 'aw', что означает 'w'ord (слово) 'a', `a"` означает строку в кавычках (например "это строка в кавычках"), `ab` - 'b'lock 'a' что означает что-либо в пределах пары скобок и т.д.
 Other text object mnemonics are `aw` which means 'a' 'w'ord, `a"` means a quoted string (like "this is a quoted string"), `ab` means 'a' 'b'lock which means anything within a pair of parentheses, and so on.
 
-See `:help object-motions` and `:help text-objects` for more details.
+Смотрите `:help object-motions` и `:help text-objects` для более подробной информации.
 
 ## Резюме
 
 Мы увидели богатое количество методов, которые Vim предоставляет нам для перемещения по тексту. Не нужно запоминать каждое из этих движений, гораздо важнее сделать их привычкой, особенно те, которые наиболее важны для вас, и когда они станут для вас привычкой, то уменьшат движения ваших рук, вы станете быстрее и в конечном итоге будете тратить больше времени на размышления о своем письме, а не на программное обеспечение, которое используете для написания.
 
-Смотрите `:help various-motions`, а также `:help motion` для более интересных методах передвижения.
+Смотрите `:help various-motions`, а также `:help motion` о более интересных методах передвижения.
