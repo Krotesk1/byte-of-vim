@@ -7,7 +7,7 @@
 * [Режимы](modes.md)
 * [Навыки набора текста](typing_skills.md)
 * [Перемещение](moving_around.md)
-* [Помощь](help.md)
+* [Справка](help.md)
 * [Основы редактирования](editing_basics.md)
 * [Multiplicity](multiplicity.md)
 * [Управление персональной информацией](pim.md)
