@@ -180,7 +180,7 @@ Vim запускается с вашим домашним каталогом в 
 
 ## Marking your territory
 
-You are writing, and you suddenly realize you have to change sentences in a previous section to support what you are writing in this section. The problem is that you have to remember where you are right now so that you can come back to it later. Can't Vim remember it for me? This can be achieved using marks.
+Вы пишете, и вы вдруг понимаете, что нужно изменить предложения в предыдущем разделе, чтобы дополнить то, что вы пишете в этом разделе. Проблема в том, что вы должны помнить, где находитесь прямо сейчас, чтобы вернуться сюда позже. Неужели Vim не может запомнить это для меня? Это может быть достигнуто с помощью меток.
 
 You can create a mark by pressing m followed by the name of the mark which is a single character from `a-zA-Z`. For example, pressing `ma` creates the mark called 'a'.
 
