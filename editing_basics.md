@@ -116,7 +116,7 @@ Take some time to think and figure this out for yourself. Take your time. Now re
 
 So, press `dw` and you delete a word. Voila! So simple and so beautiful. The beauty is that such simple concepts can be combined to provide such a rich range of possibilities.
 
-How do we achieve the same operation for lines? Well, lines are considered special in Vim because lines are usually how we think about our text. As a shortcut, if you repeat the operation name twice, it will operate on the line. So, dd will delete the current line and yy will yank the current line.
+How do we achieve the same operation for lines? Well, lines are considered special in Vim because lines are usually how we think about our text. As a shortcut, if you repeat the operation name twice, it will operate on the line. So, `dd` will delete the current line and `yy` will yank the current line.
 
 Our example text in Vim should now look like this:
 
@@ -150,7 +150,7 @@ You should now see:
 > <br>
 > This is the second paragraph.
 
-Notice that the blank line is also copied when we do yap, so p adds that extra blank line as well.
+Notice that the blank line is also copied when we do `yap`, so `p` adds that extra blank line as well.
 
 There are two types of paste that can be done exactly like the two types of inserts we have seen before:
 
