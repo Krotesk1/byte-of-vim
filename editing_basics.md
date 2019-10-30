@@ -32,117 +32,120 @@
 > <br>
 > Теперь вы можете просто нажать `ctrl-s`, чтобы сохранить файл.
 
-### Working in my directory
+### Работа в моем каталоге
 
-Vim starts up with your home directory as the default directory and all operations will be done within that directory.
+Vim запускается с вашим домашним каталогом в качестве каталога по умолчанию, и все операции будут выполняться в нем.
 
-To open files located in other directories, you can use the full or relative paths such as:
+Для открытия файлов, расположенных в других директориях, можно использовать полные или относительные пути, такие как:
 
 ``` viml
 :e ../tmp/test.txt
 :e C:\\shopping\\monday.txt
 ```
 
-Or you can switch Vim to that directory:
+Или вы можете переключить Vim на этот каталог:
 
 ``` viml
 :cd ../tmp
 ```
 
-`:cd` is short for 'c'hange 'd'irectory.
+`:cd` - это сокращение от 'c'hange 'd'irectory (смена каталога).
 
-To find out the current directory where Vim is looking for files:
+Чтобы узнать текущий каталог, в котором Vim ищет файлы:
 
 ``` viml
 :pwd
 ```
 
-`:pwd` is short for 'p'rint 'w'orking 'd'irectory.
+`:pwd` - сокращение от 'p'rint 'w'orking 'd'irectory (напечатать рабочий каталог).
 
-## Cut, Copy and Paste
+## Выразание, копирование и вставка
 
-As Sean Connery says, in the movie [Finding Forrester](http://www.imdb.com/title/tt0181536/):
+Как говорит Шон Коннери в фильме [Найти Форрестера](http://www.imdb.com/title/tt0181536/):
 
 > No thinking - that comes later. You must write your first draft with your heart. You rewrite with your head. The first key to writing is... to write, not to think!
+> Не думай - это придет позже. Ты должен написать свой первый черновик сердцем. Ты переписываешь с головой. Первый ключ к написанию - это... писать, а не думать!
 
-When we rewrite, we frequently rearrange the order of the paragraphs or sentences i.e. we need to be able to cut/copy/paste the text. In Vim, we use a slightly different terminology:
+Когда мы переписываем, мы часто меняем порядок абзацев или предложений, т.е. нам нужно иметь возможность вырезать/копировать/вставлять текст. В Vim мы используем несколько иную терминологию:
 
-| Desktop world | Vim world | Operation |
+| Мир десктопа | Мир Vim | Операция |
 | --- | --- | --- |
-| cut | delete | `d` |
-| copy | yank | `y` |
-| paste | paste | `p` |
+| cut (вырезать) | delete | `d` |
+| copy (копировать)| yank | `y` |
+| paste (вставить) | paste | `p` |
 
-In normal desktop terminology, 'cut'ting text means removing the text and putting it into the clipboard. The same operation in Vim means it deletes the text from the file buffer and stores it in a 'register' (a part of the computer's memory). Since we can choose the register where we can store the text, it is referred to as the "delete" operation.
+В обычной терминологии 'cut'ting (вырезать) текст означает удалить текст и поместить его в буфер обмена. Та же операция в Vim означает, что он удаляет текст из файлового буфера и сохраняет его в "регистре" (часть памяти компьютера). Поскольку мы можем выбрать регистр, в котором можем хранить текст, операция называется "удалить" (delete).
 
-Similarly, in normal desktop terminology, 'copy' text means that a copy of the text is placed on the clipboard. Vim does the same, it "yanks" the text and places it in a register.
+Аналогично, в обычной терминологии "копировать" текст означает, что копия текста помещается в буфер обмена. Vim делает то же самое, он "yanks" (дергает) текст и помещает его в регистр.
 
-"Paste" means the same in both terminologies.
+"Вставить" (paste) означает то же самое в обеих терминологиях.
 
-We have seen how you can do cut/copy/paste operations in Vim. But how do you specify which text that these operations should work on? Well, we have already explored that in the previous [Text Objects section](./moving_around.md#text-objects).
+Мы видели как вы можете выполнять операции вырезания/копирования/вставки в Vim. Но как вы определяете, с каким текстом должны работать эти операции? Мы уже исследовали это в предыдущем [разделе Части текста](./moving_around.md#text-objects).
 
-Combining the operation notation and the text object notation means we have innumerable ways of manipulating the text. Let's see a few examples.
+Сочетание нотации операции и нотации объекта текста означает, что у нас есть бесчисленные способы манипулирования текстом. Давайте рассмотрим несколько примеров.
 
-Write this text in Vim (exactly as shown):
+Напишите этот текст в Vim (точно так, как показано):
+
+<!-- Combining the operation notation and the text object notation means we have innumerable ways of manipulating the text. Let's see a few examples. -->
 
 > This is the rthe first paragraph. <br>
 > This is the second line. <br>
 > <br>
 > This is the second paragraph. <br>
 
-Place the cursor at the topmost leftmost position, by pressing `1G` and `|` that moves to the first line and the first column respectively.
+Поместите курсор в самую верхнюю левую позицию, нажав `1G` и `|`, которые перемещают в первую строку и первый столбец соответственно.
 
-Let's see the first case: We have typed an extra 'r' which we have to remove. Press `3w` to move forward by 3 words.
+Давайте рассмотрим первый случай: мы набрали лишнюю 'r', которую теперь необходимо удалить. Нажмите `3w`, чтобы перейти вперед на 3 слова.
 
-Now, we need to delete one character at the current cursor position.
+Теперь нам нужно удалить один символ в текущей позиции курсора.
 
-Note that there are two parts to this:
+Обратите внимание, что это состоит из двух частей:
 
-| Operation | Text Object / Motion |
+| Операция | Текстовый объект / Движение |
 | --- | --- |
-| Delete | One character at current cursor position |
+| Удаление | Один символ от текущей позиции курсора |
 | `d` | `l` |
 
-So, we have to just press `dl` and we delete one character! Notice that we can use `l` even though it is a motion.
+Итак, мы должны просто нажать `dl` и удалить один символ! Обратите внимание, что мы можем использовать `l`, даже если это движение.
 
-Now we notice that the whole word is redundant because we have "the" twice. Now think carefully on what should be fastest key combination to fix this?
+Теперь мы замечаем, что весь мир избыточен, потому что у нас есть "свое" дважды. Теперь подумайте хорошенько о том, какая должна быть самая быстрая комбинация клавиш, чтобы исправить это?
 
-Take some time to think and figure this out for yourself. Take your time. Now read on.
+Потратьте некоторое время, чтобы подумать и выяснить это для себя. Не торопитесь. А теперь читайте дальше.
 
-| Operation | Text Object / Motion |
+| Операция | Текстовый объект / Движение |
 | --- | --- |
-| Delete | Word |
+| Удаление | Слово |
 | `d` | `w` |
 
-So, press `dw` and you delete a word. Voila! So simple and so beautiful. The beauty is that such simple concepts can be combined to provide such a rich range of possibilities.
+Итак, нажав `dw` вы удалите слово. Вуаля! Так просто и так красиво. Красота заключается в том, что такие простые концепции могут быть объединены, для обеспечения такого богатого спектра возможностей.
 
-How do we achieve the same operation for lines? Well, lines are considered special in Vim because lines are usually how we think about our text. As a shortcut, if you repeat the operation name twice, it will operate on the line. So, dd will delete the current line and yy will yank the current line.
+Как мы достигаем такой же операции для строк? Ну, строки считаются особенными в Vim, потому что строки - это обычно то, как мы думаем о нашем тексте. Сокращенно, если вы повторите имя операции дважды, она будет работать на строке. Таким образом, `dd` удалит текущую строку, а `yy` будет дергать текущую строку.
 
-Our example text in Vim should now look like this:
+Наш пример текста в Vim теперь должен выглядеть так:
 
 > This is the first paragraph. <br>
 > This is the second line. <br>
 > <br>
 > This is the second paragraph.
 
-Go to the second line by pressing `j`. Now press `dd` and the line should be deleted. You should now see:
+Перейдите ко второй строке, нажав `j`. Теперь нажмите `dd` и строка должна быть удалена. Теперь вы должны увидеть:
 
 > This is the first paragraph. <br>
 > <br>
 > This is the second paragraph.
 
-Let's see a bigger case: How do we yank the current paragraph?
+Давайте посмотрим на более крупный случай: как выдернуть текущий абзац?
 
-| Operation | Text Object / Motion |
+| Операция | Текстовый объект / Движение |
 | --- | --- |
-| Yank | A Paragraph |
+| Yank | Абзац |
 | `y` | `ap` |
 
-So, `yap` will copy the current paragraph.
+Итак, `yap` скопирует текущий абзац.
 
-Now that we have done copying the text, how do we paste it? Just `p` it.
+Теперь, когда мы завершили копирование текста, как мы можем вставить его? Просто `p`.
 
-You should now see:
+Теперь вы должны увидеть:
 
 > This is the first paragraph. <br>
 > This is the first paragraph. <br>
@@ -150,30 +153,30 @@ You should now see:
 > <br>
 > This is the second paragraph.
 
-Notice that the blank line is also copied when we do yap, so p adds that extra blank line as well.
+Обратите внимание, что пустая строка также копируется, когда мы выполняем `yap`, поэтому `p` добавляет и эту дополнительную пустую строку.
 
-There are two types of paste that can be done exactly like the two types of inserts we have seen before:
+Существует два типа вставки, которые можно сделать точно так же, как два вида вставок, которые мы видели ранее:
 
-| Key | Mnemonic |
+| Клавиша | Действие |
 | --- | --- |
-| `p` | paste after current cursor position |
-| `P` | paste before current cursor position |
+| `p` | Вставка после текущей позиции курсора |
+| `P` | Вставка перед текущей позицией курсора |
 
-Taking the idea further, we can combine these into more powerful ways.
+Развивая эту идею дальше, мы можем объединить их в более мощные способы.
 
-How to swap two characters? Press `xp`.
+Как поменять местами два символа? Нажмите `хр`.
 
-- `x` &rarr; delete one character at current cursor position
-- `p` &rarr; paste after current cursor position
+- `x` &rarr; удалить один символ в текущей позиции курсора
+- `p` &rarr; вставить после текущей позиции курсора
 
-How to swap two words? Press `dwwP`.
+Как поменять местами два слова? Нажмите `dwwP`.
 
-- `d` &rarr; delete
-- `w` &rarr; one word
-- `w` &rarr; move to the next word
-- `P` &rarr; paste before the current cursor position
+- `d` &rarr; удалить
+- `w` &rarr; одно слово
+- `w` &rarr; переместить на следующее слово
+- `P` &rarr; вставить перед текущей позицией курсора
 
-The important thing is *not* to learn these operations by rote. These combinations of operations and text objects/motions should be automatic for your fingers, without you needing to put in mental effort. This happens when you make using these a habit.
+Важно *не* заучивать эти операции наизусть. Эти комбинации действий и текстовых объектов/движений должны быть автоматизированы для ваших пальцев, без раздумий. Это происходит, когда вы делаете их использование привычкой.
 
 ## Marking your territory
 
@@ -281,8 +284,8 @@ Similarly, what if you wanted to search for any number? Searching for `/\d` will
 
 There are a variety of such magic stuff we can use in our search patterns. See `:help pattern` for details.
 
-## Summary
+## Резюме
 
-We have explored some of the basic editing commands that we will use in our everyday usage of Vim. *It is very important that you go through these concepts again and make them a habit.* It is not important to learn each and every option or nuances of these commands. If you know how to use the command and know how to find out more on it based on what you need, then you're a true Vimmer.
+Мы рассмотрели некоторые из основных команд редактирования, которые будем использовать в нашем повседневном использовании Vim. *Очень важно, чтобы вы снова повторили эти понятия и сделали их привычкой.* Не нужно изучать каждый вариант или нюансы этих команд. Если вы знаете, как использовать команду и знаете, как найти больше о том, что вам необходимо, то вы настоящий Vim'мер.
 
-Now, go ahead and start editing!
+Теперь, идите вперед и начните редактирование!
