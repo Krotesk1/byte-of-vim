@@ -16,7 +16,7 @@
 * [Редактор программиста](programmer_editor.md)
 * [Подробнее](more.md)
 * [Что дальше](what_next.md)
-* [Отзывы](feedback.md)
+* [Обратная связь](feedback.md)
 * [Благотворительность](charityware.md)
 * [Послесловие](colophon.md)
 * [Версии](versions.md)
