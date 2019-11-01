@@ -178,23 +178,23 @@ Vim запускается с вашим домашним каталогом в 
 
 Важно *не* заучивать эти операции наизусть. Эти комбинации действий и текстовых объектов/движений должны быть автоматизированы для ваших пальцев, без раздумий. Это происходит, когда вы делаете их использование привычкой.
 
-## Marking your territory
+## Разметка своей территории
 
-Вы пишете, и вы вдруг понимаете, что нужно изменить предложения в предыдущем разделе, чтобы дополнить то, что вы пишете в этом разделе. Проблема в том, что вы должны помнить, где находитесь прямо сейчас, чтобы вернуться сюда позже. Неужели Vim не может запомнить это для меня? Это может быть достигнуто с помощью меток.
+Вы пишете, и вы вдруг понимаете, что нужно изменить предложения в предыдущем разделе, чтобы дополнить то, что вы пишете в этом разделе. Проблема в том, что вы должны помнить, где находитесь прямо сейчас, чтобы вернуться сюда позже. Неужели Vim не может запомнить это для меня? Это может быть реализовано с помощью меток.
 
-You can create a mark by pressing m followed by the name of the mark which is a single character from `a-zA-Z`. For example, pressing `ma` creates the mark called 'a'.
+Вы можете создать метку нажав `m`, а затем имя метки, которое является одним символом из `a-zA-Z`. Например, нажатие `ma` создает метку с именем "a".
 
-Pressing `'a` returns the cursor to line of the mark. Pressing <code>`a</code> will take you to the exact line and column of the mark.
+Нажатие `'a` возвращает курсор к строке метки. Нажатие <code>`a</code> приведет вас к точной строке и столбцу метки.
 
-The best part is that you can jump to this position using these marks any time thereafter.
+Самое приятное, что вы можете перейти в эту позицию используя эти метки в любой момент после этого.
 
-See `:help mark-motions` for more details.
+Смотрите `:help mark-motions` для более подробной информации.
 
 ## Time machine using undo/redo
 
-Suppose you are rewriting a paragraph but you end up muddling up what you were trying to rewrite and you want to go back what you had written earlier. This is where we can "undo" what we just did. If we want to change back again to what we have now, we can "redo" the changes that we have made. Note that a change means some change to the text, it does not take into account cursor movements and other things not directly related to the text.
+Предположим, вы переписываете абзац, но в конечном итоге путаете то, что вы пытались переписать, и хотите вернуться к тому, что написали ранее. Здесь мы хотим "отменить" то, что только что сделали. Если мы хотим вернуться к тому, что у нас есть сейчас, мы можем "повторить" изменения, которые сделали. Обратите внимание, что изменение подразумевает некоторое изменение текста, оно не учитывает движения курсора и другие вещи, не связанные непосредственно с текстом.
 
-Suppose you have the text:
+Предположим, у вас есть текст:
 
 > I have coined a phrase for myself - 'CUT to the G': <br>
 > 1. Concentrate <br>
@@ -204,40 +204,40 @@ Suppose you have the text:
 > <br>
 > Step 4 is eventually what gets you moving, but Steps 2 and 3 are equally important. As Abraham Lincoln once said "If I had eight hours to chop down a tree, I'd spend six hours sharpening my axe." And to get to this stage, you need to do Step 1 which boils down to one thing - It's all in the mind. That's why it's so hard.
 
-Now, start editing the first line:
+Теперь начните редактирование первой строки:
 
-1. Press `S` to 's'ubstitute the whole line.
-2. Type the text `After much thought, I have coined a new phrase to help me solidify my approach:`.
-3. Press `<esc>`.
+1. Нажмите `S` для 's'ubstitute (замены всей строки.
+2. Введите текст `After much thought, I have coined a new phrase to help me solidify my approach:`.
+3. Нажмите `<esc>`.
 
-Now think about the change that we just did. Is the sentence better? Hmm, was the text better before? How do we switch back and forth?
+А теперь подумайте об изменениях, которые мы только что совершили. Это предложение лучше? Хм, а может раньше текст был лучше? Как мы переключимся туда и обратно?
 
-Press `u` to undo the last change and see what we had before. You will now see the text `I have coined a phrase for myself - 'CUT to the G':`. To come back to the latest change, press `ctrl-r` to now see the line `After much thought, I have coined a new
-phrase to help me solidify my approach:`.
+Нажмите `u` чтобы отменить последнее изменение и посмотреть что у нас было раньше. Теперь вы увидите текст `I have coined a phrase for myself - 'CUT to the G':`. Чтобы вернуться к последнему изменению, нажмите `ctrl-r` и теперь увидите строку `After much thought, I have coined a new phrase to help me solidify my approach:`.
 
-It is important to note that Vim gives unlimited history of undo/redo changes, but it is usually limited by the `undolevels` setting in Vim and the amount of memory in your computer.
+Необходимо отметить, что Vim предоставляет неограниченную историю изменений отмены/повтора, но обычно она ограничена настройкой `undolevels` в Vim и объемом памяти на вашем компьютере.
 
-Now, let's see some stuff that really shows off Vim's advanced undo/redo functionality, some thing that other editors will be jealous of: Vim is not only your editor, it also acts as a time machine.
+Теперь давайте посмотрим на некоторые вещи, которые действительно демонстрируют расширенную функциональность отмены/повтора Vim, такие вещи, которым другие редакторы будут завидовать: Vim - это не только ваш редактор, но также машина времени.
 
-For example, `:earlier 4m` will take you back by 4 minutes i.e. the state of the text 4 minutes "earlier".
+Например, `:earlier 4m` вернет вас на 4 минуты назад, тоесть состояние текста 4 минутами "earlier" (ранее).
 
-The power here is that it is superior to all undoes and redoes. For example, if you make a change, then you undo it, and then continue editing, that change is actually never retrievable using simple u again. But it is possible in Vim using the `:earlier` command.
+Сила здесь в том, что она превосходит все отмены и повторы. Например, если вы внесете изменение, а затем отмените, а после продолжите редактирование, это изменение фактически никогда не будет восстановлено снова с помощью простого `u`. Но это возможно в Vim с помощью команды `:earlier`.
 
-You can also go forward in time: `:later 45s` which will take you later by 45 seconds.
+Вы также можете шагнуть вперед во времени `:later 45s`, что займет у вас позже на 45 секунд. <!--нифига непонятно-->
+<!--You can also go forward in time: `:later 45s` which will take you later by 45 seconds.-->
 
-Or if you want the simpler approach of going back by 5 changes: `:undo 5`.
+Или, если вы хотите более простой подход к возврату на 5 изменений: `:undo 5`.
 
-You can view the undo tree using `:undolist`.
+Вы можете просмотреть дерево отмен, используя `:undolist`.
 
-See :help `:undolist` for the explanation of the output from this command.
+Смотрите `:help undolist` для объяснения выходных данных этой команды.
 
-See `:help undo-redo` and `:help usr_32.txt` for more details.
+Смотрите `:help undo-redo` и `:help usr_32.txt` для более подробной информации.
 
 ## A powerful search engine but not a dotcom
 
-Vim has a powerful built-in search engine that you can use to find exactly what you are looking for. It takes a little getting used to the power it exposes, so let's get started.
+Vim имеет мощный встроенный поисковик, который вы можете использовать чтобы найти именно то, что ищете. Нужно немного привыкнуть к силе, которую он предоставляет, так что давайте начнем.
 
-Let's come back to our familiar example:
+Давайте вернемся к нашему знакомому примеру:
 
 > I have coined a phrase for myself - 'CUT to the G': <br>
 > 1. Concentrate <br>
@@ -247,42 +247,41 @@ Let's come back to our familiar example:
 > <br>
 > Step 4 is eventually what gets you moving, but Steps 2 and 3 are equally important. As Abraham Lincoln once said "If I had eight hours to chop down a tree, I'd spend six hours sharpening my axe." And to get to this stage, you need to do Step 1 which boils down to one thing - It's all in the mind. That's why it's so hard.
 
-Suppose we want to search for the word "Step". In normal mode, type `/Step<cr>` (i.e. `/Step` followed by `enter` key). This will take you to the first occurrence of those set of characters. Press `n` to take you to the 'n'ext occurrence and `N` to go in the opposite direction i.e. the previous occurrence.
+Предположим, мы хотим найти слово "Step". В обычном режиме, типа `/Step<cr>` (т.е. `/Step` затем клавиша `Enter`). Это приведет вас к первому появлению этого набора символов. Нажатие `n` переместит к следующему вхождению, и `N` - для противоположного направления, т.е. к предыдущему вхождению.
 
-What if you knew only a part of the phrase or don't know the exact spelling? Wouldn't it be helpful if Vim could start searching as and when you type the search phrase? You can enable this by running:
+Что делать,если вы знали только часть фразы или не знаете точного написания? Не было бы полезно, если бы Vim мог начать поиск, как и когда вы вводите поисковую фразу? Вы можете включить это, запустив:
 
 ``` viml
 set incsearch
 ```
 
-You can also tell Vim to ignore the case (whether lower or upper case) of the text that you
-are searching for:
+Вы также можете указать Vim игнорировать регистр (нижний или верхний) текста, который вы ищете:
 
 ``` viml
 set ignorecase
 ```
 
-Or you can use:
+Или можете использовать:
 
 ``` viml
 set smartcase
 ```
 
-When you have `smartcase` on:
+Если Вы используете `smartcase`, то:
 
-- If you are searching for `/step` i.e. the text you enter is in lower case, then it will search for any combination of upper and lower case text. For example, this will match all the following four - "Step", "Stephen", "stepbrother", "misstep."
-- If you are searching for `/Step` i.e. the text you enter has an upper case, then it will search for **only** text that matches the exact case. For example, it will match "Step" and "Stephen", but not "stepbrother" or "misstep."
+- Если вы ищете `/step` т.е. текст, который вы вводите, находится в нижнем регистре, то он будет искать любую комбинацию верхнего и нижнего регистра текста. Например, этому будут соответствовать все следующие четыре - "Step", "Stephen","stepbrother", "misstep."
+- Если вы ищете `/Step` т. е. текст, который вы вводите, имеет верхний регистр, то он будет искать **только** текст, который соответствует точному регистру. Например, он будет соответствовать "Step" и "Stephen", но не "steprother" или "misstep."
 
-> NOTE: I recommend that you put these two lines in your vimrc file (explained later, but see `:help vimrc-intro` for a quick introduction) so that this is enabled always.
+> Примечание: Я рекомендую вам поместить эти две строки в свой файл vimrc (объяснено позже, но см. `:help vimrc-intro` для быстрого Ознакомления), чтобы это всегда было включено.
 
-Now that we have understood the basics of searching, let's explore the real power of searching. The first thing to note that what you provide Vim can not only be a simple phrase, it can be a "expression". An expression allows you to specify the 'kinds' of text to search for, not just the exact text to look.
+Теперь, когда мы поняли основы поиска, давайте познаем его реальную силу. Первое, что необходимо отметить, это то, что вы предоставляете Vim, может быть не только простой фразой, но и "выражением". Выражение позволяет указать "виды" текста для поиска, а не только точный текст для поиска.
 
-For example, you will notice that /step will take you to steps as well as step and even footstep if such a word is present. What if you wanted to look for the exact word step and not when it is part of any other word? Then you can search using `/\<step\>`. The `\<` and
-`\>` indicate the start and end positions of a "word" respectively.
+Например, вы заметите, что /step приводит вас к steps, а также step и даже footstep, если такое слово присутствует. Что делать, если вы хотите искать точное слово step, а не когда оно является частью любого другого слова? Для этого вы можете выполнить поиск с помощью `/\<step\>`. Где `\<` и
+`\>` указывают начальную и конечную позиции "слова" соответственно.
 
-Similarly, what if you wanted to search for any number? Searching for `/\d` will look for a 'digit'. But a number is just a group of digits together. So we specify "one or more" digits together as `/\d\+`. If we were looking for zero or more characters, we can use the `*` instead of the `+`.
+Точно так же, что делать, если вы хотите найти число? Поиск пок `/\d` будет искать 'digit' (цифру). Но число - это всего лишь группа цифр вместе взятых. Поэтому мы указываем "одну или несколько" цифр вместе как `/\d\+`. Если мы ищем ноль или более символов, то можем использовать `*` вместо `+`.
 
-There are a variety of such magic stuff we can use in our search patterns. See `:help pattern` for details.
+Есть множество таких магических вещей, которые мы можем использовать в наших шаблонах поиска. Подробности смотрите в `:help pattern`.
 
 ## Резюме
 
