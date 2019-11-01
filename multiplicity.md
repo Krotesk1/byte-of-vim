@@ -1,14 +1,14 @@
-# Multiplicity
+# Множественность
 
 В этой главе мы рассмотрим как Vim помогает нам работать между различными частями файла, различными файлами, различными "окнами" и вкладками, чтобы помочь нам работать параллельно. В конце концов, важной частью хорошего редактирования является управление файлами.
 
-## Multiple Sections using Folds
+## Использование сворачивания для нескольких разделов
 
-If you're editing a long document, wouldn't it be easier if you can "close" all sections of the document and focus on only one at a time?
+Если вы редактируете большой документ, не было бы проще, если бы вы могли "закрыть" все разделы документа и сосредоточиться только на одном?
 
-This is what we call *folding* in Vim.
+Это то, что мы называем *сворачиванием* в Vim.
 
-Let us take the example where your document is structured such that each level of the text is indented one level higher such as the following piece of text:
+Давайте возьмем пример, когда ваш документ структурирован таким образом, когда каждый уровень текста имеет отступ на один уровень выше, например, следующий фрагмент текста:
 
 ```
 Book I
@@ -34,25 +34,25 @@ Book I
         And whither then? I cannot say.
 ```
 
-> NOTE: This text was [taken from WikiQuote](http://en.wikiquote.org/wiki/The_Fellowship_of_the_Ring).
+> Примечание: Этот текст был [взят с WikiQuote](http://en.wikiquote.org/wiki/The_Fellowship_of_the_Ring).
 
-After writing this text, run `:set foldmethod=indent`, position your cursor on the text you want to indent, press `zc` and see how the text folds up. Press `zo` to open the fold.
+После написания этого текста запустите `:set foldmethod=indent`, поместите курсор на текст, который вы хотите отступить, нажмите `zc` и увидите как текст сворачивается. Нажмите кнопку `zo` для открытия складки.
 
-Basic commands are `zo` and `zc` where we can open and close the fold respectively. You can use `za` to 'a'lternate between opening and closing a fold respectively. You can make it even easier by using the spacebar (in normal mode) to open and close a fold:
+Основные команды - `zo` и `zc`, где мы можем открыть и закрыть складку соответственно. Вы можете использовать `za` для чередования открытия и закрытия сгиба складки. Вы можете сделать это еще проще, используя пробел (в нормальном режиме), чтобы открыть и закрыть складку:
 
 ``` viml
 :nmap <space> za
 ```
 
-Folding is a huge topic on its own with more ways of folding (manual, marker, expression) and various ways of opening and closing hierarchies of folds, and so on. See `:help folding` for details.
+Сворачивание - это огромная тема сама по себе, с большим количеством способов (ручное, маркерное, экспрессивное) и различными способами открытия и закрытия иерархий складок и так далее. Подробности см. В разделе `:help folding`.
 
-## Multiple Buffers
+## Множество буферов
 
-Suppose you wanted to edit more than one file at a time using the same Vim, what do you do?
+Предположим, вы хотите редактировать несколько файлов одновременно, используя один и тот же Vim, что вы делаете?
 
-Remember that files are loaded into buffers in Vim. Vim can also load multiple buffers at the same time. So, you can have multiple files open at the same time and you can keep switching between them.
+Помните, что файлы загружаются в буферы в Vim. Vim также может загружать несколько буферов одновременно. Таким образом, вы можете открывать одновременно несколько файлов и переключаться между ними.
 
-Let's say you have two files, `part1.txt` and `part2.txt`:
+Допустим, у вас есть два файла, `part1.txt` и `part2.txt`:
 
 *part1.txt*
 
@@ -66,26 +66,37 @@ Let's say you have two files, `part1.txt` and `part2.txt`:
 
 >  Step 4 is eventually what gets you moving, but Steps 2 and 3 are equally important. As Abraham Lincoln once said "If I had eight hours to chop down a tree, I'd spend six hours sharpening my axe." And to get to this stage, you need to do Step 1 which boils down to one thing - It's all in the mind. That's why it's so hard.
 
-Now, run `:e part1.txt` and then run `:e part2.txt`. Observe that you have the second file now open for editing. How do you switch back to the first file? In this particular case, you can just run `:b 1` to switch to 'b'uffer number '1'. You can also run `:e part1.txt` to open the existing buffer into view.
+А теперь запустим `:e part1.txt` и `:е part.txt` Обратите внимание, что второй файл теперь открыт для редактирования. Как вернуться к первому файлу? В этом конкретном случае вы можете просто запустить `:b 1`, 'b'uffer (буфер) номер '1'. Вы также можете запустить `:e part1.txt`, чтобы открыть существующий буфер для просмотра.
 
-You can see what buffers has been loaded and correspondingly, which files are being edited by running `:buffers` or a shorter form, `:ls` which stands for 'l'i's't buffers.
+Вы можете видеть, какие буферы были загружены и, соответственно, какие файлы редактируются с помощью запуска `:buffers` или более короткой формы `:ls`, что означает 'l'i's't (список) буферов".
 
-Buffers will be automatically removed when you close Vim, so you don't have to do anything special other than making sure you save your files. However, if you really want to remove a buffer, for example in order to use less memory, then you can use `:bd 1` to 'd'elete the 'b'uffer numbered '1', etc.
+Буферы будут автоматически удалены при закрытии Vim, так что вам не нужно делать ничего особенного, кроме как убедиться, что вы сохранили свои файлы. Однако, если вы действительно хотите удалить буфер, например, чтобы использовать меньше памяти, то можете использовать `:bd 1` для 'd'elete (удаления) буфера с номером '1' и т.д.
+
+Смотрите `:help buffer-list` о многочисленных вещах, которые вы можете сделать с буферами.
 
 See `:help buffer-list` on the numerous things you can do with buffers.
 
-## Multiple Windows
+## Множество окон
 
-We have seen how to edit multiple files at the same time, but what if we wanted to view two different files simultaneously. For example, you want to have two different chapters of your book open so that you can write the second chapter consistent with the wordings/description given in the first chapter. Or you want to copy/paste some stuff from the first file to the second file.
+Мы видели, как редактировать несколько файлов одновременно, но что делать, если мы хотим просмотреть два разных файла одновременно. Например, вы хотите, чтобы были открыты две разные главы вашей книги для написания второй главы в соответствии с формулировками/описанием, приведенными в первой главе. Или просто хотите скопировать/вставить некоторые вещи из первого файла во второй.
 
-In the last section, we used the same "view" to edit multiple buffers. Vim calls these "views" as windows. This term "window" should *not* be confused with your desktop application window which usually means the entire application itself. Just think of 'windows' as 'views' on different files.
+В последнем разделе мы использовали одно и то же "представление" для редактирования нескольких буферов. Vim называет эти "представления" окнами. Этот термин "окно" *не* следует путать с окном вашего настольного приложения, которое обычно означает само приложение. Просто подумайте о "windows" как о "представлениях" разных файлов.
 
-Let's take the same `part1.txt` and `part2.txt` sample files used in the previous section.
+Давайте возьмем те же `part1.txt` и `part2.txt`, используемые в предыдущем разделе.
 
-First, load the part1.txt using `:e part1.txt`. Now, let's open a new buffer by splitting the window to create a new window - run `:new`. You should now be able to do any normal editing in the new buffer in the new window, except that you can't save the text because you haven't associated a file name with the buffer. For that, you can use `:w test.txt` to save the buffer.
+Во-первых, загрузите part1.txt используя `:e part1.txt` Теперь давайте откроем новый буфер, разделив окно, чтобы создать новое - запуском `:new`. Теперь вы можете выполнять любое обычное редактирование в новом буфере в новом окне, за исключением того, что не можете сохранить текст, потому что вы не связали имя файла с буфером. Для этого вы должны использовать `:w test.txt` для сохранения буфера.
 
 ![](img/multiple_windows.png)
 
+Как переключаться между этими двумя окнами? Просто используя `ctrl-w <клавиша передвижения>` для переключения между окнами. Клавиши передвижения могут быть одной из `h`, `j`, `k`, `l` или даже любой из клавиш со стрелками (в этом примере только клавиши вверх и вниз имеют смысл). Помните, что операции `ctrl-w` работают на окнах "w".
+
+Как быстрый доступ, вы можете нажать `ctrl-w` и дважды, т. е. `сочетание клавиш Ctrl-Вт сочетание клавиш Ctrl-W, чтобы переключаться между всеми открытыми окнами.
+
+Особая ситуация, когда несколько окон полезны, когда вы хотите просмотреть две разные части одного и того же файла одновременно. Просто запустите`: sp`, чтобы создать окно ' sp'lit, а затем вы можете прокрутить каждое окно в другую позицию и продолжить редактирование. Поскольку они оба являются "окнами" в один и тот же буфер, изменения в одном окне будут немедленно отражены в другом окне. Вы также можете использовать `ctrl-w s ' вместо`: sp`.
+
+Чтобы создать вертикальное разделение, используйте`: vsp ' или 'ctrl-w v'. Чтобы закрыть окно, просто запустите`: q'.
+
+Теперь, когда мы увидели, как открывать и использовать несколько окон, давайте посмотрим, как дальше играть с дисплеем.
 How do you switch between these two windows? Just use `ctrl-w <motion key>` to switch between the windows. Motion keys can be one of `h`, `j`, `k`, `l` or even any of the arrow keys (in this example, only up and down keys make sense). Remember that `ctrl-w` operations work on 'w'indows.
 
 As a quick shortcut, you can press `ctrl-w` twice i.e. `ctrl-w ctrl-w` to cycle between all the open windows.
@@ -104,7 +115,7 @@ Now that we have seen how to open and use multiple windows, let's see how to fur
 
 See `:help windows` on more details on what you can do with windows.
 
-## Multiple Tabs
+## Множество вкладок
 
 In web browsers (such as Firefox, Google Chrome or Safari), you may have used the tabs feature which allows you to open multiple websites in a single window so that you can switch between them without having the headache of switching between multiple windows. Well, tabs work exactly the same way in Vim also. Except that they are called "tab pages."
 
@@ -130,6 +141,6 @@ If you want to reorder the tabs, use `:tabmove`. For example, to move the curren
 
 See `:help tabpage` for more details on tab pages and the other operations that you can run, such as `:tabdo` to operate on each of the tab pages which are open, and customizing the title of the tab pages (`:help setting-guitablabel`), etc.
 
-## Summary
+## Резюме
 
-Vim provides a number of ways to edit multiple files at the same time - buffers, windows and tabs. Using these features depends on your personal habit. For example, using multiple tabs may obviate the usage of multiple windows. It's important to use the one which is most convenient and comfortable.
+Vim предоставляет несколько способов редактирования нескольких файлов одновременно - буферы, окна и вкладки. Использование этих функций зависит от вашей личной привычки. Например, использование нескольких вкладок может исключить использование нескольких окон. Важно использовать тот, который наиболее пригоден и удобен.
