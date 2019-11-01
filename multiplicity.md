@@ -1,6 +1,6 @@
 # Multiplicity
 
-In this chapter, let's explore how Vim helps us work between different parts of the file, different files, different 'windows' and different tabs to help us to handle more simultaneously. After all, an important part about good editing is managing files.
+В этой главе мы рассмотрим как Vim помогает нам работать между различными частями файла, различными файлами, различными "окнами" и вкладками, чтобы помочь нам работать параллельно. В конце концов, важной частью хорошего редактирования является управление файлами.
 
 ## Multiple Sections using Folds
 
