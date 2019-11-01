@@ -1,13 +1,9 @@
-# Feedback
-This book is a work-in-progress. Your feedback is essential to improving the book. So, please do [send in your comments](http://www.swaroopch.com/contact/).
+# Обратная связь
+Эта книга находится в стадии разработки. Ваши отзывы очень важны для улучшения книги. Поэтому, пожалуйста, [присылайте свои комментарии](http://www.swaroopch.com/contact/).
 
-This book is also available on its official website as a wiki so go ahead and [fix things yourself](http://www.swaroopch.com/notes/Vim) as well!
+Эта книга также доступна на ее официальном сайте в виде Вики, так что продолжайте и [исправьте все сами](http://www.swaroopch.com/notes/Vim) как лучше!
 
-Known Gaps are:
+Известными недостатками являются:
 
-* Inconsistent use of examples
-* Current strength is the later chapters (for experienced Vimmers) as opposed to the beginners' chapters.
-
-
-
-
+* Непоследовательное использование примеров
+* Текущая сила - это более поздние главы (для опытных Vim'меров) в отличие от глав для новичков.
