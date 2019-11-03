@@ -88,32 +88,23 @@ See `:help buffer-list` on the numerous things you can do with buffers.
 
 ![](img/multiple_windows.png)
 
-Как переключаться между этими двумя окнами? Просто используя `ctrl-w <клавиша передвижения>` для переключения между окнами. Клавиши передвижения могут быть одной из `h`, `j`, `k`, `l` или даже любой из клавиш со стрелками (в этом примере только клавиши вверх и вниз имеют смысл). Помните, что операции `ctrl-w` работают на окнах "w".
+Как переключаться между этими двумя окнами? Просто используя `ctrl-w <клавиша перемещения>` для переключения между окнами. Клавиши перемещения могут быть одной из `h`, `j`, `k`, `l` или даже любой из клавиш со стрелками (в этом примере имеют смысл только клавиши вверх и вниз). Помните, что операции `ctrl-w` работают на 'w'indows (окнах).
 
-Как быстрый доступ, вы можете нажать `ctrl-w` и дважды, т. е. `сочетание клавиш Ctrl-Вт сочетание клавиш Ctrl-W, чтобы переключаться между всеми открытыми окнами.
+Как быстрый доступ, вы можете нажать `ctrl-w` и дважды, т.е. сочетание клавиш `ctrl-w ctrl-w` для цикличного переключения между всеми открытыми окнами.
 
-Особая ситуация, когда несколько окон полезны, когда вы хотите просмотреть две разные части одного и того же файла одновременно. Просто запустите`: sp`, чтобы создать окно ' sp'lit, а затем вы можете прокрутить каждое окно в другую позицию и продолжить редактирование. Поскольку они оба являются "окнами" в один и тот же буфер, изменения в одном окне будут немедленно отражены в другом окне. Вы также можете использовать `ctrl-w s ' вместо`: sp`.
+Особая ситуация, когда нужны несколько окон, при случае когда вы хотите просмотреть две разные части одного и того же файла одновременно. Просто запустите `:sp` для создания 'sp'lit (разделенного) окна , а затем можете прокрутить каждое окно в другую позицию и продолжить редактирование. Поскольку они оба являются "окнами" в один и тот же буфер, изменения в одном окне будут немедленно отражены в другом окне. Вы также можете использовать `ctrl-w s` вместо `:sp`.
 
-Чтобы создать вертикальное разделение, используйте`: vsp ' или 'ctrl-w v'. Чтобы закрыть окно, просто запустите`: q'.
+Чтобы создать вертикальное разделение, используйте `:vsp` или `ctrl-w v`. Чтобы закрыть окно, просто запустите `:q`.
 
-Теперь, когда мы увидели, как открывать и использовать несколько окон, давайте посмотрим, как дальше играть с дисплеем.
-How do you switch between these two windows? Just use `ctrl-w <motion key>` to switch between the windows. Motion keys can be one of `h`, `j`, `k`, `l` or even any of the arrow keys (in this example, only up and down keys make sense). Remember that `ctrl-w` operations work on 'w'indows.
+Теперь, когда мы увидели, как открывать и использовать несколько окон, давайте посмотрим как ещё поиграться с дисплеем.
 
-As a quick shortcut, you can press `ctrl-w` twice i.e. `ctrl-w ctrl-w` to cycle between all the open windows.
+- Предположим, у вас есть два разделенных окна, но вы хотите изменить их так, что сможете сосредоточить своё внимание на нижней или верхней части экрана Вашего монитора в соответствии с вашими предпочтениями? Нажмите `ctrl-w r` чтобы 'r'otate (вращать) окна.
+- Хотите переместить текущее окно в самую верхнюю позицию? Нажмите `ctrl-w K`.
+- Хотите изменить размер окна, чтобы сделать его меньше или больше? Запустите `:resize 10` для отображения 10 строк дисплея и т.д.
+- Хотите сделать текущее окно как можно больше, чтобы сосредоточиться на нем? Нажмите `ctrl-w _`. Подумайте о подчеркивании как о показателе того, что другие окна должны быть как можно меньше.
+- Хотите снова сделать окна "равными" по высоте? Нажмите `ctrl-w =`.
 
-A particular situation where multiple windows are useful is when you want to view two different parts of the same file simultaneously. Just run `:sp` to create a 'sp'lit window and then you can scroll each window to a different position and continue your editing. Since they both are "windows" to the same buffer, changes in one window will be immediately reflected in the other window. You can also use `ctrl-w s` instead of `:sp`.
-
-To create a vertical split, use `:vsp` or `ctrl-w v`. To close a window, just run `:q`.
-
-Now that we have seen how to open and use multiple windows, let's see how to further play around with the display.
-
-- Suppose you have two split windows but want to reverse the windows, so that you can focus your eyes on the bottom part or top part of your computer screen, as per your preference? Press `ctrl-w r` to 'r'otate the windows.
-- Want to move the current window to the topmost position? Press `ctrl-w K`.
-- Want to resize a window to make it smaller or larger? Run `:resize 10` to make it 10 lines long display, etc.
-- Want to make the current window as big as possible so that you can concentrate on it? Press `ctrl-w _`. Think of the underscore as an indication that the other windows should be as small as possible.
-- Want to make the windows 'equal' in height again? Press `ctrl-w =`.
-
-See `:help windows` on more details on what you can do with windows.
+Смотрите `:help windows` для дополнительных сведений о том, что можно сделать с окнами.
 
 ## Множество вкладок
 
