@@ -108,13 +108,13 @@ See `:help buffer-list` on the numerous things you can do with buffers.
 
 ## Множество вкладок
 
-In web browsers (such as Firefox, Google Chrome or Safari), you may have used the tabs feature which allows you to open multiple websites in a single window so that you can switch between them without having the headache of switching between multiple windows. Well, tabs work exactly the same way in Vim also. Except that they are called "tab pages."
+В веб-браузерах (таких как Firefox, Google Chrome или Safari) вы можете использовать функцию вкладок, которая позволяет открывать несколько веб-сайтов в одном окне, чтобы вы могли переключаться между ними без необходимости переключения между несколькими окнами. Точно так же вкладки работают и в Vim. За исключением того, что они называются "вкладки страниц".
 
-Run `:tabnew` to open a new tab with a new buffer (analogous to `:new`). How do you switch between the tabs? By pressing `gt` to 'g'o to the next 't'ab and `gT` to 'g'o in the opposite direction i.e. the previous 't'ab.
+Запустите `:tabnew`, чтобы открыть новую вкладку с новым буфером (аналогично `:new`). Как вы переключитесь между вкладками? Нажав `gt` Вы 'g'o (перейдёте) к следующей 't'ab (вкладке), а `gT` - в обратном направлении, т.е. к предыдущей вкладке.
 
 ![](img/multiple_tabs.png)
 
-I personally prefer to use the keys `alt-j` and `alt-k` for the same operations analogous to how the `j` and `k` keys work for characters and how `ctrl-w j` and `ctrl-w k` work for (horizontally split) windows. To enable this, add the following lines to your vimrc file:
+Я лично предпочитаю использовать клавиши `alt-j` и `alt-k` для тех же операций; аналогично тому, как клавиши `j` и `k` работают для символов и как `ctrl-w j` и `ctrl-w k` работают для (горизонтального разделения) окон. Чтобы включить эту функцию, добавьте в файл vimrc следующие строки:
 
 ``` viml
 " Shortcuts for moving between tabs.
@@ -124,13 +124,13 @@ noremap <A-j> gT
 noremap <A-k> gt
 ```
 
-To 'c'lose a 'tab', run `:tabc` or `:q`.
+Для 'c'lose (закрытия) 'tab' (вкладки), запустите `:tabc` или `:q`.
 
-You can even open text that opens in a new window to open in a new tab instead. For example, `:help tabpage` opens the help in a horizontally split window. To view it in a new tab instead, use `:tab help tabpage`.
+Вы даже можете открыть текст, который открывается в новом окне, в новой вкладке. Например, `:help tabpage` открывает справку в горизонтально разделенном окне. Чтобы просмотреть его на новой вкладке, используйте `:tab help tabpage`.
 
-If you want to reorder the tabs, use `:tabmove`. For example, to move the current tab to the first position, use `:tabmove 0` and so on.
+Если захотите изменить порядок вкладок, используйте `:tabmove`. Например, чтобы переместить текущую вкладку в первую позицию, используйте `:tabmove 0` и так далее.
 
-See `:help tabpage` for more details on tab pages and the other operations that you can run, such as `:tabdo` to operate on each of the tab pages which are open, and customizing the title of the tab pages (`:help setting-guitablabel`), etc.
+Смотрите `:help tabpage` для получения более подробной информации о вкладках страниц и других операциях, которые можно выполнить, как например `:tabdo` для работы на каждой из открытых вкладок, настройки названия закладки (`:help setting-guitablabel`) и т.д.
 
 ## Резюме
 
