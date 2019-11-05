@@ -1,18 +1,18 @@
-# Scripting
+# Скриптинг
 
-If you want to customize any software, most likely you will change the various settings in the software to suit your taste and needs. What if you wanted to do more than that? For example, to check for conditions such as `if GUI version, then use this colorscheme else use this colorscheme`? This is where "scripting" comes in. Scripting basically means using a language where you can specify conditions and actions put together into 'scripts'.
+Если вы хотите настроить какое-либо программное обеспечение, скорее всего, вы измените различные настройки в программном обеспечении в соответствии с вашим вкусом и потребностями. А что, если Вы хотите сделать больше чем это? Например, чтобы проверить условия, такие как `если GUI-версии, то использовать эту цветовую схему, иначе использовать эту цветовую схему`? Вот где появляется "скриптинг". Скриптинг означает использование языка, на котором вы можете указать условия и действия, объединенные в "скрипт".
 
-There are two approaches to scripting in Vim - using the built-in Vim scripting language, or using a full-fledged programming language such as Python or Perl which have access to the Vim internals via modules (provided that Vim has been compiled with these options enabled).
+Существует два подхода к написанию скриптов в Vim - использование встроенного языка скриптинга Vim или использование полноценного языка программирования, такого как Python или Perl, которые имеют доступ к внутренним компонентам Vim через модули (при условии, что Vim был скомпилирован с включенными этими параметрами).
 
-This chapter requires some knowledge of programming. If you have no prior programming experience, you will still be able to understand although it might seem terse. If you wish to learn programming, please refer my other free book [A Byte of Python]({{ book.pythonBookUrl }}).
+Эта глава требует некоторого знания программирования. Если у вас нет опыта программирования, вы все равно сможете понять, хотя это может показаться кратким. Если вы хотите научиться программированию, пожалуйста, обратитесь к моей другой бесплатной книге [A Byte of Python]({{ book.pythonBookUrl }}).
 
-There are two ways of creating reusable functionality in Vim - using macros and writing scripts.
+Существует два способа создания многоразовых функций в Vim - использование макросов и написание скриптов.
 
-## Macros
+## Макрос
 
-Using macros, we can record sequences of commands and then replay it in different contexts.
+Используя макросы, мы можем записывать последовательности команд, а затем воспроизводить их в различных контекстах.
 
-For example, suppose you had some text like this:
+Например, предположим, что у вас есть такой текст:
 
 ```
 tansen is the singer
@@ -22,66 +22,66 @@ abul fazl is the historian
 birbal is the wazir
 ```
 
-There are many things to correct here:
+Здесь есть несколько вещей для исправления:
 
-1. Change the first letter of the sentence to upper case.
-2. Change 'is' to 'was'.
-3. Change 'the' to 'a'.
-4. End the sentence with "in Akbar's court."
+1. Изменить первую букву предложения на верхний регистр.
+2. Изменить "is" на "was".
+3. Изменить "the" на "a".
+4. Закончить приговор словами "in Akbar's court."
 
-One way would be to use a series of substitute commands, such as `:s/^\\w/\\u\\0/` but this would require 4 substitution commands and it might not be simple if the substitute command changes parts of the text which we do not want to be changed.
+Одним из способов было бы использовать ряд команд замены, таких как `:s/^\\w/\\u\\0/`, но для этого потребуется 4 команды замены, и это может быть непросто, если команда замены изменит части текста, которые мы не хотим изменять.
 
-A better way would be to use macros.
+Лучшим способом было бы использовать макрос.
 
-1. Position your cursor on the first letter of the first line: `tansen is the singer`
-2. Type `qa` in normal mode to start recording the macro named as `a`.
-3. Type `gUl` to switch the first letter to upper case.
-4. Type `w` to move to the next word.
-5. Type `cw` to change the word.
-6. Type `was`.
-7. Press `<Esc>`.
-8. Type `w` to move to the next word.
-9. Type `cw` to change the word.
-10. Type `a`.
-11. Press `<Esc>`.
-12. Type `A` to insert text at the end of the line.
-13. Type `in Akbar's court`.
-14. Press `<Esc>`.
-15. Type `q` to stop recording the macro.
+1. Поместите курсор на первую букву первой строки: `tanses is the singer`
+2. Введите `qa` в нормальном режиме, чтобы начать запись макроса с именем `a`.
+3. Введите `gUl` для перевода первой буквы в верхний регистр.
+4. Введите `w` чтобы перейти к следующему слову.
+5. Введите `cw` чтобы изменить слово.
+6. Введите `was`.
+7. Нажмите `<ESC>`.
+8. Введите `w` для перемещения к следующему слову.
+9. Введите `cw` чтобы изменить слово.
+10. Введите `а`.
+11. Нажмите `<ESC>`.
+12. Введите `A` чтобы вставить текст в конце строки.
+13. Введите `in Akbar's court`.
+14. Нажмите `<ESC>`.
+15. Введите `q` для остановки записи макроса.
 
-That looks like a long procedure, but sometimes, this is much easier to do than cook up some complicated substitute commands!
+Это выглядит как долгая процедура, но иногда, гораздо проще сделать так чем подготовить некоторые сложные команды замены!
 
-At the end of the procedure, the line should look like this:
+В конце процедуры строка должна выглядеть так:
 
 ```
 Tansen was a singer in Akbar's court.
 ```
 
-Great. Now, let's move on to apply this to the other lines. Just move to the first character of the second line and press `@a`. Voila, the line should change to:
+Отлично. Теперь давайте перейдем к применению этого к другим строкам. Просто перейдите к первому символу второй строки и нажмите `@a`. Вуаля, строка должна измениться на:
 
 ```
 Daswant was a painter in Akbar's court.
 ```
 
-This demonstrates that macros can record complicated operations and can be easily replayed. This helps the user to replay complicated editing in multiple places. This is one type of reusing the manipulations you can do to the text. Next, we will see more formal ways of manipulating the text.
+Это демонстрирует что макросы могут записывать сложные операции и могут быть легко воспроизведены. Это помогает пользователю воспроизвести сложное редактирование в нескольких местах. И это лишь один из видов повторного использования манипуляций, которые вы можете сделать с текстом. Далее мы увидим более формальные способы манипулирования текстом.
 
-> NOTE: If you want to simply repeat the last action and not a sequence of actions, you do not have to use macros, just press `.` (dot).
+> ПРИМЕЧАНИЕ: Если вы хотите просто повторить последнее действие, а не последовательность действий, вам не нужно использовать макросы, просто нажмите `.` (точку).
 
-## Basics of Scripting
+## Основы скриптинга
 
-Vim has a built-in scripting language using which you can write your own scripts to take decisions, "do" stuff, and manipulate the text.
+Vim имеет встроенный скриптовый язык, с помощью которого вы можете писать свои собственные скрипты для принятия решений, "делать" вещи и манипулировать текстом.
 
-### Actions
+### Действия
 
-How do you change the theme i.e. colors used by Vim? Just run:
+Как вы меняете тему, т.е. цвета, используемые Vim? Просто запустите:
 
 ``` viml
 :colorscheme desert
 ```
 
-Here, I am using the 'desert' color scheme, which happens to be my favorite. You can view the other schemes available by typing `:colorscheme` and then pressing `<tab>` key to cycle through the available schemes.
+Здесь я использую цветовую схему "desert", которая является моей любимой. Вы можете просмотреть другие доступные схемы, набрав `:colorscheme', а затем нажимать клавишу `<tab>` для циклического просмотра доступных схем.
 
-What if you wanted to know how many characters are in the current line?
+Что делать, если вы хотите узнать, сколько символов в текущей строке?
 
 ``` viml
 :echo strlen(getline("."))
@@ -168,9 +168,9 @@ Output:
 
 ```
 0
-1 
+1
 2
-3 
+3
 4
 ```
 
