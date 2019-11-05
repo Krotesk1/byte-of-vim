@@ -66,7 +66,7 @@
 
 Из книги Дэвида Аллена:
 
-> "Get everything out of your head. Make decisions about actions required on stuff when it shows up - not when it blows up. Organize reminders of your projects and the next actions on them in appropriate categories. Keep your system current, complete, and reviewed sufficiently to trust your intuitive choices about what you're doing (and not doing) at any time."
+> "Выкинь все из головы. Принимай решения о действиях, необходимых для материала, когда он появляется, а не когда он взрывается. Организуй напоминания о своих проектах и последующих действиях по ним в соответствующих категориях. Держи свою систему в актуальном состоянии, полной и достаточно проверенной, чтобы доверять своим интуитивным решениям о том, что ты делаешь (и не делаешь) в любое время."
 
 Система GTD в основном состоит из организации вашей информации в определенные страницы/папки:
 
