@@ -9,7 +9,7 @@
 * [Перемещение](moving_around.md)
 * [Справка](help.md)
 * [Основы редактирования](editing_basics.md)
-* [Multiplicity](multiplicity.md)
+* [Множественность](multiplicity.md)
 * [Управление персональной информацией](pim.md)
 * [Скриптинг](scripting.md)
 * [Плагины](plugins.md)
