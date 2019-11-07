@@ -187,6 +187,7 @@ Vim имеет множество типов переменных, доступ�
 
 ## Структуры данных
 
+
 Vim scripting also has support for lists and dictionaries. Using these, you can build up complicated data structures and programs.
 
 ``` viml
