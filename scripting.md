@@ -87,24 +87,24 @@ Vim имеет встроенный скриптовый язык, с помощ
 :echo strlen(getline("."))
 ```
 
-Notice the names 'strlen' and 'getline'. These are "functions". *Functions* are pieces of scripts already written and have been given a name so that we can use them again and again. For example, the getline function fetches a line and we are indicating which line by the `.` (dot) which means the current line. We are passing the result returned by the `getline` function to the strlen function which counts the number of characters in the text and then we are passing the result returned by the `strlen` function to the `:echo` command which simply displays the result. Notice how the information flows in this command.
+Обратите внимание на имена "strlen" и "getline". Это "функции". *Функции* - это уже написанные фрагменты скриптов, которым дано имя, чтобы мы могли использовать их снова и снова. Например, функция getline извлекает строку, и мы указываем строку как `.` (точка), что означает текущую строку. Мы передаем результат, возвращенный функцией `getline` в функцию `strlen`, которая подсчитывает количество символов в тексте, а затем передает результат, возвращенный функцией `strlen` в команду `:echo`, которая просто отображает результат. Обратите внимание, как информация течет в этой команде.
 
-The `strlen(getline("."))` is called an expression. We can store the results of such expressions by using variables. Variables do what the name suggests - they are names pointing to values and the value can be anything i.e. it can vary. For example, we can store the length as:
+`strlen(getline("."))` называется выражением. Мы можем хранить результаты таких выражений с помощью переменных. Переменные - это имена, указывающие на значения, и значение может быть любым, т.е. оно может меняться. Например, мы можем хранить длину как:
 
 ``` viml
 :let len = strlen(getline("."))
 :echo "We have" len "characters in this line."
 ```
 
-When you run this line on the second line above in this text, you will get the following output:
+Когда вы запустите эту строку на второй строке в тексте выше, то получите следующий вывод:
 
 ``` viml
 We have 46 characters in this line.
 ```
 
-Notice how we can use variables in other 'expressions'. The possibilities of you can achieve with the help of these variables, expressions and commands are endless.
+Обратите внимание как мы можем использовать переменные в других "выражениях". Возможности, которые вы можете достичь с помощью этих переменных, выражений и команд бесконечны.
 
-Vim has many types of variables available via prefixes such as `$` for environment variables, `&` for options, and `@` for registers:
+Vim имеет множество типов переменных, доступных через префиксы, такие как `$` для переменных среды, `&` для параметров и `@` для регистров:
 
 ``` viml
 :echo $HOME
@@ -112,9 +112,10 @@ Vim has many types of variables available via prefixes such as `$` for environme
 :echo @a
 ```
 
-See `:help function-list` for a huge list of functions available.
+Вы можете создавать свои собственные функции, как хорошо:
+Смотрите `:help function-list` для огромного списка доступных функций.
 
-You can create your own functions as well:
+Вы также можете создавать свои собственные функции:
 
 ``` viml
 :function CurrentLineLength()
@@ -123,21 +124,20 @@ You can create your own functions as well:
 :endfunction
 ```
 
-Now position your cursor on any line and run the following command:
+Теперь поместите курсор на любую строку и выполните следующую команду:
 
 ``` viml
 :echo CurrentLineLength()
 ```
+Вы должны увидеть напечатанное число.
 
-You should see a number printed.
+Имена функций должны начинаться с верхнего регистра. Это делается для того, чтобы отличить встроенные функции, начинающиеся с нижнего регистра, и пользовательские, начинающиеся с верхнего.
 
-Function names have to start with an upper case. This is to differentiate that built-in functions start with a lower case and user-defined functions start with an upper case.
+Если вы хотите просто "вызвать" функцию для запуска, но не отображать содержимое, то можете использовать `:call CurrentLineLength()`
 
-f you want to simply "call" a function to run but not display the contents, you can use `:call CurrentLineLength()`
+## Решения
 
-## Decisions
-
-Suppose you want to display a different color schemes based on whether Vim is running in the terminal or is running as a GUI i.e. you need the script to take decisions. Then, you can use:
+Предположим, вы хотите отобразить различные цветовые схемы, основанные на том, работает ли Vim в терминале или как графический интерфейс, т.е. вам нужен скрипт для принятия решений. Для этого вы можете использовать:
 
 ``` viml
 :if has("gui_running")
@@ -147,14 +147,14 @@ Suppose you want to display a different color schemes based on whether Vim is ru
 :endif
 ```
 
-How It Works:
+Как это работает:
 
-- `has()` is a function which is used to determine if a specified feature is supported in Vim installed on the current computer. See `:help feature-list` to see what kind of features are available in Vim.
-- The `if` statement checks the given condition. If the condition is satisfied, we take certain actions. "Else", we take the alternative action.
-- Note that an `if` statement should have a matching `endif`.
-- There is `elseif` also available, if you want to chain together multiple conditions and actions.
+- `has()` - это функция, используемая для определения, поддерживается ли указанная функция в Vim, установленном на текущем компьютере. Смотрите `:help feature-list` чтобы узнать, какие функции доступны в Vim.
+- Оператор `if` проверяет данное условие. Если оно выполнено, мы предпринимаем определенные действия. "Else" (Иначе) мы принимаем альтернативное действие.
+- Обратите внимание, что оператор `if` должен иметь соответствующий `endif`.
+- Существует также `elseif`, если вы хотите объединить несколько условий и действий.
 
-The looping statements 'for' and 'while' are also available in Vim:
+Циклические операторы "for" и "while" также доступны в Vim:
 
 ``` viml
 :let i = 0
@@ -164,7 +164,7 @@ The looping statements 'for' and 'while' are also available in Vim:
 :endwhile
 ```
 
-Output:
+Вывод:
 
 ```
 0
@@ -174,7 +174,7 @@ Output:
 4
 ```
 
-Using Vim's built-in functions, the same can also be written as:
+Используя встроенные функции Vim, то же самое можно также записать как:
 
 ``` viml
 :for i in range(5)
@@ -182,10 +182,10 @@ Using Vim's built-in functions, the same can also be written as:
 :endfor
 ```
 
-- `range()` is a built-in function used to generate a range of numbers. See `:help range()` for details.
-- The `continue` and `break` statements are also available.
+- `range()` - это встроенная функция, используемая для генерации диапазона чисел. Смотрите `:help range()` для подробностей.
+- Также доступны инструкции `continue` и `break`.
 
-## Data Structures
+## Структуры данных
 
 Vim scripting also has support for lists and dictionaries. Using these, you can build up complicated data structures and programs.
 
