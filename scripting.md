@@ -187,7 +187,7 @@ Vim имеет множество типов переменных, доступ�
 
 ## Структуры данных
 
-Vim scripting also has support for lists and dictionaries. Using these, you can build up complicated data structures and programs.
+Скриптинг Vim также поддерживает списки и словари. С их помощью можно создавать сложные структуры данных и программы.
 
 ``` viml
 :let fruits = ['apple', 'mango', 'coconut']
@@ -213,15 +213,15 @@ Vim scripting also has support for lists and dictionaries. Using these, you can 
 " I like mango
 ```
 
-There are many functions available - see 'List manipulation' and 'Dictionary manipulation' sections in `:help function-list`.
+Существует множество доступных функций - смотри разделы 'List manipulation' и 'Dictionary manipulation' в `:help function-list`.
 
-## Writing a Vim script
+## Написание скрипта Vim
 
-We will now write a Vim script that can be loaded into Vim and then we can call its functionality whenever required. This is different from writing the script inline and running immediately as we have done all along.
+Теперь мы напишем скрипт Vim, который можно загрузить в Vim, а затем вызвать для использования его функциональности по мере необходимости. Это отличается от написания встроенного скрипта и немедленного запуска, как мы делали все это время.
 
-Let us tackle a simple problem - how about capitalizing the first letter of each word in a selected range of lines? The use case is simple - When I write headings in a text document, they look better if they are capitalized, but I'm too lazy to do it myself. So, I can write the text in lower case, and then simply call the function to capitalize.
+Давайте решим простую задачу - как насчет заглавной буквы каждого слова в выбранном диапазоне строк? Вариант использования прост - когда я пишу заголовки в текстовом документе, они выглядят лучше если заглавные, но я слишком ленив, чтобы делать это самому. Итак, я могу написать текст в нижнем регистре, а затем просто вызвать функцию для написания прописными буквами.
 
-We will start with the basic template script. Save the following script as the file capitalize.vim:
+Начнем с базового шаблона скрипта. Сохраните следующий скрипт как файл с capitalize.vim:
 
 ``` viml
 " Vim global plugin for capitalizing first letter of each word
@@ -238,16 +238,16 @@ let loaded_capitalize = 1
 " TODO : The real functionality goes in here.
 ```
 
-How It Works:
+Как это работает:
 
-- The first line of the file should be a comment explaining what the file is about.
-- There are 2-3 standard headers mentioned regarding the file such as 'Last Changed:' which explains how old the script is, the 'Maintainer:' info so that users of the script can contact the maintainer of the script regarding any problems or maybe even a note of thanks.
-- The 'License:' header is optional, but highly recommended. A Vim script or plugin that you write may be useful for many other people as well, so you can specify a license for the script. Consequently, other people can improve your work and that it will in turn benefit you as well.
-- A script may be loaded multiple times. For example, if you open two different files in the same Vim instance and both of them are `.html` files, then Vim opens the HTML syntax highlighting script for both of the files. To avoid running the same script twice and redefining things twice, we use a safeguard by checking for existence of the name 'loaded_capitalize' and closing if the script has been already loaded.
+- В первой строке файла должен быть комментарий, объясняющий, о чем идет речь в файле.
+- Есть 2-3 стандартных заголовка, упомянутых в отношении файла, таких как 'Last Changed:' (последнее изменение), который объясняет сколько лет скрипту, "Maintainer:" (сопровождающий) - информация, чтобы пользователи скрипта могли связаться с сопровождающим скрипта по поводу каких-либо проблем или, возможно, даже благодарственным письмом.
+- Заголовок "License:" (лицензия) является необязательным, но настоятельно рекомендуемым. Скрипт Vim или плагин, который вы пишете, может быть полезен и для многих других людей, поэтому вы можете указать лицензию для скрипта. Следовательно, другие люди могут улучшить вашу работу, и это, в свою очередь, принесет пользу и вам.
+- Скрипт может быть загружен несколько раз. Например, если вы открываете два разных файла в одном экземпляре Vim, и оба они являются `.html` файлами, затем Vim открывает скрипт подсветки синтаксиса HTML для обоих файлов. Чтобы избежать запуска одного и того же скрипта дважды и двойного переопределения элементов, мы используем защиту, проверяя наличие имени 'loaded_capitalize' и закрывая, если скрипт уже загружен.
 
-Now, let us proceed to write the actual functionality.
+Теперь перейдем к написанию собственно функциональности.
 
-We can define a function to perform the transformation - capitalize the first letter of each word, so we can call the function as `Capitalize()`. Since the function is going to work on a range, we can specify that the function works on a range of lines.
+Мы можем определить функцию для выполнения преобразования - заглавная первая буква каждого слова, поэтому мы можем вызвать функцию как `Capitalize()`. Поскольку функция будет работать в диапазоне, мы можем указать, что функция работает в диапазоне строк.
 
 ``` viml
 " Vim global plugin for capitalizing first letter of each word
@@ -273,21 +273,21 @@ function Capitalize() range
 endfunction
 ```
 
-How It Works:
+Как это работает:
 
-- The `a:firstline` and `a:lastline` represent the arguments to the function with correspond to the start and end of the range of lines respectively.
-- We use a 'for' loop to process each line (fetched using `getline()`) in the range.
-- We use the `substitute()` function to perform a regular expression search-and-replace on the string. Here we are specifying the function to look for words which is indicated by `\\w\\+` which means a word (i.e. a continuous set of characters that are part of words). Once such words are found, they are to be converted using `\\u\\0` - the `\\u` indicates that the first character following this sequence should be converted to upper case. The `\\0` indicates the match found by the `substitute()` function which corresponds to the words. In effect, we are converting the first letter of each word to upper case.
-- We call the `setline()` function to replace the line in Vim with the modified string.
+- `a:firstline` и `a:lastline` представляют аргументы функции, соответствующие началу и концу диапазона строк соответственно.
+- Мы используем цикл 'for' для обработки каждой строки (полученной с помощью `getline()`) в диапазоне.
+- Мы используем функцию `substitute()` для выполнения регулярного выражения search-and-replace в строке. Здесь мы указываем функцию для поиска слов, которая обозначается `\\w\\+`, что означает 'w'ord (слово) (т.е. непрерывный набор символов, которые являются частью слов). Как только такие слова найдены, они должны быть преобразованы с помощью `\\u\\0` - `\\u` указывает, что первый символ после этой последовательности должен быть преобразован в верхний регистр. `\\0` указывает на совпадение, найденное функцией `substitute()`, которая соответствует словам. По сути, мы преобразуем первую букву каждого слова в верхний регистр.
+- Мы вызываем функцию `setline()`, чтобы заменить строку в Vim измененной строкой.
 
-To run this command:
+Чтобы выполнить эту команду:
 
-1. Open Vim and enter some random text such as 'this is a test'.
-2. Run `:source capitalize.vim` - this 'sources' the file as if the commands were run in Vim inline as we have done before.
-3. Run `:call Capitalize()`.
-4. The line should now read 'This Is A Test'.
+1. Откройте Vim и введите произвольный текст, например 'this a test'.
+2. Выполнить `:source capitalize.vim` - это 'источники' файла, как если бы команды были запущены в Vim inline, как мы делали раньше.
+3. Выполнить `:call Capitalize()`.
+4. Теперь строка должна выглядеть: 'This Is A Test'.
 
-Running `:call Capitalize()` every time appears to be tedious, so we can assign a keyboard shortcut using leaders:
+Запуск `:call Capitalize()` каждый раз кажется утомительным, поэтому мы можем назначить сочетание клавиш с помощью лидеров:
 
 ``` viml
 " Vim global plugin for capitalizing first letter of each word
