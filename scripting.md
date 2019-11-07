@@ -321,42 +321,42 @@ function s:Capitalize() range
 endfunction
 ```
 
-- We have changed the name of the function from simply `Capitalize` to `s:Capitalize` - this is to indicate that the function is local to the script that it is defined in, and it shouldn't be available globally because we want to avoid interfering with other scripts.
-- We use the `map` command to define a shortcut.
-- The `<Leader>` key is usually backslash, `\`.
-- We are now mapping `<Leader>c` (i.e. the leader key followed by the 'c' key) to some functionality.
-- We are using `<Plug>Capitalize` to indicate the `Capitalize()` function described within a plugin i.e. our own script.
-- Every script has an ID, which is indicated by `<SID>`. So, we can map the command `<SID>Capitalize` to a call of the local function `Capitalize()`.
+- Мы изменили имя функции с простого `Capitalize` на `s:Capitalize` - это означает, что функция является локальной для скрипта, в котором она определена, и она не должна быть доступна глобально, потому что мы хотим избежать вмешательства в другие скрипты.
+- Мы используем команду `map` для определения ярлыка.
+- Клавиша `<Leader>`, обычно имеет обратную косую черту `\`.
+- Теперь мы сопоставляем `<Leader>c` (т.е. клавишу лидера, за которым следует клавиша 'c') с некоторой функциональностью.
+- Мы используем `<Plug>Capitalize`, чтобы указать функцию `Capitalize()`, описанную в плагине, т.е. наш собственный скрипт.
+- Каждый скрипт имеет идентификатор, который обозначается `<SID>`. Таким образом, мы можем сопоставить команду `<SID>Capitalize` с вызовом локальной функции `Capitalize()`.
 
-So, now repeat the same steps mentioned previously to test this script, but you can now run `\c` to capitalize the line(s) instead of running `:call Capitalize()`.
+Итак, теперь повторите те же шаги, упомянутые ранее, чтобы протестировать этот скрипт, но теперь вы можете запустить `\c` Для заглавной буквы строки(строк) вместо запуска `:call Capitalize()`.
 
-This last set of steps may seem complicated, but it just goes to show that there's a wealth of possibilities in creating Vim scripts and they can do complex stuff.
+Этот последний набор шагов может показаться сложным, но он просто показывает, что существует множество возможностей для создания скриптов Vim, и они могут делать сложные вещи.
 
-If something does go wrong in your scripting, you can use `v:errmsg` to see the last error message which may give you clues to figure out what went wrong.
+Если что-то пойдет не так в скрипте, то вы можете использовать `v:errmsg`, чтобы увидеть последнее сообщение об ошибке, которое может дать вам подсказки для выяснения что пошло не так.
 
-Note that you can use `:help` to find help on everything we have discussed above, from `:help \w` to `:help setline()`.
+Обратите внимание, что вы можете использовать `:help`, чтобы найти справку по всему, что мы обсуждали выше, от `:help \w` до `:help setline()`.
 
-## Using external programming languages
+## Использование внешних языков программирования
 
-Many people would not like to spend the time in learning Vim's scripting language and may prefer to use a programming language they already know and write plugins for Vim in that language. This is possible because Vim supports writing plugins in Python, Perl, Ruby and many other languages.
+Многие люди не хотели бы тратить время на изучение языка скриптов Vim и предпочли бы использовать уже известный им язык программирования и писать плагины для Vim на этом языке. Это возможно, потому что Vim поддерживает написание плагинов на Python, Perl, Ruby и многих других языках.
 
-In this chapter, we will look at a simple plugin using the Python programming language, but we can easily use any other supported language as well.
+В этой главе мы рассмотрим простой плагин, использующий язык программирования Python,но мы также можем легко использовать любой другой поддерживаемый язык.
 
-As mentioned earlier, if you are interested in learning the Python language, you might be interested in my other free book [A Byte of Python]({{ book.pythonBookUrl }}).
+Как упоминалось ранее, если вы заинтересованы в изучении языка Python - вам может быть интересна моя другая бесплатная книга [A Byte of Python]({{ book.pythonBookUrl }}).
 
-First, we have to test if the support for the Python programming language is present.
+Во-первых, мы должны проверить, присутствует ли поддержка языка программирования Python.
 
 ``` viml
 :echo has("python")
 ```
 
-If this returns `1`, then we are good to go, otherwise you might want to install Python on your machine and try again.
+Если это возвращает `1`, то мы хорошо идем, в противном случае вы должны установить Python на вашем компьютере и попробовать еще раз.
 
-Suppose you are writing a blog post. A blogger usually wants to get as many people to read his/her blog as possible. One of the ways people find such blog posts is by querying a search engine. So, if you're going to write on a topic (say 'C V Raman', the famous Indian physicist who has won a Nobel Prize for his work on the scattering of light), you might want to use important phrases that helps more people find your blog when they search for this topic. For example, if people are searching for 'c v raman', they might also search for the 'raman effect', so you may want to mention that in your blog post or article.
+Предположим, вы пишете сообщение в блоге. Блоггер обычно хочет, чтобы как можно больше людей читали его блог. Один из способов, которым люди находят такие сообщения в блоге - это запрос в поисковую систему. Итак, если вы собираетесь писать на тему (скажем "C V Raman" - известный индийский физик, получивший Нобелевскую премию за свою работу по рассеянию света), вы можете использовать важные фразы, которые помогут большему количеству людей найти ваш блог, когда они ищут эту тему. Например, если люди ищут "c v raman", они также могут искать "эффект Рамана", поэтому вы можете упомянуть об этом в своем блоге или статье.
 
-How do we find such related phrases? It turns out that the solution is quite simple, thanks to Yahoo! Search.
+Как мы находим такие родственные фразы? Оказывается, что решение довольно простое, благодаря Yahoo! Поиск.
 
-First, let us figure out how to use Python to access the current text, which we will use to generate the related phrases.
+Для начала давайте выясним, как использовать Python для доступа к текущему тексту, который мы будем использовать для создания связанных фраз.
 
 ``` viml
 " Vim plugin for looking up popular search queries related
@@ -382,13 +382,13 @@ EOF
 endfunction
 ```
 
-The main approach to writing plugins in interfaced languages is same as that for the built-in scripting language.
+Основной подход к написанию плагинов на интерфейсных языках такой же, как и для встроенного скриптового языка.
 
-The key difference is that we have to pass on the code that we have written in the Python language to the Python interpreter. This is achieved by using the EOF as shown above - all the text from the `python <<EOF` command to the subsequent `EOF` is passed to the Python interpreter.
+Ключевое отличие состоит в том, что мы должны передать код, написанный на языке Python, интерпретатору Python. Это достигается с помощью EOF, как показано выше - весь текст от команды `python <<EOF` до последующего `EOF` передается интерпретатору Python.
 
-You can test this program, by opening Vim again separately and running `:source related.vim`, and then run `:call Related()`. This should display something like `Length of the current line is 54`.
+Вы можете протестировать эту программу, открыв Vim снова отдельно и запустив `:source related.vim`, а затем выполнить `:call Related()`. Это должно отображать что-то вроде `Length of the current line is 54`.
 
-Now, let us get down the actual functionality of the program. Yahoo! Search has something called a [RelatedSuggestion query](http://developer.yahoo.com/search/web/V1/relatedSuggestion.html) which we can access using a web service. This web service can be accessed by using a Python API provided by Yahoo! Search [pYsearch](http://pysearch.sourceforge.net):
+Теперь давайте перейдем к фактической функциональности программы. Yahoo! Поиск имеет то, что называется [запрос RelatedSuggestion](http://developer.yahoo.com/search/web/V1/relatedSuggestion.html) к которым мы можем получить доступ с помощью веб-сервиса. Доступ к этой веб-службе можно получить с помощью API Python, предоставляемого Yahoo!Поиск [pYsearch](http://search.sourceforge.net):
 
 ``` viml
 " Vim plugin for looking up popular search queries related
@@ -425,14 +425,14 @@ EOF
 endfunction
 ```
 
-Notice that we use the current line in Vim as the current text we are interested in, you can change this to any text that you want, such as the current word, etc.
+Обратите внимание, что мы используем текущую строку в Vim в качестве текущего текста, который нас интересует, вы можете изменить его на любой текст, который хотите, например, текущее слово и т.д.
 
-We use the `yahoo.search.web.RelatedSuggestion` class to query Yahoo! Search for phrases related to the query that we specify. We get back the results by calling `parse_results()` on the result object. We then loop over the results and display it to the user.
+Мы используем класс `yahoo.search.web.RelatedSuggestion` для запроса Yahoo!Поиск для фраз, связанных с указанным запросом. Мы возвращаем результаты, вызывая `parse_results()` на объекте результата. Затем мы перебираем результаты и показываем их пользователю.
 
-1. Run `:source related.vim`
-2. Type the text `c v raman`.
-3. Run `:call Related()`
-4. The output should look something like this:
+1. Запустите `:source related.vim`
+2. Введите текст `c v raman`.
+3. Выполните `:call Related()`
+4. Результат должен выглядеть примерно так:
 
 ```
 Related popular searches are:
@@ -442,10 +442,10 @@ Related popular searches are:
 4. chandrasekhara venkata raman
 ```
 
-## Summary
+## Резюме
 
-We have explored scripting using the Vim's own scripting language as well as using external scripting/programming languages. This is important because the functionality of Vim can be extended in infinite ways.
+Мы изучили скриптинг с использованием собственного языка сценариев Vim, а также с использованием внешних языков скриптинга/программирования. Это важно, потому что функциональность Vim может быть расширена бесконечными способами.
 
-See `:help eval`, `:help python-commands`, `:help perl-using` and `:help ruby-commands` for details.
+Смотрите `:help eval`, `:help python-commands`, `:help perl-using` и `:help ruby-commands` для подробностей.
 
-To dive deep into this topic, see [Learn VimScript The Hard Way by Steve Losh](http://learnvimscriptthehardway.stevelosh.com).
+Чтобы погрузиться глубже в эту тему, смотрите [Learn VimScript The Hard Way by Steve Losh](http://learnvimscriptthehardway.stevelosh.com).
