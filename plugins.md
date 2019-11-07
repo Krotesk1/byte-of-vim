@@ -1,36 +1,36 @@
-# Plugins
+# Плагины
 
-As we have seen in the previous chapter, we can write scripts to extend the existing functionality of Vim to do more stuff. We call these scripts which extend or add functionality as "plugins."
+Как уже видели в предыдущей главе, мы можем использовать скрипты для расширения существующей функциональности Vim, чтобы делать больше вещей. Скрипты, которые расширяют или добавляют функциональность называются "плагины".
 
-There are various kinds of plugins that can be written:
+Существуют различные виды плагинов, которые могут быть написаны:
 
 - vimrc
-- global plugin
-- filetype plugin
-- syntax highlighting plugin
-- compiler plugin
+- глобальный плагин
+- плагин файловых типов
+- плагин подсветки синтаксиса
+- плагин компилятора
 
-Not only can you write your own plugins but also download and [use plugins written by others](http://www.vim.org/scripts/index.php).
+Вы можете не только писать свои собственные плагины, но также загружать и [использовать плагины, написанные другими](http://www.vim.org/scripts/index.php).
 
-## Customization using vimrc
+## Персонализация с помощью vimrc
 
-When I install a new Linux distribution or reinstall Windows, the first thing I do after installing Vim is fetch my latest `vimrc` file from my backups, and then start using Vim. Why is this important? Because the `vimrc` file contains various customizations/settings I like which makes Vim more useful and comfortable for me.
+Когда я устанавливаю новый дистрибутив Linux или переустанавливаю Windows, первое, что я делаю после установки Vim - это извлекаю свой последний файл `vimrc` из моих резервных копий, а затем начинаю использовать Vim. Почему это так важно? Потому что `vimrc` содержит различные персонализации/установки, которые мне нравятся, что делает Vim более полезным и удобным для меня.
 
-There are two files you can create to customize Vim to your taste:
+Есть два файла, которые вы можете создать, чтобы настроить Vim на свой вкус:
 
-1. vimrc - for general customizations
-2. gvimrc - for GUI specific customizations
+1. vimrc - для общих настроек
+2. gvimrc - за специфических настроек интерфейса
 
-These are stored as:
+Они хранятся в виде:
 
-- `%HOME%/_vimrc` and `%HOME%/_gvimrc` on Windows
-- `$HOME/.vimrc` and `$HOME/.gvimrc` on Linux/BSD/Mac OS X
+- `%HOME%/_vimrc` и `%HOME%/_gvimrc` в Windows
+- `$HOME/.vimrc` и `$HOME/.gvimrc` в Linux/BSD/Mac OS X
 
-See `:help vimrc` on the exact location on your system.
+Смотри `:help vimrc` о точном местоположении в своей системе.
 
-These vimrc and gvimrc files can contain any Vim commands. The convention followed is to use only simple settings in the vimrc files, and advanced stuff are sourced from plugins.
+Эти файлы vimrc и gvimrc могут содержать любые команды Vim. Соглашение заключается в использовании только простых настроек в файлах vimrc, а расширенные материалы получаются из плагинов.
 
-For example, here's a portion of my vimrc file:
+Например, вот часть моего файла vimrc:
 
 ``` viml
 " My Vimrc file
@@ -113,11 +113,11 @@ set showmode
 set visualbell
 ```
 
-Notice that these commands are not prefixed by colon. The colon is optional when writing scripts in files because it assumes they are normal mode commands.
+Обратите внимание, что эти команды не имеют префикса двоеточия. Двоеточие является необязательным при написании скриптов в файлах, поскольку предполагается, что они являются командами нормального режима.
 
-If you want to learn detailed usage of each setting mentioned above, refer `:help`.
+Если Вы хотите узнать подробное использование каждого параметра, упомянутого выше, обратитесь к `:help`.
 
-A portion of my gvimrc file is:
+Часть моего файла gvimrc:
 
 ``` viml
 " Size of GVim window
@@ -137,45 +137,45 @@ elseif has('unix')
 endif
 ```
 
-There are various example vimrc files out there that you should definitely take a look at and learn the various kinds of customizations that can be done, then pick the ones you like and put it in your own vimrc.
+Существуют различные примеры файлов vimrc, которые вы обязательно должны посмотреть и изучить различные виды настроек, которые возможно сделать, а затем выбрать те, которые понравятся именно Вам, и поместить их в свой собственный vimrc.
 
-A few good ones that I have found in the past are:
+Несколько хороших, которые я нашходил ранее:
 
-- [Steve Francia's vim distribution](http://vim.spf13.com)
-- [Steve Losh's vim config](http://stevelosh.com/blog/2010/09/coming-home-to-vim/)
-- [bling's dotvim](https://github.com/bling/dotvim)
-- [Janus](https://github.com/carlhuda/janus)
+- [Распространение vim Стива Франсии](http://vim.spf13.com)
+- [Конфигурация vim Стива Лоша](http://stevelosh.com/blog/2010/09/coming-home-to-vim/)
+- [побрякушки dotvim](https://github.com/bling/dotvim)
+- [Янус](https://github.com/carlhuda/janus)
 
-It is a known fact that a person's vimrc usually reflects how long that person has been using Vim.
+Это известный факт, что vimrc человека обычно отражает, как долго этот человек использует Vim.
 
-## Global plugin
+## Глобальные плагины
 
-Global plugins can be used to provide global/generic functionality.
+Глобальные плагины могут использоваться для обеспечения глобальной/общей функциональности.
 
-Global plugins can be stored in two places:
+Глобальные плагины могут храниться в двух местах:
 
-1. `$VIMRUNTIME/plugin/` for standard plugins supplied by Vim during its installation
-2. To install your own plugins or plugins that you have download from somewhere, you can use your own plugin directory:
+1. `$VIMRUNTIME/plugin/` для стандартных плагинов, поставляемых Vim во время установки
+2. Чтобы установить свои собственные плагины или загруженные плагины, вы можете использовать свой собственный каталог плагинов:
 
-    - `$HOME/.vim/plugin/` on Linux/BSD/Mac OS X
-    - `%HOME%/vimfiles/plugin/` on Windows
-    - See `:help runtimepath` for details on your plugin directories.
+    - `$HOME/.vim/plugin/` на Linux/BSD/Mac ОS Х
+    - `%HOME%/vimfiles/plugin/` в Windows
+    - Смотрите `:help runtimepath` для получения подробной информации о ваших каталогах плагинов.
 
-Let's see how to use a plugin.
+Давайте посмотрим, как использовать плагин.
 
-A useful plugin to have is [`highlight_current_line.vim`](http://www.vim.org/scripts/script.php?script_id=1652) by Ansuman Mohanty which does exactly as the name suggests. Download the latest version of the file `highlight_current_line.vim` and put it in your plugin directory (as mentioned above). Now, restart Vim and open any file. Notice how the current line is highlighted compared to the other lines in the file.
+Полезным плагином является ['highlight_current_line.vim'](http://www.vim.org/scripts/script.php?script_id=1652) от Ansuman Mohanty, который делает именно так, как следует из названия (подсветка текущей строки). Загрузите последнюю версию файла `highlight_current_line.vim` и поместите его в каталог плагинов (как упоминалось выше). Теперь перезапустите Vim и откройте любой файл. Обратите внимание, как выделена текущая строка по сравнению с другими строками в файле.
 
-But what if you don't like it? Just delete the `highlight_current_line.vim` file and restart Vim.
+Но что, если вам это не нравится? Просто удалите файл `highlight_current_line.vim` и перезапустите Vim.
 
-Similarly, we can install our own `related.vim` or `capitalize.vim` from the Scripting chapter into our plugin directory, and this avoids us the trouble of having to use :source every time. Ultimately, any kind of Vim plugin that you write should end up somewhere in your `.vim/vimfiles` plugin directory.
+Точно так же мы можем установить наши собственные `related.vim` или `capitalize.vim` из главы Скриптинг в ваш каталог плагинов, и это позволит нам избежать проблем с использованием :source каждый раз. В конечном счете, любой плагин Vim, который вы пишете, должен оказаться где-то в вашем каталоге плагинов `.vim/vimfiles`.
 
-## Filetype plugin
+## Плагины файловых типов
 
-Filetype plugins are written to work on certain kinds of files. For example, programs written in the C programming language can have their own style of indentation, folding, syntax highlighting and even error display. These plugins are not general purpose, they work for these specific filetypes.
+Плагины файловых типов написаны для работы с определенными типами файлов. Например, программы, написанные на языке программирования Си, могут иметь свой собственный стиль отступов, складывания, подсветки синтаксиса и даже отображения ошибок. Эти плагины не общего назначения, они работают для этих конкретных типов файлов.
 
-### Using a filetype plugin
+### Использование плагина файловых типов
 
-Let's try a filetype plugin for XML. XML is a declarative language that uses tags to describe the structure of the document itself. For example, if you have a text like this:
+Давайте попробуем плагин файловых типов для XML. XML - это декларативный язык, который использует теги для описания структуры самого документа. Например, если у вас есть такой текст:
 
 > Iron Gods <br>
 > ---------  <br>
@@ -186,6 +186,6 @@ Let's try a filetype plugin for XML. XML is a declarative language that uses tag
 > <br>
 > Meanwhile, it is upto the five protagonists, aided by Ganesa and a few concerned individuals, including Lucifer Morningstar, Ali Abu Tarab, King David and his son Solomon, and others, to bring about peace among the myriad warring faiths. The question is whether or not they can do so before the audience with God, and if they can do so peacefully--for pressure is mounting to wage one final War of Wars to end all war itself.
 
-(Excerpt taken from [Wikipedia](http://en.wikipedia.org/w/index.php?title=Ashok_Banker&oldid=86219280) under the GNU Free Documentation License)
+(Отрывок взят из [Wikipedia](http://en.wikipedia.org/w/index.php?title=Ashok_Banker&oldid=86219280) под лицензией GNU Free Documentation)
 
-It can be written in XML form (specifically, in 'DocBook XML' format) as:
+Он может быть записан в виде XML (в частности, в формате "DocBook XML") как:
