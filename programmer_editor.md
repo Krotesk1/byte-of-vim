@@ -1,4 +1,4 @@
-# Programmers Editor
+# Редактор программистов
 
 ## Introduction
 
@@ -8,7 +8,7 @@ Let me reiterate that typing skills are critical for a programmer. If our earlie
 
 If you do not have programming experience, you can skip this chapter.
 
-For those who love programming, let's dive in and see how Vim can help you in writing code. 
+For those who love programming, let's dive in and see how Vim can help you in writing code.
 
 ## Simple stuff
 The simplest feature of Vim that you can use to help you in writing code is syntax highlighting. This allows you to visualize, i.e. "see," your code, which helps you in reading and writing your code faster and helps avoid making obvious mistakes.
@@ -172,7 +172,7 @@ def <{fname}>(<{args}>):
 8. Tab again and type `print 'Hello World'`
 9. Press `<tab>`
 10. Your program is complete!
- 
+
 You should now see:
 ```
     def test():
@@ -221,7 +221,7 @@ public function <{}>:<{}>
 }
 
 ```
-The cursor will be positioned for the function name, `tab` to enter the return type of the function, `tab` again to type the body of the function. 
+The cursor will be positioned for the function name, `tab` to enter the return type of the function, `tab` again to type the body of the function.
 
 Going back to our original problem, here's what I came up with:
 
@@ -314,7 +314,7 @@ If you start editing a file, you can even make it automatically checked out from
 To explore more plugins to implement IDE-like behavior in Vim, see:
 * Vim Tip: [Using vim as an IDE all in one](http://vim.wikia.com/wiki/Using_vim_as_an_IDE_all_in_one)
 * [C++/Python Vim+IDE plugins list](http://phraktured.net/vimmity-vim-vim.html)
- 
+
 There are more language-specific plugins that can help you do nifty things. For example, for Python, the following plugins can be helpful:
 * [SuperTab](http://www.vim.org/scripts/script.php?script_id=1643) allows you to call omni-completion by just pressing tab and then use arrow keys to choose the option.
 * [python_calltips](http://www.vim.org/scripts/script.php?script_id=1074) shows a window at the bottom which gives you the list of possibilities for completion. The cool thing about this, compared to omni-completion, is that you get to view the documentation for each of the possibilities.
