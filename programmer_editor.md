@@ -1,24 +1,25 @@
 # Редактор программистов
 
-## Introduction
+## Вступление
 
-Vim tends to be heavily used by programmers. The features, ease of use, and flexibility that Vim provide make it a good choice for people who write a lot of code. This should not seem surprising since writing code involves a lot of editing.
+Vim часто используется программистами. Возможности, простота использования и гибкость, которые предоставляет Vim, делают его хорошим выбором для людей, которые пишут много кода. Это не должно показаться удивительным, так как написание кода включает в себя много редактирования.
 
-Let me reiterate that typing skills are critical for a programmer. If our earlier discussion didn't convince you, we hope this article by Jeff Atwood, titled ['We Are Typists First, Programmers Second'](http://www.codinghorror.com/blog/archives/001188.html), will convince you.
+Позвольте мне повторить, что навыки набора текста имеют решающее значение для программиста. Если наша предыдущая дискуссия не убедила вас, мы надеемся, что эта статья Джеффа Этвуда под названием ["Мы-машинисты в первую очередь, программисты во вторую"](http://www.codinghorror.com/blog/archives/001188.html), убедит вас.
 
-If you do not have programming experience, you can skip this chapter.
+Если у вас нет опыта программирования, то можете просто пропустить эту главу.
 
-For those who love programming, let's dive in and see how Vim can help you in writing code.
+Для тех, кто любит программирование, давайте погрузимся и посмотрим, как Vim может помочь вам в написании кода.
 
-## Simple stuff
-The simplest feature of Vim that you can use to help you in writing code is syntax highlighting. This allows you to visualize, i.e. "see," your code, which helps you in reading and writing your code faster and helps avoid making obvious mistakes.
+## Простые вещи
 
-### Syntax highlighting
-Suppose you are editing a vim syntax file; run `:set filetype=vim` and see how Vim adds color. Similarly, if you are editing a Python file, run `:set filetype=python`.
+Самая простая функция Vim, которую вы можете использовать для написания кода - это подсветка синтаксиса. Она позволяет вам визуализировать, то есть «видеть» ваш код, который помогает быстрее читать и писать код и помогает избежать очевидных ошибок.
 
-![Syntax Highlighting for Python](syntax_highlighting.png)
+### Подсветка синтаксиса
+Предположим, вы редактируете файл синтаксиса vim - запустите `:set filetype = vim` и посмотрите, как Vim добавляет цвета. Аналогично, если вы редактируете файл Python, запустите `:set filetype = python`.
 
-To see the list of language types available, check the `$VIMRUNTIME/syntax/` directory.
+![Подсветка синтаксиса для Python](syntax_highlighting.png)
+
+Чтобы увидеть список доступных типов языков, проверьте каталог `$VIMRUNTIME/syntax/`.
 
 #### Tip
     If you want the power of syntax highlighting for any Unix shell output, just pipe it to Vim. For example, `svn diff | vim -R -`.  Notice the dash in the end which tells Vim that it should read text from its standard input.
