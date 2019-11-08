@@ -22,9 +22,14 @@ Vim часто используется программистами. Возмо
 Чтобы увидеть список доступных типов языков, проверьте каталог `$VIMRUNTIME/syntax/`.
 
 #### Tip
-    If you want the power of syntax highlighting for any Unix shell output, just pipe it to Vim. For example, `svn diff | vim -R -`.  Notice the dash in the end which tells Vim that it should read text from its standard input.
+    Если вам нужна сила подсветки синтаксиса для любого вывода оболочки Unix, просто передайте его в Vim. Например, `svn diff | vim -R -`.  Обратите внимание на тире в конце, которое говорит Vim, что он должен читать текст из своего стандартного ввода.
 
-### Smart indentation
+### Умный отступ
+Код опытного программиста обычно имеет правильные отступы, что делает код "однородным", а структуру кода более наглядной. Vim может помочь, делая отступы за Вас, чтобы Вы могли сосредоточиться на самом коде.
+
+Если вы отступаете от определенной строки и хотите, чтобы следующие за ней строки также были с отступом на том же уровне, то вы можете использовать параметр `:set autoindent`.
+
+Если вы начинаете новый блок операторов и хотите, чтобы следующая строка автоматически отступала на следующий уровень, то вы можете использовать параметр `:set smartindent`. Обратите внимание, что поведение этого параметра зависит от конкретного используемого языка программирования.
 An experienced programmer's code is usually indented properly, which makes the code look "uniform" and the structure of the code more visually apparent. Vim can help by doing the indentation for you so that you can concentrate on the actual code.
 
 If you indent a particular line and want the lines following it to be also indented to the same level, then you can use the `:set autoindent` setting.
