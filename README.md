@@ -1,133 +1,135 @@
 # A Byte of Vim
 
-"A Byte of Vim" is a book which aims to help you to learn how to use the [Vim editor](http://www.vim.org) (version 7), even if all you know is how to use the computer keyboard.
+Книга переведена и можно скачать [в PDF "Просто о Vim"](http://rus-linux.net/MyLDP/BOOKS/Vim/prosto-o-vim.pdf)
 
-The first part of this book is meant for new users who want to understand what Vim is and learn how to use it.
+"A Byte of Vim" - это книга, цель которой - помочь вам научиться пользоваться [редактором Vim](http://www.vim.org) (7 версия), даже если все, что вы знаете - это как использовать клавиатуру компьютера.
 
-The second part of this book is for people who already know how to use Vim and want to learn about features that make Vim so powerful, such as windows and tabs, personal information management, making it a programmer's editor, how to extend Vim with your own plugins, and more.
+Первая часть этой книги предназначена для новичков, которые хотят понять что такое Vim и научиться им пользоваться.
 
-## Status: Incomplete
+Вторая часть этой книги предназначена для людей, которые уже знают, как использовать Vim и хотят узнать о функциях, которые делают Vim настолько мощным, таких как окна и вкладки, управление личной информацией, что делает его редактором программиста; как расширить Vim с помощью собственных плагинов и многое другое.
 
-Please note that the conversion of the book to this Markdown sources is *incomplete*!
+## Статус: Неполный
 
-The original PDF is at http://files.swaroopch.com/vim/byte_of_vim_v051.pdf - unfortunately the original sources are lost.
+Обратите внимание, что преобразование книги из источников Markdown является *неполным*!
 
-I welcome your contributions to complete the porting of text from the original PDF to this new book's sources at https://github.com/swaroopch/byte-of-vim .
+Оригинальный PDF находится по адресу http://files.swaroopch.com/vim/byte_of_vim_v051.pdf - к сожалению, первоисточники утеряны.
 
-## Who reads A Byte of Vim? {#who-reads}
+Я приветствую Ваш вклад в завершение переноса текста из оригинального PDF в источники этой новой книги по адресу https://github.com/swaroopch/byte-of-vim.
 
-> Thanks to A Byte of Vim, I have learnt how to use vim. Thank you very much for this excellent book! ;)
+## Кто читает A Byte of Vim? {#who-reads}
+
+> Благодаря A Byte of Vim, я узнал как пользоваться vim. Спасибо, Вам большое за эту прекрасную книгу! ;)
 > -- Camille L (France)
 
 <!-- -->
 
-> Well done!!! I've been only using vim for like 2/3 weeks now, and thus I can say that it's just perfect for beginners like me!!!
+> Молодец!!! Я использую vim только в течение 2/3 недель, и поэтому я могу сказать, что он просто идеально подходит для новичков, таких как я!!!
 > -- [Jay](https://groups.google.com/group/vim_use/msg/e1625069d4ea0ef9)
 
 <!-- -->
 
-> The book is very good and fun to read too. Thank you for sharing it.
+> Книга очень хорошая и интересная для чтения. Спасибо, что поделились ей.
 > -- [Yosi Izaq](http://groups.google.com/group/vim_use/msg/09ca306a67b9d2cd)
 
 <!-- -->
 
-> Your books should sell like hot cakes for their way of presentation.
+> Ваши книги должны продаваться как горячие пирожки для их представления.
 > -- [Deepak](http://twitter.com/peerlessdeepak/status/1024279089)
 
 <!-- -->
 
-> Awesome! Thank you for all of your hard work. It is especially nice that the beginning starts the reader off gradually. After using vim for a couple of years I've forgotten how weird it seems at first, so I probably wouldn't explain it that good to someone. I will be sure to share your book to spread the vim propaganda. ;-)
+> Потрясающе! Спасибо вам за всю вашу тяжелую работу. Особенно приятно, что начало постепенно заводит читателя. После использования vim в течение нескольких лет я забыл, как по началу он кажется странным, поэтому я, вероятно, не объяснил бы почему он так хорош. Я обязательно поделюсь вашей книгой, чтобы распространить пропаганду vim. ;-)
 > -- [Joseph Sullivan](http://groups.google.com/group/vim_use/msg/362a82a4af132317)
 
 <!-- -->
 
-> What I am trying to say is if you have basic computer competency you should immediately get Vim on your machine and improve your life. The best place to learn about is to read Swaroop C H's awesome eBook A Byte of Vim, it will revolutionize how you think about text editors in the future.
+> Я пытаюсь сказать, что если у вас есть базовые компьютерные полномочия, вы должны немедленно обзавестись Vim на своей машине и улучшить свою жизнь. Лучшее место, чтобы узнать о нем - это прочитать Swaroop C H он удивительную электронную книгу A Byte of Vim, это будет революция, как вы думаели о текстовых редакторах будущего.
 > -- ["wooden nickels"](http://woodennickels.posterous.com/text-editing-your-way-to-heave)
 
 <!-- -->
 
-> Have been thumbing through 'byte of vim'. learning a ton even having used vim for years.
+> Листал 'byte of vim'. изучил массу интересного даже используя vim в течении многих лет.
 > -- [Josh Nichols](http://twitter.com/techpickles/status/1025775542)
 
 <!-- -->
 
-> Great Book !! Although I use vim everyday as an editor as well as an ide, the book makes u realise how much more it can do.
+> Отличная Книга !! Хотя я использую vim каждый день в качестве редактора, а также ide, книга заставляет вас понять, насколько больше он может сделать.
 > -- [Raseel Bhagat](http://twitter.com/raseel/status/1024291090)
 
 <!-- -->
 
-> Wonderful! This was one most-required-book. I was a vim user for the past years, but never have seen these much of facilities inside that! Thanks for the Book, Swaroop!
+> Замечательно! Это была одна из самых необходимых книг. Я был пользователем vim в течение последних лет, но никогда не видел столько объектов внутри него! Спасибо за книгу, Swaroop!
 > -- [Hiran Venugopalan](http://www.swaroopch.com/2008/11/25/a-free-book-on-vim/)
 
 <!-- -->
 
-> What a nice book. I'm a long-time vim user, but never managed to get my head around vim scripting (apart from fixing some bugs in others' scripts). This is the best introduction to Vim scripting (writing plugins, syntax files, ...) I have seen so far. Thanks for putting it online!
+> Какая хорошая книга. Я давний пользователь vim, но мне никогда не удавалось разобраться в скриптах vim (кроме исправления некоторых ошибок в других скриптах). Это лучшее введение в скрипты Vim (написание плагинов, файлов синтаксиса, ...) что я видел до сих пор. Спасибо, что разместили её в интернете!
 > -- Anonymous (132.230.122.35)
 
 <!-- -->
 
-> Thank you Swaroop! I've begun reading it and must say it's very well written. And I have no doubts this great community of us vim users here will improve it through fixes, additions or small corrections.
+> Спасибо Swaroop! Я начал читать её и должен сказать, что она очень хорошо написана. И я не сомневаюсь, что большое сообщество пользователей vim здесь улучшит её с помощью исправлений, дополнений или небольших поправок.
 > -- [Eduard Fabra](http://groups.google.com/group/vim_use/msg/dac94f3332f733e4)
 
 <!-- -->
 
-> I'd recommend A Byte of Vim as a good intro for new and experienced users alike.
+> Я бы рекомендовал A Byte of Vim в качестве хорошего вступления для новичков и опытных пользователей.
 > -- [James Kovacs, Germany](http://twitter.com/JamesKovacs/statuses/19106427185)
 
 <!-- -->
 
 > Este libro me ayudó muchísimo a sacarle provecho a vim
-> (This book helped me a lot to take advantage of vim)
+> (Эта книга очень помогла мне извлечь выгоду из Вима)
 > -- [Antonio Touriño, Panamá](http://twitter.com/techiebits/status/19079448462)
 
 <!-- -->
 
-> I have used vi for quite a while and am pretty comfortable with it. But all I do in vi is first get into insert mode and edit the file as if I am using notepad. I started searching for tutorials on vi and found one that is so simple yet so amazing. I thank Swaroop CH, yes the same guy who wrote the book A Byte of Python, for another amazing book A Byte of Vim. It was so amazing and I started using vi like a novice vimmer.
+> Я использовал vi довольно долго и чувствовал себя довольно комфортно с ним. Но все, что я делал в vi - это сначала войти в режим вставки и отредактировать файл, как будто я использую Блокнот. Я начал искать учебники по vi и нашел тот, который настолько прост, но так удивителен. Я благодарю SwaroopCH, да, того парня, который написал книгу A Byte of Python, за другую удивительную книгу A Byte of Vim. Это было так удивительно, и я начал использовать vi как новичок виммер.
 > -- [Nishanth](http://pyandme.blogspot.com/2010/02/vim-mode.html)
 
 <!-- -->
 
-> A Byte of Vim saved my day once again...
+> A Byte of Vim снова спас мой день...
 > -- [@reku](http://twitter.com/reku/status/14579836693)
 
-Also:
+Также:
 
-- The book was listed as the top tip for Dec 2008 on the [Official Vim Tips wiki](http://vim.wikia.com/wiki/Main_Page#Did_you_know.3F_view_archive).
+- - Книга была указана в качестве верхней подсказки в декабре 2008 года на [официальном Vim Tips wiki](http://vim.wikia.com/wiki/Main_Page#Did_you_know.3F_view_archive).
 
-## License
+## Лицензия
 
-This book is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+Эта книга лицензирована под [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-This means:
+Она позволяет:
 
-- You are free to Share i.e. to copy, distribute and transmit this book
-- You are free to Remix i.e. to make changes to this book (especially translations)
-- You are free to use it for commercial purposes
+- Вы можете свободно делиться, то есть копировать, распространять и передавать эту книгу
+- Вы можете сделать ремикс, то есть внести изменения в эту книгу (особенно переводы)
+- Вы можете использовать её в коммерческих целях
 
-Please note:
+Пожалуйста, обратите внимание:
 
-- Please do *not* sell electronic or printed copies of the book unless you have clearly and prominently mentioned in the description that these copies are *not* from the original author of this book.
-- Attribution *must* be shown in the introductory description and front page of the document by linking back to {{ book.officialUrl }} and clearly indicating that the original text can be fetched from this location.
-- All the code/scripts provided in this book is licensed under the [3-clause BSD License](http://www.opensource.org/licenses/bsd-license.php) unless otherwise noted.
+- Пожалуйста, *не* продавайте электронные или печатные копии книги, если вы четко и ясно не указали в описании, что эти копии не принадлежат оригинальному автору этой книги.
+- Атрибуция *должна* быть указана во вводном описании и на первой странице документа путем ссылки на {{ book.officialUrl }} и четко указывать, что исходный текст может быть получен из этого места.
+- Все коды/скрипты, представленные в этой книге, лицензированы в соответствии с [3-clause BSD License](http://www.opensource.org/licenses/bsd-license.php) если не указано иное.
 
-## Read Now
+## Прочтите сейчас
 
-You can read it online at {{ book.officialUrl }}
+Вы можете прочитать книгу в интернете по адресу {{ book.officialUrl }}
 
-## Buy The Book
+## Купить книгу
 
-A printed hardcopy of the book can be purchased at {{ book.buyBookUrl }} for your offline reading pleasure, and to support the continued development and improvement of this book.
+Печатную копию книги можно приобрести по адресу {{ book.buyBookUrl }} для удовольствия вашего чтения в автономном режиме, а также для поддержки дальнейшего развития и совершенствования этой книги.
 
-## Download
+## Скачать
 
-Visit {{ book.downloadUrl }} for the following types of downloads:
+Посетите {{ book.downloadUrl }} для следующих типов загрузки:
 
-- [PDF (for desktop reading, etc.)](https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-vim)
-- [EPUB (for iPhone/iPad, ebook readers, etc.)](https://www.gitbook.com/download/epub/book/swaroopch/byte-of-vim)
-- [Mobi (for Kindle)](https://www.gitbook.com/download/mobi/book/swaroopch/byte-of-vim)
+- [PDF (для настольного чтения и тд.)](https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-vim)
+- [EPUB (для iPhone/iPad, ebook ридеры и тд.)](https://www.gitbook.com/download/epub/book/swaroopch/byte-of-vim)
+- [Mobi (лоя Kindle)](https://www.gitbook.com/download/mobi/book/swaroopch/byte-of-vim)
 
-Visit {{ book.sourceUrl }} for the raw content (for suggesting corrections, changes, translating, etc.)
+Посетите {{ book.sourceUrl }} для исходного контента (для предложения исправлений, изменений, перевода и т.д.)
 
-## Read the book in your native language
+## Прочитайте книгу на вашем родном языке
 
-If you are interested in reading or contributing translations of this book to other human languages, please see "Translations" chapter.
+Если вы заинтересованы в чтении или содействии переводам этой книги на другие человеческие языки, пожалуйста, смотрите раздел "Переводы".

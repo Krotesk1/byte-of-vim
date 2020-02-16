@@ -1,18 +1,18 @@
-# Scripting
+# Скриптинг
 
-If you want to customize any software, most likely you will change the various settings in the software to suit your taste and needs. What if you wanted to do more than that? For example, to check for conditions such as `if GUI version, then use this colorscheme else use this colorscheme`? This is where "scripting" comes in. Scripting basically means using a language where you can specify conditions and actions put together into 'scripts'.
+Если вы хотите настроить какое-либо программное обеспечение, скорее всего, вы измените различные настройки в программном обеспечении в соответствии с вашим вкусом и потребностями. А что, если Вы хотите сделать больше чем это? Например, чтобы проверить условия, такие как `если GUI-версии, то использовать эту цветовую схему, иначе использовать эту цветовую схему`? Вот где появляется "скриптинг". Скриптинг означает использование языка, на котором вы можете указать условия и действия, объединенные в "скрипт".
 
-There are two approaches to scripting in Vim - using the built-in Vim scripting language, or using a full-fledged programming language such as Python or Perl which have access to the Vim internals via modules (provided that Vim has been compiled with these options enabled).
+Существует два подхода к написанию скриптов в Vim - использование встроенного языка скриптинга Vim или использование полноценного языка программирования, такого как Python или Perl, которые имеют доступ к внутренним компонентам Vim через модули (при условии, что Vim был скомпилирован с включенными этими параметрами).
 
-This chapter requires some knowledge of programming. If you have no prior programming experience, you will still be able to understand although it might seem terse. If you wish to learn programming, please refer my other free book [A Byte of Python]({{ book.pythonBookUrl }}).
+Эта глава требует некоторого знания программирования. Если у вас нет опыта программирования, вы все равно сможете понять, хотя это может показаться кратким. Если вы хотите научиться программированию, пожалуйста, обратитесь к моей другой бесплатной книге [A Byte of Python]({{ book.pythonBookUrl }}).
 
-There are two ways of creating reusable functionality in Vim - using macros and writing scripts.
+Существует два способа создания многоразовых функций в Vim - использование макросов и написание скриптов.
 
-## Macros
+## Макрос
 
-Using macros, we can record sequences of commands and then replay it in different contexts.
+Используя макросы, мы можем записывать последовательности команд, а затем воспроизводить их в различных контекстах.
 
-For example, suppose you had some text like this:
+Например, предположим, что у вас есть такой текст:
 
 ```
 tansen is the singer
@@ -22,89 +22,89 @@ abul fazl is the historian
 birbal is the wazir
 ```
 
-There are many things to correct here:
+Здесь есть несколько вещей для исправления:
 
-1. Change the first letter of the sentence to upper case.
-2. Change 'is' to 'was'.
-3. Change 'the' to 'a'.
-4. End the sentence with "in Akbar's court."
+1. Изменить первую букву предложения на верхний регистр.
+2. Изменить "is" на "was".
+3. Изменить "the" на "a".
+4. Закончить приговор словами "in Akbar's court."
 
-One way would be to use a series of substitute commands, such as `:s/^\\w/\\u\\0/` but this would require 4 substitution commands and it might not be simple if the substitute command changes parts of the text which we do not want to be changed.
+Одним из способов было бы использовать ряд команд замены, таких как `:s/^\\w/\\u\\0/`, но для этого потребуется 4 команды замены, и это может быть непросто, если команда замены изменит части текста, которые мы не хотим изменять.
 
-A better way would be to use macros.
+Лучшим способом было бы использовать макрос.
 
-1. Position your cursor on the first letter of the first line: `tansen is the singer`
-2. Type `qa` in normal mode to start recording the macro named as `a`.
-3. Type `gUl` to switch the first letter to upper case.
-4. Type `w` to move to the next word.
-5. Type `cw` to change the word.
-6. Type `was`.
-7. Press `<Esc>`.
-8. Type `w` to move to the next word.
-9. Type `cw` to change the word.
-10. Type `a`.
-11. Press `<Esc>`.
-12. Type `A` to insert text at the end of the line.
-13. Type `in Akbar's court`.
-14. Press `<Esc>`.
-15. Type `q` to stop recording the macro.
+1. Поместите курсор на первую букву первой строки: `tanses is the singer`
+2. Введите `qa` в нормальном режиме, чтобы начать запись макроса с именем `a`.
+3. Введите `gUl` для перевода первой буквы в верхний регистр.
+4. Введите `w` чтобы перейти к следующему слову.
+5. Введите `cw` чтобы изменить слово.
+6. Введите `was`.
+7. Нажмите `<ESC>`.
+8. Введите `w` для перемещения к следующему слову.
+9. Введите `cw` чтобы изменить слово.
+10. Введите `а`.
+11. Нажмите `<ESC>`.
+12. Введите `A` чтобы вставить текст в конце строки.
+13. Введите `in Akbar's court`.
+14. Нажмите `<ESC>`.
+15. Введите `q` для остановки записи макроса.
 
-That looks like a long procedure, but sometimes, this is much easier to do than cook up some complicated substitute commands!
+Это выглядит как долгая процедура, но иногда, гораздо проще сделать так чем подготовить некоторые сложные команды замены!
 
-At the end of the procedure, the line should look like this:
+В конце процедуры строка должна выглядеть так:
 
 ```
 Tansen was a singer in Akbar's court.
 ```
 
-Great. Now, let's move on to apply this to the other lines. Just move to the first character of the second line and press `@a`. Voila, the line should change to:
+Отлично. Теперь давайте перейдем к применению этого к другим строкам. Просто перейдите к первому символу второй строки и нажмите `@a`. Вуаля, строка должна измениться на:
 
 ```
 Daswant was a painter in Akbar's court.
 ```
 
-This demonstrates that macros can record complicated operations and can be easily replayed. This helps the user to replay complicated editing in multiple places. This is one type of reusing the manipulations you can do to the text. Next, we will see more formal ways of manipulating the text.
+Это демонстрирует что макросы могут записывать сложные операции и могут быть легко воспроизведены. Это помогает пользователю воспроизвести сложное редактирование в нескольких местах. И это лишь один из видов повторного использования манипуляций, которые вы можете сделать с текстом. Далее мы увидим более формальные способы манипулирования текстом.
 
-> NOTE: If you want to simply repeat the last action and not a sequence of actions, you do not have to use macros, just press `.` (dot).
+> ПРИМЕЧАНИЕ: Если вы хотите просто повторить последнее действие, а не последовательность действий, вам не нужно использовать макросы, просто нажмите `.` (точку).
 
-## Basics of Scripting
+## Основы скриптинга
 
-Vim has a built-in scripting language using which you can write your own scripts to take decisions, "do" stuff, and manipulate the text.
+Vim имеет встроенный скриптовый язык, с помощью которого вы можете писать свои собственные скрипты для принятия решений, "делать" вещи и манипулировать текстом.
 
-### Actions
+### Действия
 
-How do you change the theme i.e. colors used by Vim? Just run:
+Как вы меняете тему, т.е. цвета, используемые Vim? Просто запустите:
 
 ``` viml
 :colorscheme desert
 ```
 
-Here, I am using the 'desert' color scheme, which happens to be my favorite. You can view the other schemes available by typing `:colorscheme` and then pressing `<tab>` key to cycle through the available schemes.
+Здесь я использую цветовую схему "desert", которая является моей любимой. Вы можете просмотреть другие доступные схемы, набрав `:colorscheme', а затем нажимать клавишу `<tab>` для циклического просмотра доступных схем.
 
-What if you wanted to know how many characters are in the current line?
+Что делать, если вы хотите узнать, сколько символов в текущей строке?
 
 ``` viml
 :echo strlen(getline("."))
 ```
 
-Notice the names 'strlen' and 'getline'. These are "functions". *Functions* are pieces of scripts already written and have been given a name so that we can use them again and again. For example, the getline function fetches a line and we are indicating which line by the `.` (dot) which means the current line. We are passing the result returned by the `getline` function to the strlen function which counts the number of characters in the text and then we are passing the result returned by the `strlen` function to the `:echo` command which simply displays the result. Notice how the information flows in this command.
+Обратите внимание на имена "strlen" и "getline". Это "функции". *Функции* - это уже написанные фрагменты скриптов, которым дано имя, чтобы мы могли использовать их снова и снова. Например, функция getline извлекает строку, и мы указываем строку как `.` (точка), что означает текущую строку. Мы передаем результат, возвращенный функцией `getline` в функцию `strlen`, которая подсчитывает количество символов в тексте, а затем передает результат, возвращенный функцией `strlen` в команду `:echo`, которая просто отображает результат. Обратите внимание, как информация течет в этой команде.
 
-The `strlen(getline("."))` is called an expression. We can store the results of such expressions by using variables. Variables do what the name suggests - they are names pointing to values and the value can be anything i.e. it can vary. For example, we can store the length as:
+`strlen(getline("."))` называется выражением. Мы можем хранить результаты таких выражений с помощью переменных. Переменные - это имена, указывающие на значения, и значение может быть любым, т.е. оно может меняться. Например, мы можем хранить длину как:
 
 ``` viml
 :let len = strlen(getline("."))
 :echo "We have" len "characters in this line."
 ```
 
-When you run this line on the second line above in this text, you will get the following output:
+Когда вы запустите эту строку на второй строке в тексте выше, то получите следующий вывод:
 
 ``` viml
 We have 46 characters in this line.
 ```
 
-Notice how we can use variables in other 'expressions'. The possibilities of you can achieve with the help of these variables, expressions and commands are endless.
+Обратите внимание как мы можем использовать переменные в других "выражениях". Возможности, которые вы можете достичь с помощью этих переменных, выражений и команд бесконечны.
 
-Vim has many types of variables available via prefixes such as `$` for environment variables, `&` for options, and `@` for registers:
+Vim имеет множество типов переменных, доступных через префиксы, такие как `$` для переменных среды, `&` для параметров и `@` для регистров:
 
 ``` viml
 :echo $HOME
@@ -112,9 +112,10 @@ Vim has many types of variables available via prefixes such as `$` for environme
 :echo @a
 ```
 
-See `:help function-list` for a huge list of functions available.
+Вы можете создавать свои собственные функции, как хорошо:
+Смотрите `:help function-list` для огромного списка доступных функций.
 
-You can create your own functions as well:
+Вы также можете создавать свои собственные функции:
 
 ``` viml
 :function CurrentLineLength()
@@ -123,21 +124,20 @@ You can create your own functions as well:
 :endfunction
 ```
 
-Now position your cursor on any line and run the following command:
+Теперь поместите курсор на любую строку и выполните следующую команду:
 
 ``` viml
 :echo CurrentLineLength()
 ```
+Вы должны увидеть напечатанное число.
 
-You should see a number printed.
+Имена функций должны начинаться с верхнего регистра. Это делается для того, чтобы отличить встроенные функции, начинающиеся с нижнего регистра, и пользовательские, начинающиеся с верхнего.
 
-Function names have to start with an upper case. This is to differentiate that built-in functions start with a lower case and user-defined functions start with an upper case.
+Если вы хотите просто "вызвать" функцию для запуска, но не отображать содержимое, то можете использовать `:call CurrentLineLength()`
 
-f you want to simply "call" a function to run but not display the contents, you can use `:call CurrentLineLength()`
+## Решения
 
-## Decisions
-
-Suppose you want to display a different color schemes based on whether Vim is running in the terminal or is running as a GUI i.e. you need the script to take decisions. Then, you can use:
+Предположим, вы хотите отобразить различные цветовые схемы, основанные на том, работает ли Vim в терминале или как графический интерфейс, т.е. вам нужен скрипт для принятия решений. Для этого вы можете использовать:
 
 ``` viml
 :if has("gui_running")
@@ -147,14 +147,14 @@ Suppose you want to display a different color schemes based on whether Vim is ru
 :endif
 ```
 
-How It Works:
+Как это работает:
 
-- `has()` is a function which is used to determine if a specified feature is supported in Vim installed on the current computer. See `:help feature-list` to see what kind of features are available in Vim.
-- The `if` statement checks the given condition. If the condition is satisfied, we take certain actions. "Else", we take the alternative action.
-- Note that an `if` statement should have a matching `endif`.
-- There is `elseif` also available, if you want to chain together multiple conditions and actions.
+- `has()` - это функция, используемая для определения, поддерживается ли указанная функция в Vim, установленном на текущем компьютере. Смотрите `:help feature-list` чтобы узнать, какие функции доступны в Vim.
+- Оператор `if` проверяет данное условие. Если оно выполнено, мы предпринимаем определенные действия. "Else" (Иначе) мы принимаем альтернативное действие.
+- Обратите внимание, что оператор `if` должен иметь соответствующий `endif`.
+- Существует также `elseif`, если вы хотите объединить несколько условий и действий.
 
-The looping statements 'for' and 'while' are also available in Vim:
+Циклические операторы "for" и "while" также доступны в Vim:
 
 ``` viml
 :let i = 0
@@ -164,17 +164,17 @@ The looping statements 'for' and 'while' are also available in Vim:
 :endwhile
 ```
 
-Output:
+Вывод:
 
 ```
 0
-1 
+1
 2
-3 
+3
 4
 ```
 
-Using Vim's built-in functions, the same can also be written as:
+Используя встроенные функции Vim, то же самое можно также записать как:
 
 ``` viml
 :for i in range(5)
@@ -182,12 +182,12 @@ Using Vim's built-in functions, the same can also be written as:
 :endfor
 ```
 
-- `range()` is a built-in function used to generate a range of numbers. See `:help range()` for details.
-- The `continue` and `break` statements are also available.
+- `range()` - это встроенная функция, используемая для генерации диапазона чисел. Смотрите `:help range()` для подробностей.
+- Также доступны инструкции `continue` и `break`.
 
-## Data Structures
+## Структуры данных
 
-Vim scripting also has support for lists and dictionaries. Using these, you can build up complicated data structures and programs.
+Скриптинг Vim также поддерживает списки и словари. С их помощью можно создавать сложные структуры данных и программы.
 
 ``` viml
 :let fruits = ['apple', 'mango', 'coconut']
@@ -213,15 +213,15 @@ Vim scripting also has support for lists and dictionaries. Using these, you can 
 " I like mango
 ```
 
-There are many functions available - see 'List manipulation' and 'Dictionary manipulation' sections in `:help function-list`.
+Существует множество доступных функций - смотри разделы 'List manipulation' и 'Dictionary manipulation' в `:help function-list`.
 
-## Writing a Vim script
+## Написание скрипта Vim
 
-We will now write a Vim script that can be loaded into Vim and then we can call its functionality whenever required. This is different from writing the script inline and running immediately as we have done all along.
+Теперь мы напишем скрипт Vim, который можно загрузить в Vim, а затем вызвать для использования его функциональности по мере необходимости. Это отличается от написания встроенного скрипта и немедленного запуска, как мы делали все это время.
 
-Let us tackle a simple problem - how about capitalizing the first letter of each word in a selected range of lines? The use case is simple - When I write headings in a text document, they look better if they are capitalized, but I'm too lazy to do it myself. So, I can write the text in lower case, and then simply call the function to capitalize.
+Давайте решим простую задачу - как насчет заглавной буквы каждого слова в выбранном диапазоне строк? Вариант использования прост - когда я пишу заголовки в текстовом документе, они выглядят лучше если заглавные, но я слишком ленив, чтобы делать это самому. Итак, я могу написать текст в нижнем регистре, а затем просто вызвать функцию для написания прописными буквами.
 
-We will start with the basic template script. Save the following script as the file capitalize.vim:
+Начнем с базового шаблона скрипта. Сохраните следующий скрипт как файл с capitalize.vim:
 
 ``` viml
 " Vim global plugin for capitalizing first letter of each word
@@ -238,16 +238,16 @@ let loaded_capitalize = 1
 " TODO : The real functionality goes in here.
 ```
 
-How It Works:
+Как это работает:
 
-- The first line of the file should be a comment explaining what the file is about.
-- There are 2-3 standard headers mentioned regarding the file such as 'Last Changed:' which explains how old the script is, the 'Maintainer:' info so that users of the script can contact the maintainer of the script regarding any problems or maybe even a note of thanks.
-- The 'License:' header is optional, but highly recommended. A Vim script or plugin that you write may be useful for many other people as well, so you can specify a license for the script. Consequently, other people can improve your work and that it will in turn benefit you as well.
-- A script may be loaded multiple times. For example, if you open two different files in the same Vim instance and both of them are `.html` files, then Vim opens the HTML syntax highlighting script for both of the files. To avoid running the same script twice and redefining things twice, we use a safeguard by checking for existence of the name 'loaded_capitalize' and closing if the script has been already loaded.
+- В первой строке файла должен быть комментарий, объясняющий, о чем идет речь в файле.
+- Есть 2-3 стандартных заголовка, упомянутых в отношении файла, таких как 'Last Changed:' (последнее изменение), который объясняет сколько лет скрипту, "Maintainer:" (сопровождающий) - информация, чтобы пользователи скрипта могли связаться с сопровождающим скрипта по поводу каких-либо проблем или, возможно, даже благодарственным письмом.
+- Заголовок "License:" (лицензия) является необязательным, но настоятельно рекомендуемым. Скрипт Vim или плагин, который вы пишете, может быть полезен и для многих других людей, поэтому вы можете указать лицензию для скрипта. Следовательно, другие люди могут улучшить вашу работу, и это, в свою очередь, принесет пользу и вам.
+- Скрипт может быть загружен несколько раз. Например, если вы открываете два разных файла в одном экземпляре Vim, и оба они являются `.html` файлами, затем Vim открывает скрипт подсветки синтаксиса HTML для обоих файлов. Чтобы избежать запуска одного и того же скрипта дважды и двойного переопределения элементов, мы используем защиту, проверяя наличие имени 'loaded_capitalize' и закрывая, если скрипт уже загружен.
 
-Now, let us proceed to write the actual functionality.
+Теперь перейдем к написанию собственно функциональности.
 
-We can define a function to perform the transformation - capitalize the first letter of each word, so we can call the function as `Capitalize()`. Since the function is going to work on a range, we can specify that the function works on a range of lines.
+Мы можем определить функцию для выполнения преобразования - заглавная первая буква каждого слова, поэтому мы можем вызвать функцию как `Capitalize()`. Поскольку функция будет работать в диапазоне, мы можем указать, что функция работает в диапазоне строк.
 
 ``` viml
 " Vim global plugin for capitalizing first letter of each word
@@ -273,21 +273,21 @@ function Capitalize() range
 endfunction
 ```
 
-How It Works:
+Как это работает:
 
-- The `a:firstline` and `a:lastline` represent the arguments to the function with correspond to the start and end of the range of lines respectively.
-- We use a 'for' loop to process each line (fetched using `getline()`) in the range.
-- We use the `substitute()` function to perform a regular expression search-and-replace on the string. Here we are specifying the function to look for words which is indicated by `\\w\\+` which means a word (i.e. a continuous set of characters that are part of words). Once such words are found, they are to be converted using `\\u\\0` - the `\\u` indicates that the first character following this sequence should be converted to upper case. The `\\0` indicates the match found by the `substitute()` function which corresponds to the words. In effect, we are converting the first letter of each word to upper case.
-- We call the `setline()` function to replace the line in Vim with the modified string.
+- `a:firstline` и `a:lastline` представляют аргументы функции, соответствующие началу и концу диапазона строк соответственно.
+- Мы используем цикл 'for' для обработки каждой строки (полученной с помощью `getline()`) в диапазоне.
+- Мы используем функцию `substitute()` для выполнения регулярного выражения search-and-replace в строке. Здесь мы указываем функцию для поиска слов, которая обозначается `\\w\\+`, что означает 'w'ord (слово) (т.е. непрерывный набор символов, которые являются частью слов). Как только такие слова найдены, они должны быть преобразованы с помощью `\\u\\0` - `\\u` указывает, что первый символ после этой последовательности должен быть преобразован в верхний регистр. `\\0` указывает на совпадение, найденное функцией `substitute()`, которая соответствует словам. По сути, мы преобразуем первую букву каждого слова в верхний регистр.
+- Мы вызываем функцию `setline()`, чтобы заменить строку в Vim измененной строкой.
 
-To run this command:
+Чтобы выполнить эту команду:
 
-1. Open Vim and enter some random text such as 'this is a test'.
-2. Run `:source capitalize.vim` - this 'sources' the file as if the commands were run in Vim inline as we have done before.
-3. Run `:call Capitalize()`.
-4. The line should now read 'This Is A Test'.
+1. Откройте Vim и введите произвольный текст, например 'this a test'.
+2. Выполнить `:source capitalize.vim` - это 'источники' файла, как если бы команды были запущены в Vim inline, как мы делали раньше.
+3. Выполнить `:call Capitalize()`.
+4. Теперь строка должна выглядеть: 'This Is A Test'.
 
-Running `:call Capitalize()` every time appears to be tedious, so we can assign a keyboard shortcut using leaders:
+Запуск `:call Capitalize()` каждый раз кажется утомительным, поэтому мы можем назначить сочетание клавиш с помощью лидеров:
 
 ``` viml
 " Vim global plugin for capitalizing first letter of each word
@@ -321,42 +321,42 @@ function s:Capitalize() range
 endfunction
 ```
 
-- We have changed the name of the function from simply `Capitalize` to `s:Capitalize` - this is to indicate that the function is local to the script that it is defined in, and it shouldn't be available globally because we want to avoid interfering with other scripts.
-- We use the `map` command to define a shortcut.
-- The `<Leader>` key is usually backslash, `\`.
-- We are now mapping `<Leader>c` (i.e. the leader key followed by the 'c' key) to some functionality.
-- We are using `<Plug>Capitalize` to indicate the `Capitalize()` function described within a plugin i.e. our own script.
-- Every script has an ID, which is indicated by `<SID>`. So, we can map the command `<SID>Capitalize` to a call of the local function `Capitalize()`.
+- Мы изменили имя функции с простого `Capitalize` на `s:Capitalize` - это означает, что функция является локальной для скрипта, в котором она определена, и она не должна быть доступна глобально, потому что мы хотим избежать вмешательства в другие скрипты.
+- Мы используем команду `map` для определения ярлыка.
+- Клавиша `<Leader>`, обычно имеет обратную косую черту `\`.
+- Теперь мы сопоставляем `<Leader>c` (т.е. клавишу лидера, за которым следует клавиша 'c') с некоторой функциональностью.
+- Мы используем `<Plug>Capitalize`, чтобы указать функцию `Capitalize()`, описанную в плагине, т.е. наш собственный скрипт.
+- Каждый скрипт имеет идентификатор, который обозначается `<SID>`. Таким образом, мы можем сопоставить команду `<SID>Capitalize` с вызовом локальной функции `Capitalize()`.
 
-So, now repeat the same steps mentioned previously to test this script, but you can now run `\c` to capitalize the line(s) instead of running `:call Capitalize()`.
+Итак, теперь повторите те же шаги, упомянутые ранее, чтобы протестировать этот скрипт, но теперь вы можете запустить `\c` Для заглавной буквы строки(строк) вместо запуска `:call Capitalize()`.
 
-This last set of steps may seem complicated, but it just goes to show that there's a wealth of possibilities in creating Vim scripts and they can do complex stuff.
+Этот последний набор шагов может показаться сложным, но он просто показывает, что существует множество возможностей для создания скриптов Vim, и они могут делать сложные вещи.
 
-If something does go wrong in your scripting, you can use `v:errmsg` to see the last error message which may give you clues to figure out what went wrong.
+Если что-то пойдет не так в скрипте, то вы можете использовать `v:errmsg`, чтобы увидеть последнее сообщение об ошибке, которое может дать вам подсказки для выяснения что пошло не так.
 
-Note that you can use `:help` to find help on everything we have discussed above, from `:help \w` to `:help setline()`.
+Обратите внимание, что вы можете использовать `:help`, чтобы найти справку по всему, что мы обсуждали выше, от `:help \w` до `:help setline()`.
 
-## Using external programming languages
+## Использование внешних языков программирования
 
-Many people would not like to spend the time in learning Vim's scripting language and may prefer to use a programming language they already know and write plugins for Vim in that language. This is possible because Vim supports writing plugins in Python, Perl, Ruby and many other languages.
+Многие люди не хотели бы тратить время на изучение языка скриптов Vim и предпочли бы использовать уже известный им язык программирования и писать плагины для Vim на этом языке. Это возможно, потому что Vim поддерживает написание плагинов на Python, Perl, Ruby и многих других языках.
 
-In this chapter, we will look at a simple plugin using the Python programming language, but we can easily use any other supported language as well.
+В этой главе мы рассмотрим простой плагин, использующий язык программирования Python,но мы также можем легко использовать любой другой поддерживаемый язык.
 
-As mentioned earlier, if you are interested in learning the Python language, you might be interested in my other free book [A Byte of Python]({{ book.pythonBookUrl }}).
+Как упоминалось ранее, если вы заинтересованы в изучении языка Python - вам может быть интересна моя другая бесплатная книга [A Byte of Python]({{ book.pythonBookUrl }}).
 
-First, we have to test if the support for the Python programming language is present.
+Во-первых, мы должны проверить, присутствует ли поддержка языка программирования Python.
 
 ``` viml
 :echo has("python")
 ```
 
-If this returns `1`, then we are good to go, otherwise you might want to install Python on your machine and try again.
+Если это возвращает `1`, то мы хорошо идем, в противном случае вы должны установить Python на вашем компьютере и попробовать еще раз.
 
-Suppose you are writing a blog post. A blogger usually wants to get as many people to read his/her blog as possible. One of the ways people find such blog posts is by querying a search engine. So, if you're going to write on a topic (say 'C V Raman', the famous Indian physicist who has won a Nobel Prize for his work on the scattering of light), you might want to use important phrases that helps more people find your blog when they search for this topic. For example, if people are searching for 'c v raman', they might also search for the 'raman effect', so you may want to mention that in your blog post or article.
+Предположим, вы пишете сообщение в блоге. Блоггер обычно хочет, чтобы как можно больше людей читали его блог. Один из способов, которым люди находят такие сообщения в блоге - это запрос в поисковую систему. Итак, если вы собираетесь писать на тему (скажем "C V Raman" - известный индийский физик, получивший Нобелевскую премию за свою работу по рассеянию света), вы можете использовать важные фразы, которые помогут большему количеству людей найти ваш блог, когда они ищут эту тему. Например, если люди ищут "c v raman", они также могут искать "эффект Рамана", поэтому вы можете упомянуть об этом в своем блоге или статье.
 
-How do we find such related phrases? It turns out that the solution is quite simple, thanks to Yahoo! Search.
+Как мы находим такие родственные фразы? Оказывается, что решение довольно простое, благодаря Yahoo! Поиск.
 
-First, let us figure out how to use Python to access the current text, which we will use to generate the related phrases.
+Для начала давайте выясним, как использовать Python для доступа к текущему тексту, который мы будем использовать для создания связанных фраз.
 
 ``` viml
 " Vim plugin for looking up popular search queries related
@@ -382,13 +382,13 @@ EOF
 endfunction
 ```
 
-The main approach to writing plugins in interfaced languages is same as that for the built-in scripting language.
+Основной подход к написанию плагинов на интерфейсных языках такой же, как и для встроенного скриптового языка.
 
-The key difference is that we have to pass on the code that we have written in the Python language to the Python interpreter. This is achieved by using the EOF as shown above - all the text from the `python <<EOF` command to the subsequent `EOF` is passed to the Python interpreter.
+Ключевое отличие состоит в том, что мы должны передать код, написанный на языке Python, интерпретатору Python. Это достигается с помощью EOF, как показано выше - весь текст от команды `python <<EOF` до последующего `EOF` передается интерпретатору Python.
 
-You can test this program, by opening Vim again separately and running `:source related.vim`, and then run `:call Related()`. This should display something like `Length of the current line is 54`.
+Вы можете протестировать эту программу, открыв Vim снова отдельно и запустив `:source related.vim`, а затем выполнить `:call Related()`. Это должно отображать что-то вроде `Length of the current line is 54`.
 
-Now, let us get down the actual functionality of the program. Yahoo! Search has something called a [RelatedSuggestion query](http://developer.yahoo.com/search/web/V1/relatedSuggestion.html) which we can access using a web service. This web service can be accessed by using a Python API provided by Yahoo! Search [pYsearch](http://pysearch.sourceforge.net):
+Теперь давайте перейдем к фактической функциональности программы. Yahoo! Поиск имеет то, что называется [запрос RelatedSuggestion](http://developer.yahoo.com/search/web/V1/relatedSuggestion.html) к которым мы можем получить доступ с помощью веб-сервиса. Доступ к этой веб-службе можно получить с помощью API Python, предоставляемого Yahoo!Поиск [pYsearch](http://search.sourceforge.net):
 
 ``` viml
 " Vim plugin for looking up popular search queries related
@@ -425,14 +425,14 @@ EOF
 endfunction
 ```
 
-Notice that we use the current line in Vim as the current text we are interested in, you can change this to any text that you want, such as the current word, etc.
+Обратите внимание, что мы используем текущую строку в Vim в качестве текущего текста, который нас интересует, вы можете изменить его на любой текст, который хотите, например, текущее слово и т.д.
 
-We use the `yahoo.search.web.RelatedSuggestion` class to query Yahoo! Search for phrases related to the query that we specify. We get back the results by calling `parse_results()` on the result object. We then loop over the results and display it to the user.
+Мы используем класс `yahoo.search.web.RelatedSuggestion` для запроса Yahoo!Поиск для фраз, связанных с указанным запросом. Мы возвращаем результаты, вызывая `parse_results()` на объекте результата. Затем мы перебираем результаты и показываем их пользователю.
 
-1. Run `:source related.vim`
-2. Type the text `c v raman`.
-3. Run `:call Related()`
-4. The output should look something like this:
+1. Запустите `:source related.vim`
+2. Введите текст `c v raman`.
+3. Выполните `:call Related()`
+4. Результат должен выглядеть примерно так:
 
 ```
 Related popular searches are:
@@ -442,10 +442,10 @@ Related popular searches are:
 4. chandrasekhara venkata raman
 ```
 
-## Summary
+## Резюме
 
-We have explored scripting using the Vim's own scripting language as well as using external scripting/programming languages. This is important because the functionality of Vim can be extended in infinite ways.
+Мы изучили скриптинг с использованием собственного языка сценариев Vim, а также с использованием внешних языков скриптинга/программирования. Это важно, потому что функциональность Vim может быть расширена бесконечными способами.
 
-See `:help eval`, `:help python-commands`, `:help perl-using` and `:help ruby-commands` for details.
+Смотрите `:help eval`, `:help python-commands`, `:help perl-using` и `:help ruby-commands` для подробностей.
 
-To dive deep into this topic, see [Learn VimScript The Hard Way by Steve Losh](http://learnvimscriptthehardway.stevelosh.com).
+Чтобы погрузиться глубже в эту тему, смотрите [Learn VimScript The Hard Way by Steve Losh](http://learnvimscriptthehardway.stevelosh.com).

@@ -1,6 +1,6 @@
 # Основы редактирования
 
-Давайте изучим основные команды редактирования в Vim для чтения / записи файлов, вырезания / копирования / вставки, отмены / повтора и поиска.
+Давайте изучим основные команды редактирования в Vim для чтения/записи файлов, вырезания/копирования/вставки, отмены/повтора и поиска.
 
 ## Чтение и редактирование файлов
 
@@ -10,19 +10,19 @@
 
 Теперь откройте Vim, напишите слова `Hello World` и сохраните их как файл `hello.txt`. Если Вам нужно напомнить как это сделать - обратитеь к [главе Первые шаги](./first_steps.md#write-file).
 
-### Swap
+### Подкачка (swap)
 
-Now you will notice that another file has been created in the same directory as this file, the file would be named something like `.hello.txt.swp`. Run `:swapname` to find out the exact name of the file.
+Теперь вы заметите, что другой файл был создан в том же каталоге что и этот, файл будет называться что-то вроде `.hello.txt.swp`. Запустите `:swapname` , чтобы узнать точное имя файла.
 
-What is this file? Vim maintains a backup of the buffer in a file which it saves regularly to the hard disk so that in case something goes wrong (like a computer crash or even Vim crashes), you have a backup of the changes you have made since you last saved the original file. This file is called a "swap file" because Vim keeps swapping the contents of the buffer in the computer memory with the contents of this file on the hard disk. See `:help swap-file` to know more details.
+Что это за файл? Vim поддерживает резервную копию буфера в файле, который он регулярно сохраняет на жесткий диск, так что в случае, если что-то пойдет не так (например, сбой компьютера или даже сбой Vim), у вас есть резервная копия изменений, внесенных с момента последнего сохранения исходного файла. Этот файл называется "файл подкачки (swap)", потому что Vim постоянно обменивается содержимым буфера в памяти компьютера с содержимым этого файла на жестком диске. Дополнительную информацию смотрите в разделе `:help swap-file`.
 
-### Save my file
+### Сохранить мой файл
 
-Now that the file has been loaded, let's do a minor editing. Press the ~ key to change the case of the character on which the cursor is positioned. You will notice that Vim now marks the file having been changed (for example a `+` sign shows up in the title bar of the GUI version of Vim). You can open up the actual file in another editor and check that it has not changed yet i.e. Vim has only changed the buffer and not yet saved it to the hard disk.
+Теперь, когда файл загружен, давайте сделаем небольшое редактирование. Нажмите клавишу ~ чтобы изменить регистр символа, на котором расположен курсор. Вы заметите, что Vim теперь отмечает файл, который был изменен (например, знак `+` отображается в строке заголовка графической версии Vim). Вы можете открыть фактический файл в другом редакторе и проверить что он еще не изменился, т.е. Vim только изменил буфер и еще не сохранил его на жестком диске.
 
-We can write back the buffer to the original file in the hard disk by running `:write`.
+Мы можем записать буфер обратно в исходный файл на жестком диске, выполнив команду `:write`.
 
-> NOTE: To make saving easier, add the following line to your vimrc file:
+> ПРИМЕЧАНИЕ: Чтобы упростить сохранинени - добавьте следующую строку в файл vimrc:
 > <br>
 > ``` viml
 > " To save, ctrl-s.
@@ -30,119 +30,122 @@ We can write back the buffer to the original file in the hard disk by running `:
 > imap <c-s> <Esc>:w<CR>a
 > ```
 > <br>
-> Now you can simply press `ctrl-s` to save the file.
+> Теперь вы можете просто нажать `ctrl-s`, чтобы сохранить файл.
 
-### Working in my directory
+### Работа в моем каталоге
 
-Vim starts up with your home directory as the default directory and all operations will be done within that directory.
+Vim запускается с вашим домашним каталогом в качестве каталога по умолчанию, и все операции будут выполняться в нем.
 
-To open files located in other directories, you can use the full or relative paths such as:
+Для открытия файлов, расположенных в других директориях, можно использовать полные или относительные пути, такие как:
 
 ``` viml
 :e ../tmp/test.txt
 :e C:\\shopping\\monday.txt
 ```
 
-Or you can switch Vim to that directory:
+Или вы можете переключить Vim на этот каталог:
 
 ``` viml
 :cd ../tmp
 ```
 
-`:cd` is short for 'c'hange 'd'irectory.
+`:cd` - это сокращение от 'c'hange 'd'irectory (смена каталога).
 
-To find out the current directory where Vim is looking for files:
+Чтобы узнать текущий каталог, в котором Vim ищет файлы:
 
 ``` viml
 :pwd
 ```
 
-`:pwd` is short for 'p'rint 'w'orking 'd'irectory.
+`:pwd` - сокращение от 'p'rint 'w'orking 'd'irectory (напечатать рабочий каталог).
 
-## Cut, Copy and Paste
+## Выразание, копирование и вставка
 
-As Sean Connery says, in the movie [Finding Forrester](http://www.imdb.com/title/tt0181536/):
+Как говорит Шон Коннери в фильме [Найти Форрестера](http://www.imdb.com/title/tt0181536/):
 
 > No thinking - that comes later. You must write your first draft with your heart. You rewrite with your head. The first key to writing is... to write, not to think!
+> Не думай - это придет позже. Ты должен написать свой первый черновик сердцем. Ты переписываешь с головой. Первый ключ к написанию - это... писать, а не думать!
 
-When we rewrite, we frequently rearrange the order of the paragraphs or sentences i.e. we need to be able to cut/copy/paste the text. In Vim, we use a slightly different terminology:
+Когда мы переписываем, мы часто меняем порядок абзацев или предложений, т.е. нам нужно иметь возможность вырезать/копировать/вставлять текст. В Vim мы используем несколько иную терминологию:
 
-| Desktop world | Vim world | Operation |
+| Мир десктопа | Мир Vim | Операция |
 | --- | --- | --- |
-| cut | delete | `d` |
-| copy | yank | `y` |
-| paste | paste | `p` |
+| cut (вырезать) | delete | `d` |
+| copy (копировать)| yank | `y` |
+| paste (вставить) | paste | `p` |
 
-In normal desktop terminology, 'cut'ting text means removing the text and putting it into the clipboard. The same operation in Vim means it deletes the text from the file buffer and stores it in a 'register' (a part of the computer's memory). Since we can choose the register where we can store the text, it is referred to as the "delete" operation.
+В обычной терминологии 'cut'ting (вырезать) текст означает удалить текст и поместить его в буфер обмена. Та же операция в Vim означает, что он удаляет текст из файлового буфера и сохраняет его в "регистре" (часть памяти компьютера). Поскольку мы можем выбрать регистр, в котором можем хранить текст, операция называется "удалить" (delete).
 
-Similarly, in normal desktop terminology, 'copy' text means that a copy of the text is placed on the clipboard. Vim does the same, it "yanks" the text and places it in a register.
+Аналогично, в обычной терминологии "копировать" текст означает, что копия текста помещается в буфер обмена. Vim делает то же самое, он "yanks" (дергает) текст и помещает его в регистр.
 
-"Paste" means the same in both terminologies.
+"Вставить" (paste) означает то же самое в обеих терминологиях.
 
-We have seen how you can do cut/copy/paste operations in Vim. But how do you specify which text that these operations should work on? Well, we have already explored that in the previous [Text Objects section](./moving_around.md#text-objects).
+Мы видели как вы можете выполнять операции вырезания/копирования/вставки в Vim. Но как вы определяете, с каким текстом должны работать эти операции? Мы уже исследовали это в предыдущем [разделе Части текста](./moving_around.md#text-objects).
 
-Combining the operation notation and the text object notation means we have innumerable ways of manipulating the text. Let's see a few examples.
+Сочетание нотации операции и нотации объекта текста означает, что у нас есть бесчисленные способы манипулирования текстом. Давайте рассмотрим несколько примеров.
 
-Write this text in Vim (exactly as shown):
+Напишите этот текст в Vim (точно так, как показано):
+
+<!-- Combining the operation notation and the text object notation means we have innumerable ways of manipulating the text. Let's see a few examples. -->
 
 > This is the rthe first paragraph. <br>
 > This is the second line. <br>
 > <br>
 > This is the second paragraph. <br>
 
-Place the cursor at the topmost leftmost position, by pressing `1G` and `|` that moves to the first line and the first column respectively.
+Поместите курсор в самую верхнюю левую позицию, нажав `1G` и `|`, которые перемещают в первую строку и первый столбец соответственно.
 
-Let's see the first case: We have typed an extra 'r' which we have to remove. Press `3w` to move forward by 3 words.
+Давайте рассмотрим первый случай: мы набрали лишнюю 'r', которую теперь необходимо удалить. Нажмите `3w`, чтобы перейти вперед на 3 слова.
 
-Now, we need to delete one character at the current cursor position.
+Теперь нам нужно удалить один символ в текущей позиции курсора.
 
-Note that there are two parts to this:
+Обратите внимание, что это состоит из двух частей:
 
-| Operation | Text Object / Motion |
+| Операция | Текстовый объект / Движение |
 | --- | --- |
-| Delete | One character at current cursor position |
+| Удаление | Один символ от текущей позиции курсора |
 | `d` | `l` |
 
-So, we have to just press `dl` and we delete one character! Notice that we can use `l` even though it is a motion.
+Итак, мы должны просто нажать `dl` и удалить один символ! Обратите внимание, что мы можем использовать `l`, даже если это движение.
 
-Now we notice that the whole word is redundant because we have "the" twice. Now think carefully on what should be fastest key combination to fix this?
+Теперь мы замечаем, что весь мир избыточен, потому что у нас есть "свое" дважды. Теперь подумайте хорошенько о том, какая должна быть самая быстрая комбинация клавиш, чтобы исправить это?
 
-Take some time to think and figure this out for yourself. Take your time. Now read on.
+Потратьте некоторое время, чтобы подумать и выяснить это для себя. Не торопитесь. А теперь читайте дальше.
 
-| Operation | Text Object / Motion |
+| Операция | Текстовый объект / Движение |
 | --- | --- |
-| Delete | Word |
+| Удаление | Слово |
 | `d` | `w` |
 
-So, press `dw` and you delete a word. Voila! So simple and so beautiful. The beauty is that such simple concepts can be combined to provide such a rich range of possibilities.
+Итак, нажав `dw` вы удалите слово. Вуаля! Так просто и так красиво. Красота заключается в том, что такие простые концепции могут быть объединены, для обеспечения такого богатого спектра возможностей.
 
-How do we achieve the same operation for lines? Well, lines are considered special in Vim because lines are usually how we think about our text. As a shortcut, if you repeat the operation name twice, it will operate on the line. So, dd will delete the current line and yy will yank the current line.
+Как мы достигаем такой же операции для строк? Ну, строки считаются особенными в Vim, потому что строки - это обычно то, как мы думаем о нашем тексте. Сокращенно, если вы повторите имя операции дважды, она будет работать на строке. Таким образом, `dd` удалит текущую строку, а `yy` будет дергать текущую строку.
 
-Our example text in Vim should now look like this:
+Наш пример текста в Vim теперь должен выглядеть так:
 
 > This is the first paragraph. <br>
 > This is the second line. <br>
 > <br>
 > This is the second paragraph.
 
-Go to the second line by pressing `j`. Now press `dd` and the line should be deleted. You should now see:
+Перейдите ко второй строке, нажав `j`. Теперь нажмите `dd` и строка должна быть удалена. Теперь вы должны увидеть:
 
 > This is the first paragraph. <br>
 > <br>
 > This is the second paragraph.
 
-Let's see a bigger case: How do we yank the current paragraph?
+Давайте посмотрим на более крупный случай: как выдернуть текущий абзац?
 
-| Operation | Text Object / Motion |
+| Операция | Текстовый объект / Движение |
 | --- | --- |
-| Yank | A Paragraph |
+| Yank | Абзац |
 | `y` | `ap` |
 
-So, `yap` will copy the current paragraph.
+Итак, `yap` скопирует текущий абзац.
 
-Now that we have done copying the text, how do we paste it? Just `p` it.
+Теперь, когда мы завершили копирование текста, как мы можем вставить его? Просто `p`.
 
-You should now see:
+Теперь вы должны увидеть:
 
 > This is the first paragraph. <br>
 > This is the first paragraph. <br>
@@ -150,48 +153,48 @@ You should now see:
 > <br>
 > This is the second paragraph.
 
-Notice that the blank line is also copied when we do yap, so p adds that extra blank line as well.
+Обратите внимание, что пустая строка также копируется, когда мы выполняем `yap`, поэтому `p` добавляет и эту дополнительную пустую строку.
 
-There are two types of paste that can be done exactly like the two types of inserts we have seen before:
+Существует два типа вставки, которые можно сделать точно так же, как два вида вставок, которые мы видели ранее:
 
-| Key | Mnemonic |
+| Клавиша | Действие |
 | --- | --- |
-| `p` | paste after current cursor position |
-| `P` | paste before current cursor position |
+| `p` | Вставка после текущей позиции курсора |
+| `P` | Вставка перед текущей позицией курсора |
 
-Taking the idea further, we can combine these into more powerful ways.
+Развивая эту идею дальше, мы можем объединить их в более мощные способы.
 
-How to swap two characters? Press `xp`.
+Как поменять местами два символа? Нажмите `хр`.
 
-- `x` &rarr; delete one character at current cursor position
-- `p` &rarr; paste after current cursor position
+- `x` &rarr; удалить один символ в текущей позиции курсора
+- `p` &rarr; вставить после текущей позиции курсора
 
-How to swap two words? Press `dwwP`.
+Как поменять местами два слова? Нажмите `dwwP`.
 
-- `d` &rarr; delete
-- `w` &rarr; one word
-- `w` &rarr; move to the next word
-- `P` &rarr; paste before the current cursor position
+- `d` &rarr; удалить
+- `w` &rarr; одно слово
+- `w` &rarr; переместить на следующее слово
+- `P` &rarr; вставить перед текущей позицией курсора
 
-The important thing is *not* to learn these operations by rote. These combinations of operations and text objects/motions should be automatic for your fingers, without you needing to put in mental effort. This happens when you make using these a habit.
+Важно *не* заучивать эти операции наизусть. Эти комбинации действий и текстовых объектов/движений должны быть автоматизированы для ваших пальцев, без раздумий. Это происходит, когда вы делаете их использование привычкой.
 
-## Marking your territory
+## Разметка своей территории
 
-You are writing, and you suddenly realize you have to change sentences in a previous section to support what you are writing in this section. The problem is that you have to remember where you are right now so that you can come back to it later. Can't Vim remember it for me? This can be achieved using marks.
+Вы пишете, и вы вдруг понимаете, что нужно изменить предложения в предыдущем разделе, чтобы дополнить то, что вы пишете в этом разделе. Проблема в том, что вы должны помнить, где находитесь прямо сейчас, чтобы вернуться сюда позже. Неужели Vim не может запомнить это для меня? Это может быть реализовано с помощью меток.
 
-You can create a mark by pressing m followed by the name of the mark which is a single character from `a-zA-Z`. For example, pressing `ma` creates the mark called 'a'.
+Вы можете создать метку нажав `m`, а затем имя метки, которое является одним символом из `a-zA-Z`. Например, нажатие `ma` создает метку с именем "a".
 
-Pressing `'a` returns the cursor to line of the mark. Pressing <code>`a</code> will take you to the exact line and column of the mark.
+Нажатие `'a` возвращает курсор к строке метки. Нажатие <code>`a</code> приведет вас к точной строке и столбцу метки.
 
-The best part is that you can jump to this position using these marks any time thereafter.
+Самое приятное, что вы можете перейти в эту позицию используя эти метки в любой момент после этого.
 
-See `:help mark-motions` for more details.
+Смотрите `:help mark-motions` для более подробной информации.
 
 ## Time machine using undo/redo
 
-Suppose you are rewriting a paragraph but you end up muddling up what you were trying to rewrite and you want to go back what you had written earlier. This is where we can "undo" what we just did. If we want to change back again to what we have now, we can "redo" the changes that we have made. Note that a change means some change to the text, it does not take into account cursor movements and other things not directly related to the text.
+Предположим, вы переписываете абзац, но в конечном итоге путаете то, что вы пытались переписать, и хотите вернуться к тому, что написали ранее. Здесь мы хотим "отменить" то, что только что сделали. Если мы хотим вернуться к тому, что у нас есть сейчас, мы можем "повторить" изменения, которые сделали. Обратите внимание, что изменение подразумевает некоторое изменение текста, оно не учитывает движения курсора и другие вещи, не связанные непосредственно с текстом.
 
-Suppose you have the text:
+Предположим, у вас есть текст:
 
 > I have coined a phrase for myself - 'CUT to the G': <br>
 > 1. Concentrate <br>
@@ -201,40 +204,40 @@ Suppose you have the text:
 > <br>
 > Step 4 is eventually what gets you moving, but Steps 2 and 3 are equally important. As Abraham Lincoln once said "If I had eight hours to chop down a tree, I'd spend six hours sharpening my axe." And to get to this stage, you need to do Step 1 which boils down to one thing - It's all in the mind. That's why it's so hard.
 
-Now, start editing the first line:
+Теперь начните редактирование первой строки:
 
-1. Press `S` to 's'ubstitute the whole line.
-2. Type the text `After much thought, I have coined a new phrase to help me solidify my approach:`.
-3. Press `<esc>`.
+1. Нажмите `S` для 's'ubstitute (замены всей строки.
+2. Введите текст `After much thought, I have coined a new phrase to help me solidify my approach:`.
+3. Нажмите `<esc>`.
 
-Now think about the change that we just did. Is the sentence better? Hmm, was the text better before? How do we switch back and forth?
+А теперь подумайте об изменениях, которые мы только что совершили. Это предложение лучше? Хм, а может раньше текст был лучше? Как мы переключимся туда и обратно?
 
-Press `u` to undo the last change and see what we had before. You will now see the text `I have coined a phrase for myself - 'CUT to the G':`. To come back to the latest change, press `ctrl-r` to now see the line `After much thought, I have coined a new
-phrase to help me solidify my approach:`.
+Нажмите `u` чтобы отменить последнее изменение и посмотреть что у нас было раньше. Теперь вы увидите текст `I have coined a phrase for myself - 'CUT to the G':`. Чтобы вернуться к последнему изменению, нажмите `ctrl-r` и теперь увидите строку `After much thought, I have coined a new phrase to help me solidify my approach:`.
 
-It is important to note that Vim gives unlimited history of undo/redo changes, but it is usually limited by the `undolevels` setting in Vim and the amount of memory in your computer.
+Необходимо отметить, что Vim предоставляет неограниченную историю изменений отмены/повтора, но обычно она ограничена настройкой `undolevels` в Vim и объемом памяти на вашем компьютере.
 
-Now, let's see some stuff that really shows off Vim's advanced undo/redo functionality, some thing that other editors will be jealous of: Vim is not only your editor, it also acts as a time machine.
+Теперь давайте посмотрим на некоторые вещи, которые действительно демонстрируют расширенную функциональность отмены/повтора Vim, такие вещи, которым другие редакторы будут завидовать: Vim - это не только ваш редактор, но также машина времени.
 
-For example, `:earlier 4m` will take you back by 4 minutes i.e. the state of the text 4 minutes "earlier".
+Например, `:earlier 4m` вернет вас на 4 минуты назад, тоесть состояние текста 4 минутами "earlier" (ранее).
 
-The power here is that it is superior to all undoes and redoes. For example, if you make a change, then you undo it, and then continue editing, that change is actually never retrievable using simple u again. But it is possible in Vim using the `:earlier` command.
+Сила здесь в том, что она превосходит все отмены и повторы. Например, если вы внесете изменение, а затем отмените, а после продолжите редактирование, это изменение фактически никогда не будет восстановлено снова с помощью простого `u`. Но это возможно в Vim с помощью команды `:earlier`.
 
-You can also go forward in time: `:later 45s` which will take you later by 45 seconds.
+Вы также можете шагнуть вперед во времени `:later 45s`, что займет у вас позже на 45 секунд. <!--нифига непонятно-->
+<!--You can also go forward in time: `:later 45s` which will take you later by 45 seconds.-->
 
-Or if you want the simpler approach of going back by 5 changes: `:undo 5`.
+Или, если вы хотите более простой подход к возврату на 5 изменений: `:undo 5`.
 
-You can view the undo tree using `:undolist`.
+Вы можете просмотреть дерево отмен, используя `:undolist`.
 
-See :help `:undolist` for the explanation of the output from this command.
+Смотрите `:help undolist` для объяснения выходных данных этой команды.
 
-See `:help undo-redo` and `:help usr_32.txt` for more details.
+Смотрите `:help undo-redo` и `:help usr_32.txt` для более подробной информации.
 
 ## A powerful search engine but not a dotcom
 
-Vim has a powerful built-in search engine that you can use to find exactly what you are looking for. It takes a little getting used to the power it exposes, so let's get started.
+Vim имеет мощный встроенный поисковик, который вы можете использовать чтобы найти именно то, что ищете. Нужно немного привыкнуть к силе, которую он предоставляет, так что давайте начнем.
 
-Let's come back to our familiar example:
+Давайте вернемся к нашему знакомому примеру:
 
 > I have coined a phrase for myself - 'CUT to the G': <br>
 > 1. Concentrate <br>
@@ -244,45 +247,44 @@ Let's come back to our familiar example:
 > <br>
 > Step 4 is eventually what gets you moving, but Steps 2 and 3 are equally important. As Abraham Lincoln once said "If I had eight hours to chop down a tree, I'd spend six hours sharpening my axe." And to get to this stage, you need to do Step 1 which boils down to one thing - It's all in the mind. That's why it's so hard.
 
-Suppose we want to search for the word "Step". In normal mode, type `/Step<cr>` (i.e. `/Step` followed by `enter` key). This will take you to the first occurrence of those set of characters. Press `n` to take you to the 'n'ext occurrence and `N` to go in the opposite direction i.e. the previous occurrence.
+Предположим, мы хотим найти слово "Step". В обычном режиме, типа `/Step<cr>` (т.е. `/Step` затем клавиша `Enter`). Это приведет вас к первому появлению этого набора символов. Нажатие `n` переместит к следующему вхождению, и `N` - для противоположного направления, т.е. к предыдущему вхождению.
 
-What if you knew only a part of the phrase or don't know the exact spelling? Wouldn't it be helpful if Vim could start searching as and when you type the search phrase? You can enable this by running:
+Что делать,если вы знали только часть фразы или не знаете точного написания? Не было бы полезно, если бы Vim мог начать поиск, как и когда вы вводите поисковую фразу? Вы можете включить это, запустив:
 
 ``` viml
 set incsearch
 ```
 
-You can also tell Vim to ignore the case (whether lower or upper case) of the text that you
-are searching for:
+Вы также можете указать Vim игнорировать регистр (нижний или верхний) текста, который вы ищете:
 
 ``` viml
 set ignorecase
 ```
 
-Or you can use:
+Или можете использовать:
 
 ``` viml
 set smartcase
 ```
 
-When you have `smartcase` on:
+Если Вы используете `smartcase`, то:
 
-- If you are searching for `/step` i.e. the text you enter is in lower case, then it will search for any combination of upper and lower case text. For example, this will match all the following four - "Step", "Stephen", "stepbrother", "misstep."
-- If you are searching for `/Step` i.e. the text you enter has an upper case, then it will search for **only** text that matches the exact case. For example, it will match "Step" and "Stephen", but not "stepbrother" or "misstep."
+- Если вы ищете `/step` т.е. текст, который вы вводите, находится в нижнем регистре, то он будет искать любую комбинацию верхнего и нижнего регистра текста. Например, этому будут соответствовать все следующие четыре - "Step", "Stephen","stepbrother", "misstep."
+- Если вы ищете `/Step` т. е. текст, который вы вводите, имеет верхний регистр, то он будет искать **только** текст, который соответствует точному регистру. Например, он будет соответствовать "Step" и "Stephen", но не "steprother" или "misstep."
 
-> NOTE: I recommend that you put these two lines in your vimrc file (explained later, but see `:help vimrc-intro` for a quick introduction) so that this is enabled always.
+> Примечание: Я рекомендую вам поместить эти две строки в свой файл vimrc (объяснено позже, но см. `:help vimrc-intro` для быстрого Ознакомления), чтобы это всегда было включено.
 
-Now that we have understood the basics of searching, let's explore the real power of searching. The first thing to note that what you provide Vim can not only be a simple phrase, it can be a "expression". An expression allows you to specify the 'kinds' of text to search for, not just the exact text to look.
+Теперь, когда мы поняли основы поиска, давайте познаем его реальную силу. Первое, что необходимо отметить, это то, что вы предоставляете Vim, может быть не только простой фразой, но и "выражением". Выражение позволяет указать "виды" текста для поиска, а не только точный текст для поиска.
 
-For example, you will notice that /step will take you to steps as well as step and even footstep if such a word is present. What if you wanted to look for the exact word step and not when it is part of any other word? Then you can search using `/\<step\>`. The `\<` and
-`\>` indicate the start and end positions of a "word" respectively.
+Например, вы заметите, что /step приводит вас к steps, а также step и даже footstep, если такое слово присутствует. Что делать, если вы хотите искать точное слово step, а не когда оно является частью любого другого слова? Для этого вы можете выполнить поиск с помощью `/\<step\>`. Где `\<` и
+`\>` указывают начальную и конечную позиции "слова" соответственно.
 
-Similarly, what if you wanted to search for any number? Searching for `/\d` will look for a 'digit'. But a number is just a group of digits together. So we specify "one or more" digits together as `/\d\+`. If we were looking for zero or more characters, we can use the `*` instead of the `+`.
+Точно так же, что делать, если вы хотите найти число? Поиск пок `/\d` будет искать 'digit' (цифру). Но число - это всего лишь группа цифр вместе взятых. Поэтому мы указываем "одну или несколько" цифр вместе как `/\d\+`. Если мы ищем ноль или более символов, то можем использовать `*` вместо `+`.
 
-There are a variety of such magic stuff we can use in our search patterns. See `:help pattern` for details.
+Есть множество таких магических вещей, которые мы можем использовать в наших шаблонах поиска. Подробности смотрите в `:help pattern`.
 
-## Summary
+## Резюме
 
-We have explored some of the basic editing commands that we will use in our everyday usage of Vim. *It is very important that you go through these concepts again and make them a habit.* It is not important to learn each and every option or nuances of these commands. If you know how to use the command and know how to find out more on it based on what you need, then you're a true Vimmer.
+Мы рассмотрели некоторые из основных команд редактирования, которые будем использовать в нашем повседневном использовании Vim. *Очень важно, чтобы вы снова повторили эти понятия и сделали их привычкой.* Не нужно изучать каждый вариант или нюансы этих команд. Если вы знаете, как использовать команду и знаете, как найти больше о том, что вам необходимо, то вы настоящий Vim'мер.
 
-Now, go ahead and start editing!
+Теперь, идите вперед и начните редактирование!

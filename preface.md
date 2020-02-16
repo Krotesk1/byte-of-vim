@@ -1,53 +1,53 @@
-# Preface
+# Предисловие
 
-## About Vim
+## О Vim
 
-[Vim](http://www.vim.org) is a computer program used for writing, and it provides a range of features that help you **write better**.
+[Vim](http://www.vim.org) - это компьютерная программа, используемая для редактирования, предоставляющая ряд функций, которые помогут вам **писать лучше**.
 
-## Why Vim?
+## Почему Vim?
 
-Let's face it, it's very rare to produce your best work on the first attempt. Most likely, you will keep editing it frequently until it becomes 'good'.
+Давайте посмотрим правде в глаза, очень редко Вы делаете свою лучшую работу с первой попытки. Скорее всего, Вы будете часто редактировать её, пока она не станет 'хорошей'.
 
-As Louis Brandeis once said:
+Как однажды сказал Луис Брандейс:
 
-> There is no great writing, only great rewriting.
+> Нет великой записи, только великое переписывание.
 
-Making these numerous rapid changes would be a lot easier if we had a capable editor to help us, and that is *exactly* where Vim shines, and is far better compared to most plain text editors and rich document editors.
+Выполнение этих многочисленных быстрых изменений было бы намного проще, если бы у нас был способный редактор, который поможет нам и *именно* в этом Vim блистает, он намного лучше большинства простых текстовых редакторов и богатых редакторов документов.
 
-## Why Write This Book?
+## Зачем написана эта книга?
 
-I have been using the Vim editor ever since I learned to use the old vi editor during Unix classes in college. Vim is one of the few pieces of software that I use for nearly 10 hours a day. I knew there were just so many features that I didn't know about but could potentially be useful to me, so I started exploring Vim little by little.
+Я использую редактор Vim с тех пор, как научился использовать старый редактор vi во время занятий с Unix в колледже. Vim является одним из немногих частей программного обеспечения, которые я использую в течение почти 10 часов в день. Я знал, что есть так много функций, о которых я не подозревал, но они могли быть потенциально полезными для меня, поэтому я начал понемногу изучать Vim.
 
-To crystallize my understanding and to help others also explore Vim, I started writing this collection of notes, and called it a book.
+Чтобы закрепить свое понимание и помочь другим также исследовать Vim, я начал писать этот сборник заметок и назвал его книгой.
 
-Some of the principles I have tried to keep in mind while writing these notes are:
+Некоторые из принципов, которые я пытался помнить при написании этих заметок:
 
-1. Simple literature. The importance of this should be reinforced again and again.
-2. Emphasis on examples and how-to.
-3. The one-stop shop for readers to learn Vim - from getting started to learning advanced stuff.
-4. Get the user to understand how to do things the Vim way - from modes to buffers to customization. Most people learn only the basic vi commands and do not attempt to learn anything beyond that. Learning such concepts is the tipping point, they become hardcore Vim users i.e. Vimmers, which means they extract the most out of Vim, which is the intent of this book.
-5. A lot of things are documented and stored here as a reference for people such as how to use Vim as an IDE, etc. There are various ways of doing it and instead of the user struggling to figure out which plugins to try out, the book already has the basic background work already for the reader.
-6. Just enough info to get you to understand and use, not everything required (Pareto principle)
-7. Relatedly, the book shouldn't attempt to rewrite the reference manual. Where appropriate, it should simply point out the relevant parts. This way, there is no redundancy, the user learns to use the awesome built-in reference manual which is important, and the book can stand on its own strengths as well.
+1. Простота изложения. Важность этого следует укреплять снова и снова.
+2. Акцент на примерах и практическом применении.
+3. Универсальный магазин для читателей, чтобы узнать Vim - от начала работы до изучения передовых вещей.
+4. Дать пользователю понять, как сделать все в Vim - от режимов до буферов и настройки. Большинство людей изучают только основные команды vi и не пытаются узнать ничего сверх этого. Изучение таких концепций является переломным моментом, они становятся хардкорными пользователями Vim, т.е. Vimmers (виммерами), что означает - они извлекают максимальную пользу из Vim, а именно это и является целью этой книги.
+5. Многие вещи документируются и хранятся здесь как справочные материалы, такие как использование Vim в качестве IDE и т.д. Существуют различные способы сделать это, и вместо того, чтобы пользователь пытался выяснить, какие плагины попробовать, книга уже имеет базовую справку для читателя.
+6. Просто достаточное количество информации для понимания и использования, а не все что имеется (принцип Парето)
+7. Соответственно, книга не должна пытаться переписать справочное руководство. Там, где это уместно, она должна просто указывать на соответствующие части. Таким образом, нет никакой избыточности, пользователь учится использовать удивительный встроенный справочник, который является важным, и книга будет стоять на своих собственных сильных сторонах.
 
-To summarize, the mantra is *Concepts. Examples. Pithy.*
+Подводя итог, мантра - это *Понятия. Примеры. Содержательность.*
 
-## Status of the Book
+## Статус книги
 
-The book was a work-in-progress and last updated in 2008. Eight years later (2016), I recreated the book in [GitBook format](http://www.gitbook.com). So let's just say it was a "1.0" book in 2008 :-)
+Книга была в стадии разработки и последний раз обновлялась в 2008 году. Восемь лет спустя (2016) я воссоздал книгу в [формате GitBook](http://www.gitbook.com) Итак, давайте скажем, что это была книга "1.0" в 2008 году :-)
 
-Constructive suggestions are most welcome. Please send your thoughts and suggestions [via email]({{ book.contactUrl }}) or [github issues]({{ book.sourceUrl }}).
+Конструктивные предложения приветствуются. Пожалуйста, присылайте свои мысли и предложения [по электронной почте] ({{ book.contactUrl }}) или [вопросы github] ({{ book.sourceUrl }}).
 
-## Official Website
+## Официальный сайт
 
-The official website of the book is {{ book.officialUrl }} . From the website, you can read the whole book online or download the latest versions of the book, and also send me feedback.
+Официальный сайт книги {{ book.officialUrl }}. С сайта вы можете прочитать всю книгу онлайн или скачать последние версии книги, а также отправить мне отзыв.
 
-## Something To Think About
+## Некоторые мысли
 
-> Books aren't written - they're rewritten. Including your own. It is one of the hardest things to accept, especially after the seventh rewrite hasn't quite done it.
-> -- Michael Crichton
+> Книги не пишутся - они переписываются. В том числе и свои собственные. Это одна из самых трудных вещей для принятия, особенно после того, как седьмое переписывание ещё не сделало это.
+> -- Майкл Крайтон
 
 <!-- -->
 
-> Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.
-> -- Antoine de Saint-Exupery
+> Совершенство достигается не тогда, когда больше нечего добавить, а когда уже нечего отнять.
+> -- Антуан де Сант-Экзюпери

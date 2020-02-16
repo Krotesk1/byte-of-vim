@@ -1,49 +1,49 @@
-## Personal Information Management
+## Управление персональной информацией
 
-A chapter on 'personal information management' (PIM) in a book on an editor software seems strange, doesn't it? Well, there are lots of "professional software" that claim to do personal information management, so let us explore why can't we use a plain text editor like Vim for this purpose?
+Глава "Управление персональной информацией" (УПИ) в книге о программном обеспечении редактора кажется странной, не так ли? Да, есть много "профессиональных программ", которые утверждают, что позволяют управлять персональной информацией, поэтому, давайте рассмотрим, почему мы не можем использовать простой текстовый редактор, такой как Vim, для этой цели?
 
-Personal information management is about organizing all your "information" - such as your todo lists, diary entries, your reference material (such as important phone numbers), scratchpad and so on. Putting all of this in one convenient location can be extremely handy, and we will explore this using Vim and a few plugins.
+Управление личной информацией - это организация всей вашей "информации" такой как списки дел, записи дневника, справочные материалы (например, важные телефонные номера), блокнот и так далее. Размещение всего этого в одном удобном месте может быть очень полезно и мы рассмотрим это в Vim с помощью нескольких плагинов.
 
-I tend to think of a PIM system is best organized as a wiki. A wiki is a quick way to link together various documents which are inter-related but are independent in their own right. Unsurprisingly, the word 'wiki' means 'quick' in the Hawaiian language. Think of a website - there is a home page, and there are related pages to which you see links, and each page will have its own content but can also inter-link to other pages. Isn't this an easy way of organizing websites? What if you could do the same for your own personal information? See this [LifeHack article 'Wikify Your Life: How to Organize Everything'](http://www.lifehack.org/articles/lifehack/wikify-your-life-how-to-organize-everything.html) on some great examples on what you can do.
+Я склонен думать, что система УПИ лучше всего организована как wiki. Вики - это быстрый способ связать воедино различные документы, которые взаимосвязаны, но независимы сами по себе. Неудивительно, что слово "wiki" означает "быстрый" на гавайском языке. Подумайте о веб-сайте - есть домашняя страница, и есть связанные страницы, на которые вы видите ссылки, и каждая страница будет иметь свой собственный контент, но также может ссылаться на другие страницы. Разве это не простой способ организации веб-сайтов? Как Вам, если бы вы могли сделать то же самое для вашей личной информации? Смотрите на [LifeHack статью 'Wikify Your Life: How to Organize Everything'](http://www.lifehack.org/articles/lifehack/wikify-your-life-how-to-organize-everything.html) с некоторыми замечательными примерами о том, что вы можете сделать.
 
-But does this really require a specialized Wiki software? What if you could do the same in just plain text files using Vim? Let's dive in.
+Но действительно ли для этого требуется специализированное программное обеспечение Wiki? Что если бы вы могли делать то же самое в простых текстовых файлах с помощью Vim? Давайте погрузимся.
 
-## Installing Viki
+## Установка Viki
 
-> NOTE: The `$vimfiles` directory corresponds to `~/.vim` on Linux/Mac, `C:/Documents and Settings/<your-user-name>/vimfiles` on Windows and `C:Users/<your-user-name>/vimfiles` on Windows Vista. See `:help vimfiles` for specific details.
+> ПРИМЕЧАНИЕ: `$vimfiles` соответствует каталогу `~/.vim` в Linux/Mac, `C:/Documents and Settings/<your-user-name>/vimfiles` в Windows и `C:Users/<your-user-name>/vimfiles` в Windows Vista. Смотрите `:help vimfiles` для более подробной информации.
 
-We're going to install Viki and its related plugins:
+Мы собираемся установить Viki и связанные с ним плагины:
 
-1. Download [multvals.vim](http://www.vim.org/scripts/script.php?script_id=171) and store as `$vimfiles/plugin/multvals.vim`.
-2. Download [genutils.zip](http://www.vim.org/scripts/script.php?script_id=197) and unzip this file to `$vimfiles`.
-3. Download [Viki.zip](http://www.vim.org/scripts/script.php?script_id=861) and unzip this file to `$vimfiles` (make sure all the folders and files under the 'Viki' folder name are stored directly in the `$vimfiles` folder)
+1. Загрузите [multvals.vim](http://www.vim.org/scripts/script.php?script_id=171) и сохраните как `$vimfiles/plugin/multvals.vim`.
+2. Загрузите [genutils.zip](http://www.vim.org/scripts/script.php?script_id=197) и распакуйте этот файл в `$vimfiles`.
+3. Загрузите [Viki.zip](http://www.vim.org/scripts/script.php?script_id=861) и распакуйте этот файл в `$vimfiles` (убедитесь что все папки и файлы в подпапке 'Viki' хранятся непосредственно в папке `$vimfiles`)
 
-## Get Started
+## Начнем
 
-1. Open the GUI version of Vim
+1. Откройте графическую версию Vim
 2. `:e test.txt`
 3. `:set filetype=viki`
-4. Type the following text:
+4. Введите следующий текст:
 
     ```
     [[http://deplate.sourceforge.net/Markup.html][Viki syntax]]
     ```
 
 5. `:w`
-6. Position your cursor on the above text and press `ctrl+enter`, or alternatively press `\vf`.
-7. You should see a web browser open up with the above website page open.
+6. Наведите курсор на текст выше и нажмитеs `ctrl+enter` или же наберите `\vf`.
+7. Вы должны увидеть, что веб-браузер открывает сайт с ссылкой, приведенной выше.
 
-Similarly, you can write down any file name (with a valid path) - whether it is a `.doc` file or a `.pdf` file and then you can `ctrl+enter` to open the file in the corresponding Word or Acrobat Reader programs!
+Аналогично, вы можете записать любое имя файла (с действительным путем) - будь то файл `.doc` или `.pdf` файл, а затем вы можете использовать `ctrl+enter` чтобы открыть файл в соответствующих программах - Word или Acrobat Reader!
 
-The idea is that you can use plain text files to *hold* all your thinking together and you can `ctrl+enter` your way into everything else.
+Идея заключается в том, что вы можете использовать простые текстовые файлы, чтобы *удерживать* все ваши мысли вместе, и `ctrl+enter` для указания пути ко всему остальному.
 
-Now, notice that we had to type the square brackets in pairs above to identify the target of the link and the words that describe the link. This is basically the syntax of the markup language which we will explore next.
+Теперь обратите внимание, что мы должны были использовать квадратные скобки в парах выше для определения места назначения ссылки и её описания. Это основа синтаксиса языка разметки, который мы рассмотрим далее.
 
-## Markup language
+## Язык разметки
 
-The [Viki syntax](http://deplate.sourceforge.net/Markup.html) page (that you just opened in your web browser) explains how to write the text to allow Viki to syntax highlight portions of your text as well as how to do the linking between 'wiki pages' and even write Viki-specific comments.
+[Синтаксис Viki](http://deplate.sourceforge.net/Markup.html) страница (которую вы только что открыли в своем браузере) объясняет, как написать текст, чтобы позволить Viki синтаксически выделять части вашего текста, а также как создать связь между 'wiki-страницами' и даже написать комментарии, относящиеся к Viki.
 
-Learning the basics of the syntax highlighting is useful because you can visually see the parts of your text file. For example, use `* List of things to do` to make it a header, and then use dashes to create a list:
+Изучение основ подсветки синтаксиса полезно, потому что вы можете визуально видеть части вашего текстового файла. Например, используйте `* List of things To do` чтобы сделать его заголовком, а затем используйте тире для создания списка:
 
 ```
 * List of things to do
@@ -54,55 +54,55 @@ Learning the basics of the syntax highlighting is useful because you can visuall
  - Get motorbike serviced
 ```
 
-## Disabling CamelCase
+## Отключение CamelCase
 
-Writing `CamelCase` can create a wiki link in Viki, but I personally dislike this. I prefer that only explicit links like `[[CamelCase]]` be allowed to avoid situations where I have genuinely used a name which uses camel case but I don't want it to be a link (for example, the word "JavaScript"). To disable camel-case syntax, put `let g:vikiNameTypes = "sSeuix"` in your `~/.vimrc` file.
+Указание `CamelCase` может создать wiki-ссылку в Viki, но мне лично это не нравится. Я предпочитаю, чтобы были разрешены только явные ссылки, такие как `[[CamelCase]]` для избежания ситуации, когда я действительно использовал имя, которое включает camel, но я не хочу чтобы это была ссылка (например, слово "JavaScript"). Чтобы отключить синтаксис Camel-Case, поместите `let g:vikiNameTypes = "sSeuix"` в свой файл `~/.vimrc`.
 
 ## Getting Things Done
 
-One of the major reasons for creating this 'viki' for myself is to maintain a 'Getting Things Done' system.
+Одна из главных причин создания этой "viki" для себя - это поддержание системы "Как привести дела в порядок".
 
-[Getting Things Done ("GTD")](http://www.bnet.com/2403-13074_23-52958.html) is a system devised by David Allen to help manage your 'stuff' - which could mean anything from your career plans to the list of chores you have to do today.
+[Getting Things Done ("GTD")](http://www.bnet.com/2403-13074_23-52958.html) это система, разработанная Дэвидом Алленом, чтобы помочь управлять вашим "материалом", который может означать что угодно, от ваших карьерных планов до списка дел, которые вы должны выполнить сегодня.
 
-From David Allen's book:
+Из книги Дэвида Аллена:
 
-> "Get everything out of your head. Make decisions about actions required on stuff when it shows up - not when it blows up. Organize reminders of your projects and the next actions on them in appropriate categories. Keep your system current, complete, and reviewed sufficiently to trust your intuitive choices about what you're doing (and not doing) at any time."
+> "Выкинь все из головы. Принимай решения о действиях, необходимых для материала, когда он появляется, а не когда он взрывается. Организуй напоминания о своих проектах и последующих действиях по ним в соответствующих категориях. Держи свою систему в актуальном состоянии, полной и достаточно проверенной, чтобы доверять своим интуитивным решениям о том, что ты делаешь (и не делаешь) в любое время."
 
-The GTD system basically consists of organizing your information into certain pages/folders:
+Система GTD в основном состоит из организации вашей информации в определенные страницы/папки:
 
-1. Collection Basket
-2. Projects List
-3. Next Actions
-4. Calendar
-5. Someday/Maybe
-6. Reference Material
-7. Waiting For
+1. Накопление корзины
+2. Список проектов
+3. Следующее действие
+4. Календарь
+5. Когда-нибудь/Может Быть
+6. Справочный материал
+7. В ожидании
 
-I created a viki to match this system by using the following method:
+Я создал viki для соответствия этой системе, используя следующий метод:
 
-1. First, create a `StartPage` which is literally the start page to your personal organization system (hereby referred to as simply "your viki").
-2. Then, create a list of main sections of your viki:
+1. Для начала создайте `StartPage` (Стартовую страницу), которая буквально является стартовой страницей Вашей личной системы организации (здесь она называется просто "your viki").
+2. Затем создайте список основных разделов вашей viki:
 
   ```
-  * Getting Things Done
+  * Как привести дела в порядок
 
-  1. [[Collect][In Basket]]
-  2. [[Project][Projects List]]
-  3. [[NextActions][Next Actions]]
+  1. [[Collect][В корзине]]
+  2. [[Project][Список проектов]]
+  3. [[NextActions][Следующее действие]]
   4. [[Calendar]]
-  5. [[SomedayMaybe][Someday/Maybe]]
-  6. [[Reference][Reference Material]]
-  7. [[Waiting][Waiting For]]
+  5. [[SomedayMaybe][Когда-нибудь/Может быть]]
+  6. [[Reference][Справочный материал]]
+  7. [[Waiting][В ожидании]]
   ```
-  
-3. Similarly, go to as much depth as you want, for example creating a `[[Reference.Career]]` to jot down your career plans, and `[[Project.TopSecret]]` to gather thoughts on your next project, and so on.
-4. Every time you want to jot down something, use the `[[Collect]]` page and then process, organize, review and finally actually do your next-physical-actions.
-5. It takes a while to get accustomed to using this system, but once you are comfortable, you can achieve clarity of mind, confidence that you're taking care of all the factors in your life, and most importantly, a sense of direction in knowing what are the important things in your life.
 
-Notice how we are managing an entire system using just plain text!
+3. Аналогично, перейдите на любую глубину, например, создав `[[Reference.Career]]` для записи своих карьерных планов и `[[Ptoject.TopSecret]]` чтобы собраться с мыслями о вашем следующем проекте и так далее.
+4. 4. Каждый раз, когда вы хотите записать что-то, используйте страницу `[[Collect]]`, а затем обрабатывайте, организуйте, просматривайте и, наконец, выполняйте свои следующие физические действия.
+5. Это займет некоторое время для привыкания к использованию этой системы, но как только вы почувствуете себя комфортно, то сможете достичь ясности ума, уверенности в том, что заботитесь обо всех факторах в своей жизни, и, самое главное, чувства направления в знании того, что является важным в вашей жизни.
 
-## Summary
+Обратите внимание, как мы управляем всей системой, используя только простой текст!
 
-We have just explored how Vim can help you in creating a personal information management system for yourself. It's fascinating how we don't need a complicated software for such a system, just plain text files and Vim will do.
+## Резюме
 
-See [Abhijit Nadgouda's article on using Vim as a personal wiki](http://ifacethoughts.net/2008/05/02/vim-as-a-personal-wiki/) for an alternative way of achieving the same using built-in Vim functionality.
+Мы только что изучили как Vim может помочь Вам в создании собственной персональной системы управления информацией. Это интересно - нам не нужно сложное программное обеспечение для такой системы, просто текстовые файлы и Vim сделает это.
+
+См. [статью Абхиджита Надгуды об использовании Vim в качестве личной Вики](http://ifacethoughts.net/2008/05/02/vim-as-a-personal-wiki/) для альтернативного способа достижения того же самого, используя встроенный функционал Vim.

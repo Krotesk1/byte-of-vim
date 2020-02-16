@@ -1,37 +1,36 @@
-# Installation
+# Установка
 
-Let's see how to get Vim installed on your computer.
+Давайте посмотрим, как получить Vim для установки на вашем компьютере.
 
 ## Windows
 
-If you use Microsoft Windows, then the following steps will help you get the latest version of Vim 7 installed on your computer:
+Если вы используете Microsoft Windows, то следующие шаги помогут вам получить последнюю версию Vim 7 для установки на ваш компьютер:
 
-1. Visit http://www.vim.org/download.php#pc
-2. Download the "Self-installing executable" (gvim72.exe [1] as of this writing)
-3. Double-click the file and install Vim like any other Windows-based software.
+1. Посетите http://www.vim.org/download.php#pc
+2. Загрузите "Self-installing executable" (gvim72.exe [1] на момент написания статьи)
+3. Дважды кликните файл и установите Vim, как и любое другое программное обеспечение дляе Windows.
 
 ## Mac OS X
 
-If you use Mac OS X, then you already have the terminal version of Vim installed. Run the menu command Finder &rarr; Applications &rarr; Utilities &rarr; Terminal. In the terminal, run the command vim and press enter, you should now see the Vim welcome screen.
+Если Вы используете Mac OS X, то у Вас уже предустановлена терминальная версия Vim. Запустите из меню команд Finder &rarr; Приложения &rarr; Утилиты &rarr; Terminal. В терминале запустите команду vim и нажмите enter, Вы должны увидеть экран приветствия Vim.
 
-If you want to use a graphical version of Vim, download the latest version of the [Cocoa-based MacVim project](http://code.google.com/p/macvim/). Double-click the file (such as `MacVim-7_2-stable-1_2.tbz`), it will be unarchived and a directory called `MacVim-7_2-stable-1_2` will be created. Open the directory, and copy the MacVim app to your Applications directory.
+Если хотите использовать графическую версию Vim, загрузите последнюю версию [Cocoa-based MacVim project](http://code.google.com/p/macvim/). дважды щелкните файл (например, 'MacVim-7_2-stable-1_2.tbz'), он будет разархивирован и будет создан каталог под названием `MacVim-7_2-stable-1_2`. Откройте каталог и скопируйте приложение MacVim в каталог Приложения.
 
-For more details MacVim diffrences, including how to run MacVim from the terminal see the macvim reference:
+Для получения более подробной информации о различиях MacVim, в том числе о том, как запустить MacVim из терминала, см. справочнике macvim:
 
-1. Click on Finder &rarr; Applications &rarr; MacVim.
-2. Type :help macvim and press the Enter key.
+1. Кликните Finder &rarr; Applications &rarr; MacVim.
+2. Наберите `:help macvim` и нажмите клавишу `Enter`.
 
 ## Linux / BSD
 
-If you are using a Linux or *BSD system, then you will have at least a minimal console version of Vim already installed. Open a terminal program such as `konsole` or `gnome-terminal`, run `vim` and you should see the Vim welcome screen.
+Если же вы используете Linux или *BSD систему, то у Вас уже будет установлена хотя бы минимальная консольная версия Vim. Откройте эмулятор терминала, такой как `konsole` или `gnome-terminal`, запустите `vim` и увидете экран приветствия Vim.
 
-If you get a message like `vim: command not found`, then Vim is not installed. You will have to use your system-specific tools to install Vim, such as aptitude in Ubuntu/Debian Linux, yum in Fedora Linux, pkg_add or port in FreeBSD, etc. Please consult your specific system's documentation and forums on how to install new packages.
+Если вы получаете сообщение типа `vim: command not found`, то Vim не установлен. Для установки Vim вам придется использовать свои системные инструменты, такие как aptitude в Ubuntu/Debian Linux, yum в Fedora Linux, pkg_add или port в FreeBSD и т.д. Пожалуйста, обратитесь к документации конкретно вашей системы и форумам о том, как установить новые пакеты.
 
-If you want the graphical version, install the vim-gnome package or alternatively, the gvim package.
+Если вам нужна графическая версия, установите пакет vim-gnome или, как вариант, пакет gvim.
 
-## Summary
+## Резюме
 
+В зависимости от того, как он установлен, вы можете запустить команду `vim` в консоли или использовать меню вашей операционной системы, чтобы запустить графическую версию приложения Vim.
 
-Depending on how it is installed, you can run the `vim` command in the shell or use your operating system's menus to open a graphical version of the Vim application.
-
-Now that we have Vim installed on your computer, let us proceed to use it in the next chapter.
+Теперь, когда мы установили Vim на компьютер, давайте перейдем к его использованию в следующей главе.

@@ -1,29 +1,35 @@
-# Programmers Editor
+# Редактор программистов
 
-## Introduction
+## Вступление
 
-Vim tends to be heavily used by programmers. The features, ease of use, and flexibility that Vim provide make it a good choice for people who write a lot of code. This should not seem surprising since writing code involves a lot of editing.
+Vim часто используется программистами. Возможности, простота использования и гибкость, которые предоставляет Vim, делают его хорошим выбором для людей, которые пишут много кода. Это не должно показаться удивительным, так как написание кода включает в себя много редактирования.
 
-Let me reiterate that typing skills are critical for a programmer. If our earlier discussion didn't convince you, we hope this article by Jeff Atwood, titled ['We Are Typists First, Programmers Second'](http://www.codinghorror.com/blog/archives/001188.html), will convince you.
+Позвольте мне повторить, что навыки набора текста имеют решающее значение для программиста. Если наша предыдущая дискуссия не убедила вас, мы надеемся, что эта статья Джеффа Этвуда под названием ["Мы-машинисты в первую очередь, программисты во вторую"](http://www.codinghorror.com/blog/archives/001188.html), убедит вас.
 
-If you do not have programming experience, you can skip this chapter.
+Если у вас нет опыта программирования, то можете просто пропустить эту главу.
 
-For those who love programming, let's dive in and see how Vim can help you in writing code. 
+Для тех, кто любит программирование, давайте погрузимся и посмотрим, как Vim может помочь вам в написании кода.
 
-## Simple stuff
-The simplest feature of Vim that you can use to help you in writing code is syntax highlighting. This allows you to visualize, i.e. "see," your code, which helps you in reading and writing your code faster and helps avoid making obvious mistakes.
+## Простые вещи
 
-### Syntax highlighting
-Suppose you are editing a vim syntax file; run `:set filetype=vim` and see how Vim adds color. Similarly, if you are editing a Python file, run `:set filetype=python`.
+Самая простая функция Vim, которую вы можете использовать для написания кода - это подсветка синтаксиса. Она позволяет вам визуализировать, то есть «видеть» ваш код, который помогает быстрее читать и писать код и помогает избежать очевидных ошибок.
 
-![Syntax Highlighting for Python](syntax_highlighting.png)
+### Подсветка синтаксиса
+Предположим, вы редактируете файл синтаксиса vim - запустите `:set filetype = vim` и посмотрите, как Vim добавляет цвета. Аналогично, если вы редактируете файл Python, запустите `:set filetype = python`.
 
-To see the list of language types available, check the `$VIMRUNTIME/syntax/` directory.
+![Подсветка синтаксиса для Python](syntax_highlighting.png)
+
+Чтобы увидеть список доступных типов языков, проверьте каталог `$VIMRUNTIME/syntax/`.
 
 #### Tip
-    If you want the power of syntax highlighting for any Unix shell output, just pipe it to Vim. For example, `svn diff | vim -R -`.  Notice the dash in the end which tells Vim that it should read text from its standard input.
+    Если вам нужна сила подсветки синтаксиса для любого вывода оболочки Unix, просто передайте его в Vim. Например, `svn diff | vim -R -`.  Обратите внимание на тире в конце, которое говорит Vim, что он должен читать текст из своего стандартного ввода.
 
-### Smart indentation
+### Умный отступ
+Код опытного программиста обычно имеет правильные отступы, что делает код "однородным", а структуру кода более наглядной. Vim может помочь, делая отступы за Вас, чтобы Вы могли сосредоточиться на самом коде.
+
+Если вы отступаете от определенной строки и хотите, чтобы следующие за ней строки также были с отступом на том же уровне, то вы можете использовать параметр `:set autoindent`.
+
+Если вы начинаете новый блок операторов и хотите, чтобы следующая строка автоматически отступала на следующий уровень, то вы можете использовать параметр `:set smartindent`. Обратите внимание, что поведение этого параметра зависит от конкретного используемого языка программирования.
 An experienced programmer's code is usually indented properly, which makes the code look "uniform" and the structure of the code more visually apparent. Vim can help by doing the indentation for you so that you can concentrate on the actual code.
 
 If you indent a particular line and want the lines following it to be also indented to the same level, then you can use the `:set autoindent` setting.
@@ -172,7 +178,7 @@ def <{fname}>(<{args}>):
 8. Tab again and type `print 'Hello World'`
 9. Press `<tab>`
 10. Your program is complete!
- 
+
 You should now see:
 ```
     def test():
@@ -221,7 +227,7 @@ public function <{}>:<{}>
 }
 
 ```
-The cursor will be positioned for the function name, `tab` to enter the return type of the function, `tab` again to type the body of the function. 
+The cursor will be positioned for the function name, `tab` to enter the return type of the function, `tab` again to type the body of the function.
 
 Going back to our original problem, here's what I came up with:
 
@@ -314,7 +320,7 @@ If you start editing a file, you can even make it automatically checked out from
 To explore more plugins to implement IDE-like behavior in Vim, see:
 * Vim Tip: [Using vim as an IDE all in one](http://vim.wikia.com/wiki/Using_vim_as_an_IDE_all_in_one)
 * [C++/Python Vim+IDE plugins list](http://phraktured.net/vimmity-vim-vim.html)
- 
+
 There are more language-specific plugins that can help you do nifty things. For example, for Python, the following plugins can be helpful:
 * [SuperTab](http://www.vim.org/scripts/script.php?script_id=1643) allows you to call omni-completion by just pressing tab and then use arrow keys to choose the option.
 * [python_calltips](http://www.vim.org/scripts/script.php?script_id=1074) shows a window at the bottom which gives you the list of possibilities for completion. The cool thing about this, compared to omni-completion, is that you get to view the documentation for each of the possibilities.
